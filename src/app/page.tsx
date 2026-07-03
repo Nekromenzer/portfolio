@@ -213,6 +213,35 @@ const stack = [
   "Expo",
 ];
 
+const stackGroups = [
+  {
+    title: "Frontend systems",
+    note: "Product UI, architecture, and maintainable component work.",
+    items: ["React.js", "Next.js", "TypeScript", "JavaScript ES6+", "Storybook"],
+  },
+  {
+    title: "Mobile delivery",
+    note: "Cross-platform app work with production-focused state and release flow.",
+    items: ["React Native", "Expo", "Redux", "Zustand"],
+  },
+  {
+    title: "Quality and scale",
+    note: "Patterns used when interfaces need to stay reliable under growth.",
+    items: [
+      "Jest",
+      "React Testing Library",
+      "Micro Frontends",
+      "Monorepo",
+      "API Integration",
+    ],
+  },
+  {
+    title: "Design and platform",
+    note: "UI libraries, styling systems, and infrastructure around delivery.",
+    items: ["MUI", "Ant Design", "Tailwind CSS", "SASS", "Firebase", "Docker", "Azure", "Vite"],
+  },
+];
+
 const education = [
   {
     title: "Bachelor of Engineering, Software Engineering",
@@ -568,17 +597,49 @@ export default function Home() {
           <p className="eyebrow">STACK</p>
           <h2>What I run in production.</h2>
         </div>
-        <div className="stack-list">
-          {stack.map((item) => (
-            <span key={item}>{item}</span>
-          ))}
+        <div className="stack-shell">
+          <article className="stack-intro-card">
+            <span>OPERATING MODEL</span>
+            <h3>Build the interface, the system around it, and the guardrails.</h3>
+            <p>
+              The stack is less about tool collection and more about shipping
+              frontend systems that stay fast, testable, and adaptable as the
+              product grows.
+            </p>
+            <div className="stack-signal-grid">
+              <div>
+                <strong>20+</strong>
+                <span>core tools used in production</span>
+              </div>
+              <div>
+                <strong>4</strong>
+                <span>delivery lanes across web, mobile, scale, platform</span>
+              </div>
+            </div>
+          </article>
+
+          <div className="stack-group-list">
+            {stackGroups.map((group) => (
+              <article key={group.title} className="stack-group">
+                <div className="stack-group-head">
+                  <span>{group.title}</span>
+                  <p>{group.note}</p>
+                </div>
+                <div className="stack-chip-cloud">
+                  {group.items.map((item) => (
+                    <strong key={`${group.title}-${item}`}>{item}</strong>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
       <section className="section education-section">
         <div className="section-heading">
-          <p className="eyebrow">ARTICLES</p>
-          <h2>Formal base.</h2>
+          <p className="eyebrow">EDUCATION</p>
+          <h2>Formal foundation.</h2>
         </div>
         <div className="education-grid">
           {education.map((item) => (
