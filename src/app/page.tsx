@@ -3,6 +3,8 @@
 import {
   ArrowUpRight,
   BriefcaseBusiness,
+  ChevronRight,
+  CircleX,
   Code2,
   FileText,
   MapPinned,
@@ -212,6 +214,7 @@ export default function Home() {
   const [clock, setClock] = useState({ dxb: "--:--:--", cmb: "--:--:--" });
   const [pointer, setPointer] = useState({ x: "0.0000", y: "0.0000" });
   const [activeExperience, setActiveExperience] = useState(0);
+  const [isExperienceOpen, setIsExperienceOpen] = useState(false);
 
   useEffect(() => {
     const savedTheme =
@@ -381,61 +384,102 @@ export default function Home() {
           <p className="eyebrow">EXPERIENCE</p>
           <h2>Work mapped by location.</h2>
         </div>
-        <div className="experience-map-grid">
-          <ExperienceGlobe
-            items={experience}
-            activeIndex={activeExperience}
-            onSelect={setActiveExperience}
-          />
-
-          <article className="experience-detail">
-            <div className="experience-detail-topline">
-              <span>{selectedExperience.period}</span>
-              <strong
-                className={
-                  selectedExperience.isCurrent ? "status-badge is-current" : "status-badge is-previous"
-                }
-              >
-                {selectedExperience.isCurrent ? "CURRENT LOCATION" : "PREVIOUS LOCATION"}
-              </strong>
+        <div className="experience-map-stage">
+          <div className="experience-map-toolbar">
+            <div className="experience-legend" aria-label="Experience legend">
+              <span className="legend-item">
+                <i className="legend-dot is-current" aria-hidden />
+                Current location
+              </span>
+              <span className="legend-item">
+                <i className="legend-dot is-previous" aria-hidden />
+                Previous location
+              </span>
             </div>
-            <h3>{selectedExperience.role}</h3>
-            <div className="detail-meta">
-              <strong>{selectedExperience.company}</strong>
-              <em>{selectedExperience.location}</em>
-            </div>
-            <p>{selectedExperience.body}</p>
-            <div className="project-block">
-              <div className="project-block-head">
-                <MapPinned size={16} />
-                <span>Projects delivered here</span>
-              </div>
-              <div className="project-list">
-                {selectedExperience.projects.map((project) => (
-                  <article key={`${selectedExperience.company}-${project}`} className="project-item">
-                    <strong>Dummy project</strong>
-                    <p>{project}</p>
-                  </article>
-                ))}
-              </div>
-            </div>
-            <div className="experience-selector" aria-label="Select work experience">
+            <div className="experience-quick-list" aria-label="Quick company selector">
               {experience.map((item, index) => (
                 <button
-                  key={`${item.company}-selector`}
+                  key={`${item.company}-quick`}
                   type="button"
                   className={index === activeExperience ? "is-active" : ""}
-                  onClick={() => setActiveExperience(index)}
+                  onClick={() => {
+                    setActiveExperience(index);
+                    setIsExperienceOpen(true);
+                  }}
                 >
                   <span>{item.company}</span>
-                  <strong>{item.location}</strong>
-                  <em className={item.isCurrent ? "is-current" : "is-previous"}>
-                    {item.isCurrent ? "Current" : "Previous"}
-                  </em>
+                  <ChevronRight size={14} />
                 </button>
               ))}
             </div>
-          </article>
+          </div>
+
+          <ExperienceGlobe
+            items={experience}
+            activeIndex={activeExperience}
+            onSelect={(index) => {
+              setActiveExperience(index);
+              setIsExperienceOpen(true);
+            }}
+          />
+
+          {isExperienceOpen ? (
+            <>
+              <button
+                type="button"
+                className="experience-overlay-dismiss"
+                onClick={() => setIsExperienceOpen(false)}
+                aria-label="Close experience details"
+              />
+              <article className="experience-detail-overlay">
+                <button
+                  type="button"
+                  className="experience-close"
+                  onClick={() => setIsExperienceOpen(false)}
+                  aria-label="Close experience details"
+                >
+                  <CircleX size={18} />
+                </button>
+                <div className="experience-detail-topline">
+                  <span>{selectedExperience.period}</span>
+                  <strong
+                    className={
+                      selectedExperience.isCurrent
+                        ? "status-badge is-current"
+                        : "status-badge is-previous"
+                    }
+                  >
+                    {selectedExperience.isCurrent
+                      ? "CURRENT LOCATION"
+                      : "PREVIOUS LOCATION"}
+                  </strong>
+                </div>
+                <h3>{selectedExperience.role}</h3>
+                <div className="detail-meta">
+                  <strong>{selectedExperience.company}</strong>
+                  <em>{selectedExperience.location}</em>
+                </div>
+                <p>{selectedExperience.body}</p>
+                <div className="project-block">
+                  <div className="project-block-head">
+                    <MapPinned size={16} />
+                    <span>Projects delivered here</span>
+                  </div>
+                  <div className="project-list">
+                    {selectedExperience.projects.map((project) => (
+                      <article
+                        key={`${selectedExperience.company}-${project}`}
+                        className="project-item"
+                      >
+                        <strong>Dummy project</strong>
+                        <p>{project}</p>
+                      </article>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            </>
+          ) : null}
         </div>
       </section>
 

@@ -428,16 +428,15 @@ button {
   margin-bottom: 34px;
 }
 
-.experience-map-grid {
+.experience-map-stage {
+  position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(450px, 0.8fr);
   gap: 18px;
-  align-items: stretch;
 }
 
 .experience-globe {
   position: relative;
-  min-height: 470px;
+  min-height: 620px;
   overflow: hidden;
   border: 1px solid var(--line);
   background:
@@ -584,13 +583,119 @@ button {
   animation: ring-pulse 1600ms ease-out infinite;
 }
 
-.experience-detail {
+.experience-map-toolbar {
   display: flex;
-  min-height: 470px;
-  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.experience-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.legend-item {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
   border: 1px solid var(--line);
   background: var(--panel);
+  padding: 8px 10px;
+  color: var(--muted);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+}
+
+.legend-dot {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+}
+
+.legend-dot.is-current {
+  background: var(--accent);
+}
+
+.legend-dot.is-previous {
+  background: #cc5a5a;
+}
+
+.experience-quick-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.experience-quick-list button {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  padding: 9px 11px;
+  color: var(--foreground);
+  cursor: pointer;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.experience-quick-list button:hover,
+.experience-quick-list button.is-active {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  background: var(--panel-strong);
+}
+
+.experience-overlay-dismiss {
+  position: absolute;
+  inset: 66px 0 0;
+  z-index: 7;
+  border: 0;
+  background: rgba(5, 5, 5, 0.28);
+  backdrop-filter: blur(2px);
+  cursor: pointer;
+}
+
+.experience-detail-overlay {
+  position: absolute;
+  top: 104px;
+  right: 24px;
+  z-index: 8;
+  display: flex;
+  width: min(75%, calc(100% - 48px));
+  max-height: calc(100% - 132px);
+  flex-direction: column;
+  overflow: auto;
+  border: 1px solid var(--line-strong);
+  background: color-mix(in srgb, var(--background) 56%, var(--panel));
+  box-shadow: 0 24px 80px var(--shadow);
+  backdrop-filter: blur(18px);
   padding: 26px;
+}
+
+.experience-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: inline-flex;
+  width: 34px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--foreground);
+  cursor: pointer;
 }
 
 .experience-detail-topline {
@@ -600,7 +705,7 @@ button {
   align-items: center;
 }
 
-.experience-detail span,
+.experience-detail-overlay span,
 .project-block-head span {
   display: block;
   color: var(--accent);
@@ -609,7 +714,7 @@ button {
   letter-spacing: 0.08em;
 }
 
-.experience-detail h3 {
+.experience-detail-overlay h3 {
   margin: 18px 0 0;
   font-size: clamp(28px, 4vw, 48px);
   line-height: 1;
@@ -632,7 +737,7 @@ button {
   color: var(--muted);
 }
 
-.experience-detail p {
+.experience-detail-overlay p {
   margin: 24px 0 0;
   color: var(--muted);
   font-size: 17px;
@@ -692,77 +797,6 @@ button {
   margin: 8px 0 0;
   font-size: 14px;
   line-height: 1.6;
-}
-
-.experience-selector {
-  display: grid;
-  gap: 8px;
-  margin-top: auto;
-  padding-top: 28px;
-}
-
-.experience-selector button {
-  border: 1px solid var(--line);
-  background: transparent;
-  padding: 11px 12px;
-  color: var(--muted);
-  cursor: pointer;
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 11px;
-  letter-spacing: 0.04em;
-  text-align: left;
-  transition:
-    transform 180ms ease,
-    border-color 180ms ease,
-    background 180ms ease,
-    color 180ms ease;
-}
-
-.experience-selector button:hover,
-.experience-selector button.is-active {
-  background: var(--panel-strong);
-  transform: translateY(-2px);
-}
-
-.experience-selector button.is-active {
-  border-color: var(--foreground);
-  color: var(--foreground);
-}
-
-.experience-selector button span,
-.experience-selector button strong,
-.experience-selector button em {
-  display: block;
-}
-
-.experience-selector button span {
-  color: var(--foreground);
-  font-size: 11px;
-  letter-spacing: 0.08em;
-}
-
-.experience-selector button strong {
-  margin-top: 8px;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 17px;
-  font-weight: 500;
-  letter-spacing: 0;
-}
-
-.experience-selector button em {
-  margin-top: 8px;
-  font-style: normal;
-  font-size: 10px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.experience-selector button em.is-current {
-  color: var(--accent);
-}
-
-.experience-selector button em.is-previous {
-  color: #cc5a5a;
 }
 
 .impact-grid {
@@ -1052,13 +1086,32 @@ button {
     grid-template-columns: 1fr;
   }
 
-  .experience-map-grid {
-    grid-template-columns: 1fr;
+  .experience-map-toolbar {
+    flex-direction: column;
   }
 
-  .experience-globe,
-  .experience-detail {
+  .experience-globe {
     min-height: 420px;
+  }
+
+  .experience-quick-list {
+    justify-content: flex-start;
+  }
+
+  .experience-overlay-dismiss {
+    inset: 116px 0 0;
+  }
+
+  .experience-detail-overlay {
+    top: auto;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-height: min(72vh, 620px);
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+    padding: 22px;
   }
 
   .impact-grid,
@@ -1109,9 +1162,28 @@ button {
     min-height: 340px;
   }
 
-  .experience-detail {
-    min-height: auto;
-    padding: 20px;
+  .experience-map-toolbar {
+    gap: 12px;
+  }
+
+  .experience-legend,
+  .experience-quick-list {
+    width: 100%;
+  }
+
+  .experience-quick-list button {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .experience-overlay-dismiss {
+    inset: 150px 0 0;
+  }
+
+  .experience-detail-overlay {
+    width: 100%;
+    max-height: 76vh;
+    padding: 18px;
   }
 
   .globe-marker-label {
@@ -1127,7 +1199,7 @@ button {
   }
 
   .project-item p,
-  .experience-detail p {
+  .experience-detail-overlay p {
     font-size: 15px;
   }
 
