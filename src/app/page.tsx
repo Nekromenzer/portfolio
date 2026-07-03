@@ -400,7 +400,7 @@ export default function Home() {
 
         <div className="portrait-panel">
           <Image
-            src="/profile.jpeg"
+            src="/profile.png"
             alt="Maneesha Barandeniya"
             width={400}
             height={400}
