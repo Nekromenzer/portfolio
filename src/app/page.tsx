@@ -13,249 +13,11 @@ import {
   Moon,
   Sun,
 } from "lucide-react";
-import ExperienceGlobe, {
-  type ExperienceItem,
-} from "@/components/ExperienceGlobe";
-import Work, { type WorkItem } from "@/components/Work";
+import ExperienceGlobe from "@/components/ExperienceGlobe";
+import Work from "@/components/Work";
+import { portfolioData } from "@/data/portfolio";
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
-
-const navItems = ["ABOUT", "EXPERIENCE", "IMPACT", "WORK", "STACK", "CONTACT"];
-
-const work: WorkItem[] = [
-  {
-    name: "AI-based Resume Management System",
-    label: "AI PRODUCT • IN DEVELOPMENT",
-    meta: "Personal • May 2022 - Present",
-    context:
-      "Job seekers need role-specific resumes, while employers need stronger candidate matching instead of generic profile screening.",
-    approach:
-      "Built React and TypeScript interfaces for resume generation, candidate management, and AI-powered enhancement from job descriptions.",
-    system:
-      "The product combines guided resume creation, content generation, job-description tailoring, and employer-facing candidate review workflows.",
-    outcome:
-      "Improves resume quality, application relevance, and candidate matching accuracy through AI-assisted content and structured workflows.",
-    accent: "#61d3c3",
-    stats: [
-      ["AI", "resume tailoring engine"],
-      ["B2B + B2C", "candidate and employer flow"],
-      ["WIP", "still evolving"],
-    ],
-    stack: ["React", "TypeScript", "Prompt UX", "Structured forms"],
-  },
-  {
-    name: "TurnTaxi",
-    label: "MOBILITY • REAL-TIME SYSTEM",
-    meta: "Commercial project • Jun 2024 - Present",
-    context:
-      "A ride platform needs live driver visibility, reliable trip states, fare calculation, routing, and instant user feedback.",
-    approach:
-      "Implemented an Uber-style product with live driver tracking, Google Maps routing, push notifications, and trip state management.",
-    system:
-      "Firebase Firestore powers real-time synchronization between ride state, location updates, and mobile app interactions.",
-    outcome:
-      "Optimized Firestore usage by 40% while keeping the core ride experience responsive and predictable.",
-    href: "https://turntaxi.com/",
-    accent: "#8cb3ff",
-    stats: [
-      ["40%", "Firestore usage reduction"],
-      ["Realtime", "driver and trip sync"],
-      ["Maps", "routing and tracking"],
-    ],
-    stack: ["React Native", "Firebase", "Google Maps", "Push notifications"],
-  },
-  {
-    name: "Micro-frontend map platform",
-    label: "CLIENT DELIVERY • ENTERPRISE FRONTEND",
-    meta: "Dubai Technologies • Nov 2024 - Present",
-    context:
-      "Large teams needed modular frontend delivery while map-heavy workflows had to render geolocation data quickly and reliably.",
-    approach:
-      "Designed scalable React micro-frontends and engineered Leaflet/Mapbox map features with secure authentication practices.",
-    system:
-      "Independent frontend modules support team deployments, while map rendering and auth flows are optimized around production constraints.",
-    outcome:
-      "Improved geolocation data rendering speed by 60% and strengthened frontend security practices around XSS and CSRF.",
-    accent: "#f0b46a",
-    stats: [
-      ["60%", "faster geolocation rendering"],
-      ["MFE", "modular team delivery"],
-      ["Secure", "auth-first frontend"],
-    ],
-    stack: ["React", "Micro-frontends", "Leaflet", "Mapbox"],
-  },
-  {
-    name: "Finance and mobile systems",
-    label: "FINTECH • MOBILE PRODUCT",
-    meta: "Parkway Labs • Feb 2022 - Nov 2024",
-    context:
-      "Finance, crypto bot, and real estate products required secure mobile UX, API reliability, and reusable frontend architecture.",
-    approach:
-      "Led React Native apps, built React and Redux web apps, and integrated APIs, smart contracts, tests, and client requirements.",
-    system:
-      "Monorepo architecture improved code reuse, scalability, collaboration, and consistency across multiple product surfaces.",
-    outcome:
-      "Delivered high-quality cross-platform apps with robust performance, security standards, and unit/integration coverage.",
-    accent: "#d77676",
-    stats: [
-      ["Cross-platform", "mobile + web delivery"],
-      ["Monorepo", "shared product architecture"],
-      ["Finance", "secure API-heavy flows"],
-    ],
-    stack: ["React Native", "React", "Redux", "API integrations"],
-  },
-];
-
-const experience: ExperienceItem[] = [
-  {
-    period: "11/2024 - Present",
-    role: "Senior React Developer",
-    company: "Dubai Technologies",
-    location: "Dubai, UAE",
-    mapLabel: "UAE",
-    countryCode: "UAE",
-    latitude: 25.2048,
-    longitude: 55.2708,
-    isCurrent: true,
-    body: "React micro-frontends, map-heavy geolocation UX, Leaflet/Mapbox rendering, secure auth flows, frontend security, mentoring, and code review.",
-    projects: [
-      "Enterprise logistics dashboard revamp",
-      "Map-heavy operations console",
-      "Secure multi-tenant admin shell",
-    ],
-  },
-  {
-    period: "02/2022 - 11/2024",
-    role: "Software Engineer",
-    company: "Parkway Labs",
-    location: "Remote, Netherlands",
-    mapLabel: "Netherlands",
-    countryCode: "NLD",
-    latitude: 52.3676,
-    longitude: 4.9041,
-    isCurrent: false,
-    body: "React Native apps for crypto bots, real estate, and finance; monorepo architecture; React/Redux web apps; smart-contract and API integrations; Jest and React Testing Library.",
-    projects: [
-      "Mobile fintech wallet experience",
-      "Crypto automation dashboard",
-      "Shared monorepo component library",
-    ],
-  },
-  {
-    period: "06/2021 - 02/2022",
-    role: "Software Developer",
-    company: "Qualia Tech International",
-    location: "Remote, Sweden",
-    mapLabel: "Sweden",
-    countryCode: "SWE",
-    latitude: 59.3293,
-    longitude: 18.0686,
-    isCurrent: false,
-    body: "Mobile-friendly SaaS admin panel work with Chakra UI, React, Next.js, TypeScript, Storybook, ES6, generics, utility types, and reusable components.",
-    projects: [
-      "SaaS admin panel redesign",
-      "Design system component rollout",
-      "Storybook documentation workspace",
-    ],
-  },
-  {
-    period: "09/2019 - 06/2021",
-    role: "Frontend Developer",
-    company: "Treeloq",
-    location: "Hybrid, Sri Lanka",
-    mapLabel: "Sri Lanka",
-    countryCode: "LKA",
-    latitude: 6.9271,
-    longitude: 79.8612,
-    isCurrent: false,
-    body: "Online resume builder and cover letter app, JSX template conversion, SEO improvements, WCAG-friendly interfaces, keyboard navigation, and 30% faster page loads.",
-    projects: [
-      "Resume builder product flow",
-      "Cover letter generator workspace",
-      "SEO and accessibility overhaul",
-    ],
-  },
-];
-
-const impact = [
-  ["60%", "faster geolocation rendering", "Leaflet / Mapbox platform"],
-  ["40%", "Firestore usage optimized", "TurnTaxi real-time sync"],
-  ["30%", "page load reduction", "Treeloq resume builder"],
-  ["4+", "years production React", "SaaS, FinTech, enterprise"],
-  ["20+", "tools and frameworks", "Frontend and mobile stack"],
-  ["1000s", "users served", "multi-region SaaS products"],
-  ["4", "major role chapters", "startup to enterprise delivery"],
-  ["2", "formal qualifications", "BEng + IT diploma"],
-];
-
-const stack = [
-  "React.js",
-  "React Native",
-  "Next.js",
-  "TypeScript",
-  "JavaScript ES6+",
-  "Redux",
-  "Zustand",
-  "Jest",
-  "React Testing Library",
-  "Storybook",
-  "Micro Frontends",
-  "Monorepo",
-  "API Integration",
-  "MUI",
-  "Ant Design",
-  "Tailwind CSS",
-  "SASS",
-  "Firebase",
-  "Docker",
-  "Azure",
-  "Vite",
-  "Expo",
-];
-
-const stackGroups = [
-  {
-    title: "Frontend systems",
-    note: "Product UI, architecture, and maintainable component work.",
-    items: ["React.js", "Next.js", "TypeScript", "JavaScript ES6+", "Storybook"],
-  },
-  {
-    title: "Mobile delivery",
-    note: "Cross-platform app work with production-focused state and release flow.",
-    items: ["React Native", "Expo", "Redux", "Zustand"],
-  },
-  {
-    title: "Quality and scale",
-    note: "Patterns used when interfaces need to stay reliable under growth.",
-    items: [
-      "Jest",
-      "React Testing Library",
-      "Micro Frontends",
-      "Monorepo",
-      "API Integration",
-    ],
-  },
-  {
-    title: "Design and platform",
-    note: "UI libraries, styling systems, and infrastructure around delivery.",
-    items: ["MUI", "Ant Design", "Tailwind CSS", "SASS", "Firebase", "Docker", "Azure", "Vite"],
-  },
-];
-
-const education = [
-  {
-    title: "Bachelor of Engineering, Software Engineering",
-    place: "London Metropolitan University",
-    period: "02/2023 - 01/2024",
-    result: "Upper Second Class Honors",
-  },
-  {
-    title: "Diploma in Information Technology",
-    place: "University of Colombo",
-    period: "01/2021 - 01/2022",
-    result: "Colombo",
-  },
-];
 
 function formatTime(zone: string) {
   return new Intl.DateTimeFormat("en-GB", {
@@ -268,6 +30,24 @@ function formatTime(zone: string) {
 }
 
 export default function Home() {
+  const {
+    about,
+    contact,
+    education,
+    educationSection,
+    experience,
+    experienceSection,
+    hero,
+    impact,
+    impactSection,
+    navItems,
+    proof,
+    stack,
+    stackGroups,
+    stackSection,
+    work,
+    workSection,
+  } = portfolioData;
   const [theme, setTheme] = useState<"dark" | "light">("dark");
   const [clock, setClock] = useState({ dxb: "--:--:--", cmb: "--:--:--" });
   const [pointer, setPointer] = useState({ x: "0.0000", y: "0.0000" });
@@ -312,15 +92,15 @@ export default function Home() {
     return () => window.removeEventListener("pointermove", updatePointer);
   }, []);
 
-  const topStack = useMemo(() => stack.slice(0, 8).join(" • "), []);
+  const topStack = useMemo(() => stack.slice(0, 8).join(" • "), [stack]);
   const selectedExperience = experience[activeExperience];
 
   return (
     <main className="site-shell">
       <div className="noise-layer" />
       <aside className="side-mark" aria-hidden>
-        <span>M.</span>
-        <strong>Maneesha</strong>
+        <span>{hero.sideMarkInitial}</span>
+        <strong>{hero.sideMarkLabel}</strong>
       </aside>
 
       <header className="topbar">
@@ -351,32 +131,31 @@ export default function Home() {
       <section className="hero section" id="about">
         <div className="hero-copy">
           <p className="pretitle">
-            Senior React Developer • Frontend systems • Mobile products •
-            AI-driven workflows
+            {hero.pretitle}
           </p>
           <h1>
-            <span>Maneesha</span>
-            <span>Barandeniya</span>
+            <span>{hero.firstName}</span>
+            <span>{hero.lastName}</span>
           </h1>
 
           <div className="hero-meta">
             <div>
               <span>ROLE</span>
-              <strong>Senior React Developer</strong>
+              <strong>{hero.role}</strong>
             </div>
             <div>
               <span>COMPANY</span>
-              <strong>Dubai Technologies</strong>
-              <em>Nov 2024 - Present</em>
+              <strong>{hero.company}</strong>
+              <em>{hero.period}</em>
             </div>
           </div>
 
           <div className="hero-actions">
-            <a href="mailto:bagimshan@gmail.com" aria-label="Email">
+            <a href={hero.actions.email} aria-label="Email">
               <Mail size={18} />
             </a>
             <a
-              href="https://github.com/nekromenzer"
+              href={hero.actions.github}
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub"
@@ -384,31 +163,31 @@ export default function Home() {
               <Code2 size={18} />
             </a>
             <a
-              href="https://www.linkedin.com/in/maneesha-gimshan/"
+              href={hero.actions.linkedin}
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn"
             >
               <BriefcaseBusiness size={18} />
             </a>
-            <a className="resume-link" href="/maneesha-gimshan.pdf">
+            <a className="resume-link" href={hero.actions.resume}>
               <FileText size={16} />
-              DOWNLOAD RESUME
+              {hero.actions.resumeLabel}
             </a>
           </div>
         </div>
 
         <div className="portrait-panel">
           <Image
-            src="/profile.png"
-            alt="Maneesha Barandeniya"
+            src={hero.imageSrc}
+            alt={hero.imageAlt}
             width={400}
             height={400}
             priority
           />
           <div>
             <span>{topStack}</span>
-            <strong>BUILDING: PRODUCT FRONTENDS • NOT: STATIC PAGES</strong>
+            <strong>{hero.signal}</strong>
           </div>
         </div>
 
@@ -420,38 +199,31 @@ export default function Home() {
 
       <section className="section about-grid">
         <div>
-          <p className="eyebrow">ABOUT</p>
-          <h2>Frontend is easy. Product-grade frontend is not.</h2>
+          <p className="eyebrow">{about.eyebrow}</p>
+          <h2>{about.title}</h2>
         </div>
         <div className="about-body">
-          <p>
-            Senior Frontend Engineer specializing in React.js, TypeScript,
-            Next.js, and React Native with extensive experience building SaaS,
-            FinTech, and enterprise applications.
-          </p>
-          <p>
-            Strong expertise in frontend architecture, API integration, testing,
-            accessibility, performance optimization, responsive UI development,
-            and leading technical initiatives that improve developer experience.
-          </p>
+          {about.paragraphs.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
         </div>
       </section>
 
       <section className="section" id="experience">
         <div className="section-heading">
-          <p className="eyebrow">EXPERIENCE</p>
-          <h2>Work mapped by location.</h2>
+          <p className="eyebrow">{experienceSection.eyebrow}</p>
+          <h2>{experienceSection.title}</h2>
         </div>
         <div className="experience-map-stage">
           <div className="experience-map-toolbar">
             <div className="experience-legend" aria-label="Experience legend">
               <span className="legend-item">
                 <i className="legend-dot is-current" aria-hidden />
-                Current location
+                {experienceSection.currentLabel}
               </span>
               <span className="legend-item">
                 <i className="legend-dot is-previous" aria-hidden />
-                Previous location
+                {experienceSection.previousLabel}
               </span>
             </div>
             <div className="experience-quick-list" aria-label="Quick company selector">
@@ -508,8 +280,8 @@ export default function Home() {
                     }
                   >
                     {selectedExperience.isCurrent
-                      ? "CURRENT LOCATION"
-                      : "PREVIOUS LOCATION"}
+                      ? experienceSection.currentBadge
+                      : experienceSection.previousBadge}
                   </strong>
                 </div>
                 <h3>{selectedExperience.role}</h3>
@@ -521,7 +293,7 @@ export default function Home() {
                 <div className="project-block">
                   <div className="project-block-head">
                     <MapPinned size={16} />
-                    <span>Projects delivered here</span>
+                    <span>{experienceSection.projectsTitle}</span>
                   </div>
                   <div className="project-list">
                     {selectedExperience.projects.map((project) => (
@@ -529,7 +301,7 @@ export default function Home() {
                         key={`${selectedExperience.company}-${project}`}
                         className="project-item"
                       >
-                        <strong>Dummy project</strong>
+                        <strong>{experienceSection.projectLabel}</strong>
                         <p>{project}</p>
                       </article>
                     ))}
@@ -543,8 +315,8 @@ export default function Home() {
 
       <section className="section" id="impact">
         <div className="section-heading">
-          <p className="eyebrow">IMPACT</p>
-          <h2>Proof, not promises.</h2>
+          <p className="eyebrow">{impactSection.eyebrow}</p>
+          <h2>{impactSection.title}</h2>
         </div>
         <div className="impact-grid">
           {impact.map(([value, label, source]) => (
@@ -557,64 +329,45 @@ export default function Home() {
         </div>
       </section>
 
-      <Work items={work} />
+      <Work items={work} heading={workSection} />
 
       <section className="section proof-band">
         <div>
-          <p className="eyebrow">RECOMMENDATIONS</p>
-          <h2>What teams get.</h2>
+          <p className="eyebrow">{proof.eyebrow}</p>
+          <h2>{proof.title}</h2>
         </div>
         <div className="proof-grid">
-          <article>
-            <Code2 size={18} />
-            <h3>Architecture that scales</h3>
-            <p>
-              Micro-frontends, monorepos, reusable components, and type-safe
-              patterns that support larger teams.
-            </p>
-          </article>
-          <article>
-            <BriefcaseBusiness size={18} />
-            <h3>Delivery under real constraints</h3>
-            <p>
-              Product work across remote teams, client delivery, security
-              needs, API contracts, performance targets, and test coverage.
-            </p>
-          </article>
-          <article>
-            <MapPin size={18} />
-            <h3>Interfaces that stay usable</h3>
-            <p>
-              Accessibility, keyboard navigation, responsive behavior, and
-              fast-loading screens designed for actual user workflows.
-            </p>
-          </article>
+          {proof.items.map((item, index) => {
+            const Icon = [Code2, BriefcaseBusiness, MapPin][index] ?? Code2;
+
+            return (
+              <article key={item.title}>
+                <Icon size={18} />
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </article>
+            );
+          })}
         </div>
       </section>
 
       <section className="section" id="stack">
         <div className="section-heading">
-          <p className="eyebrow">STACK</p>
-          <h2>What I run in production.</h2>
+          <p className="eyebrow">{stackSection.eyebrow}</p>
+          <h2>{stackSection.title}</h2>
         </div>
         <div className="stack-shell">
           <article className="stack-intro-card">
-            <span>OPERATING MODEL</span>
-            <h3>Build the interface, the system around it, and the guardrails.</h3>
-            <p>
-              The stack is less about tool collection and more about shipping
-              frontend systems that stay fast, testable, and adaptable as the
-              product grows.
-            </p>
+            <span>{stackSection.cardEyebrow}</span>
+            <h3>{stackSection.cardTitle}</h3>
+            <p>{stackSection.cardBody}</p>
             <div className="stack-signal-grid">
-              <div>
-                <strong>20+</strong>
-                <span>core tools used in production</span>
-              </div>
-              <div>
-                <strong>4</strong>
-                <span>delivery lanes across web, mobile, scale, platform</span>
-              </div>
+              {stackSection.signals.map(([value, label]) => (
+                <div key={`${value}-${label}`}>
+                  <strong>{value}</strong>
+                  <span>{label}</span>
+                </div>
+              ))}
             </div>
           </article>
 
@@ -638,8 +391,8 @@ export default function Home() {
 
       <section className="section education-section">
         <div className="section-heading">
-          <p className="eyebrow">EDUCATION</p>
-          <h2>Formal foundation.</h2>
+          <p className="eyebrow">{educationSection.eyebrow}</p>
+          <h2>{educationSection.title}</h2>
         </div>
         <div className="education-grid">
           {education.map((item) => (
@@ -655,44 +408,22 @@ export default function Home() {
 
       <footer className="section contact-section" id="contact">
         <div>
-          <p className="eyebrow">CONTACT</p>
-          <h2>Hard frontend problems welcome.</h2>
+          <p className="eyebrow">{contact.eyebrow}</p>
+          <h2>{contact.title}</h2>
         </div>
         <div className="contact-links">
-          <a href="/maneesha-gimshan.pdf">
-            <span>RESUME</span>
-            <strong>maneesha-gimshan.pdf</strong>
-            <ArrowUpRight size={18} />
-          </a>
-          <a href="mailto:bagimshan@gmail.com">
-            <span>EMAIL</span>
-            <strong>bagimshan@gmail.com</strong>
-            <ArrowUpRight size={18} />
-          </a>
-          <a href="https://github.com/nekromenzer" target="_blank" rel="noreferrer">
-            <span>GITHUB</span>
-            <strong>github.com/nekromenzer</strong>
-            <ArrowUpRight size={18} />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/maneesha-gimshan/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <span>LINKEDIN</span>
-            <strong>linkedin.com/in/maneesha-gimshan</strong>
-            <ArrowUpRight size={18} />
-          </a>
-          <a href="tel:+971552883528">
-            <span>PHONE</span>
-            <strong>+971 55 288 3528</strong>
-            <ArrowUpRight size={18} />
-          </a>
-          <a href="https://maps.google.com/?q=Dubai,UAE" target="_blank" rel="noreferrer">
-            <span>LOCATION</span>
-            <strong>Dubai, UAE</strong>
-            <ArrowUpRight size={18} />
-          </a>
+          {contact.items.map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              target={item.external ? "_blank" : undefined}
+              rel={item.external ? "noreferrer" : undefined}
+            >
+              <span>{item.label}</span>
+              <strong>{item.value}</strong>
+              <ArrowUpRight size={18} />
+            </a>
+          ))}
         </div>
       </footer>
     </main>

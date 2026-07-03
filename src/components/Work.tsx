@@ -20,9 +20,14 @@ export type WorkItem = {
 
 type Props = {
   items: WorkItem[];
+  heading: {
+    eyebrow: string;
+    title: string;
+    copy: string;
+  };
 };
 
-export default function Work({ items }: Props) {
+export default function Work({ items, heading }: Props) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const activeItem = activeIndex === null ? null : items[activeIndex];
 
@@ -30,13 +35,10 @@ export default function Work({ items }: Props) {
     <section className="section" id="work">
       <div className="section-heading work-heading">
         <div>
-          <p className="eyebrow">WORK</p>
-          <h2>Systems that had to hold.</h2>
+          <p className="eyebrow">{heading.eyebrow}</p>
+          <h2>{heading.title}</h2>
         </div>
-        <p className="work-heading-copy">
-          Selected builds arranged like a project wall. Open any tile for the full
-          delivery story.
-        </p>
+        <p className="work-heading-copy">{heading.copy}</p>
       </div>
 
       <div className="work-showcase-grid">
