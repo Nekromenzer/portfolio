@@ -22,7 +22,13 @@ import ExperienceGlobe from "@/components/ExperienceGlobe";
 import Work from "@/components/Work";
 import { portfolioData } from "@/data/portfolio";
 import Image from "next/image";
-import { type SVGProps, useEffect, useMemo, useState } from "react";
+import {
+  type CSSProperties,
+  type SVGProps,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 
 function GithubBrandIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -389,18 +395,39 @@ export default function Home() {
       </section>
 
       <section className="section" id="impact">
-        <div className="section-heading">
-          <p className="eyebrow">{impactSection.eyebrow}</p>
-          <h2>{impactSection.title}</h2>
-        </div>
-        <div className="impact-grid">
-          {impact.map(([value, label, source]) => (
-            <a key={`${value}-${label}`} href="#work" className="impact-card">
-              <strong>{value}</strong>
-              <span>{label}</span>
-              <em>{source}</em>
-            </a>
-          ))}
+        <div className="impact-shell">
+          <div className="impact-heading-panel">
+            <p className="eyebrow">{impactSection.eyebrow}</p>
+            <h2>{impactSection.title}</h2>
+            <p>
+              Production outcomes across product interfaces, mobile systems,
+              maps, and performance work.
+            </p>
+          </div>
+
+          <div className="impact-grid">
+            {impact.map(([value, label, source], index) => (
+              <a
+                key={`${value}-${label}`}
+                href="#work"
+                className={`impact-card${index === 0 ? " is-featured" : ""}`}
+                style={
+                  {
+                    "--impact-index": index,
+                    "--impact-progress": `${92 - index * 7}%`,
+                  } as CSSProperties
+                }
+              >
+                <span className="impact-card-kicker">
+                  {index === 0 ? "Primary signal" : `Signal ${index + 1}`}
+                </span>
+                <strong>{value}</strong>
+                <span>{label}</span>
+                <em>{source}</em>
+                <i aria-hidden />
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 

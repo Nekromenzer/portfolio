@@ -829,45 +829,198 @@ button {
   line-height: 1.6;
 }
 
+.impact-shell {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.82fr) minmax(0, 1.18fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+#impact {
+  scroll-margin-top: 118px;
+}
+
+.impact-heading-panel {
+  position: sticky;
+  top: 102px;
+  min-height: 420px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(circle at 88% 16%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 11rem),
+    linear-gradient(180deg, color-mix(in srgb, var(--foreground) 5%, transparent), transparent 66%),
+    color-mix(in srgb, var(--panel) 86%, transparent);
+  padding: 26px;
+}
+
+.impact-heading-panel::after {
+  position: absolute;
+  right: -52px;
+  bottom: -76px;
+  width: 220px;
+  height: 220px;
+  border: 1px solid color-mix(in srgb, var(--accent) 52%, transparent);
+  border-radius: 999px;
+  content: "";
+  opacity: 0.42;
+}
+
+.impact-heading-panel h2 {
+  margin-top: 0;
+  font-size: clamp(46px, 6.2vw, 82px);
+}
+
+.impact-heading-panel p:not(.eyebrow) {
+  max-width: 340px;
+  margin: 24px 0 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
 .impact-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  border-top: 1px solid var(--line);
-  border-left: 1px solid var(--line);
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 14px;
+  perspective: 1200px;
 }
 
 .impact-card {
-  min-height: 148px;
-  border-right: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  padding: 20px;
+  position: relative;
+  display: grid;
+  grid-column: span 3;
+  min-height: 210px;
+  align-content: space-between;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent) 10%, transparent), transparent 42%),
+    color-mix(in srgb, var(--panel) 88%, transparent);
+  padding: 22px;
+  transform-style: preserve-3d;
   transition:
     border-color 180ms ease,
     background 180ms ease,
+    box-shadow 180ms ease,
     transform 180ms ease;
+}
+
+.impact-card::before {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, transparent, color-mix(in srgb, var(--foreground) 7%, transparent), transparent),
+    radial-gradient(circle at 84% 12%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 8rem);
+  content: "";
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.impact-card::after {
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 18px;
+  height: 2px;
+  background:
+    linear-gradient(90deg, var(--accent) var(--impact-progress), color-mix(in srgb, var(--line-strong) 80%, transparent) 0);
+  content: "";
+  opacity: 0.78;
+}
+
+.impact-card:hover,
+.impact-card:focus-visible {
+  border-color: color-mix(in srgb, var(--accent) 72%, var(--foreground));
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent) 16%, transparent), transparent 52%),
+    color-mix(in srgb, var(--panel) 94%, transparent);
+  box-shadow: 0 24px 70px color-mix(in srgb, var(--shadow) 72%, transparent);
+  transform: translateY(-5px);
+}
+
+.impact-card:hover::before,
+.impact-card:focus-visible::before {
+  opacity: 1;
+}
+
+.impact-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.impact-card.is-featured {
+  grid-column: span 6;
+  min-height: 268px;
+  padding: 28px;
+  background:
+    radial-gradient(circle at 82% 18%, color-mix(in srgb, var(--accent) 24%, transparent), transparent 13rem),
+    linear-gradient(135deg, color-mix(in srgb, var(--accent) 16%, transparent), transparent 50%),
+    color-mix(in srgb, var(--panel) 90%, transparent);
+}
+
+.impact-card-kicker {
+  position: relative;
+  z-index: 1;
+  color: var(--accent);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.impact-card strong,
+.impact-card span:not(.impact-card-kicker),
+.impact-card em {
+  position: relative;
+  z-index: 1;
 }
 
 .impact-card strong {
   display: block;
+  margin-top: 28px;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(34px, 5vw, 62px);
+  font-size: clamp(44px, 8vw, 92px);
   font-weight: 500;
-  line-height: 0.9;
+  line-height: 0.84;
 }
 
-.impact-card span {
+.impact-card.is-featured strong {
+  font-size: clamp(76px, 13vw, 152px);
+}
+
+.impact-card span:not(.impact-card-kicker) {
   display: block;
-  margin-top: 16px;
+  max-width: 360px;
+  margin-top: 18px;
   color: var(--foreground);
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 1.45;
 }
 
 .impact-card em {
   display: block;
-  margin-top: 8px;
+  margin-top: 9px;
+  padding-bottom: 18px;
   color: var(--muted);
+  font-family: var(--font-geist-mono), monospace;
   font-style: normal;
-  font-size: 12px;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.impact-card i {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, transparent 47%, color-mix(in srgb, var(--accent) 72%, transparent) 47% 53%, transparent 53%),
+    linear-gradient(transparent 47%, color-mix(in srgb, var(--accent) 72%, transparent) 47% 53%, transparent 53%);
+  opacity: 0.74;
 }
 
 .work-heading {
@@ -1769,9 +1922,16 @@ button {
   }
 
   .about-grid,
+  .impact-shell,
   .proof-band,
   .contact-section {
     grid-template-columns: 1fr;
+  }
+
+  .impact-heading-panel {
+    position: relative;
+    top: auto;
+    min-height: 0;
   }
 
   .experience-map-toolbar {
@@ -1806,6 +1966,11 @@ button {
   .proof-grid,
   .education-grid {
     grid-template-columns: 1fr;
+  }
+
+  .impact-card,
+  .impact-card.is-featured {
+    grid-column: span 1;
   }
 
   .work-heading,
@@ -1968,6 +2133,21 @@ button {
     width: 100%;
     max-height: 76vh;
     padding: 18px;
+  }
+
+  .impact-heading-panel,
+  .impact-card,
+  .impact-card.is-featured {
+    padding: 20px;
+  }
+
+  .impact-card,
+  .impact-card.is-featured {
+    min-height: 210px;
+  }
+
+  .impact-card.is-featured strong {
+    font-size: clamp(66px, 21vw, 96px);
   }
 
   .work-showcase-grid {
