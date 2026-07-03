@@ -455,10 +455,7 @@ export default function Home() {
           <div className="impact-heading-panel">
             <p className="eyebrow">{impactSection.eyebrow}</p>
             <h2>{impactSection.title}</h2>
-            <p>
-              Production outcomes across product interfaces, mobile systems,
-              maps, and performance work.
-            </p>
+            <p>Selected proof points before the project work.</p>
           </div>
 
           <div className="impact-grid">
@@ -466,7 +463,7 @@ export default function Home() {
               <a
                 key={`${value}-${label}`}
                 href="#work"
-                className={`impact-card${index === 0 ? " is-featured" : ""}`}
+                className="impact-card"
                 style={
                   {
                     "--impact-index": index,
@@ -474,9 +471,6 @@ export default function Home() {
                   } as CSSProperties
                 }
               >
-                <span className="impact-card-kicker">
-                  {index === 0 ? "Primary signal" : `Signal ${index + 1}`}
-                </span>
                 <strong>{value}</strong>
                 <span>{label}</span>
                 <em>{source}</em>
