@@ -262,7 +262,7 @@ button {
   animation: rise-in 720ms ease both;
 }
 
-.hero h1 span + span {
+.hero h1 span+span {
   animation-delay: 90ms;
 }
 
@@ -428,39 +428,341 @@ button {
   margin-bottom: 34px;
 }
 
-.timeline {
+.experience-map-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(450px, 0.8fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.experience-globe {
+  position: relative;
+  min-height: 470px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(circle at 64% 45%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 9rem),
+    radial-gradient(circle at 49% 24%, color-mix(in srgb, var(--foreground) 10%, transparent), transparent 8rem),
+    linear-gradient(135deg, var(--panel), transparent 72%),
+    var(--background);
+}
+
+.experience-globe::before,
+.experience-globe::after {
+  position: absolute;
+  content: "";
+  pointer-events: none;
+  z-index: 1;
+}
+
+.experience-globe::before {
+  inset: 12%;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  opacity: 0.46;
+  transform: rotate(-10deg) scaleX(1.32);
+}
+
+.experience-globe::after {
+  inset: 18% 16% 22%;
+  border: 1px solid var(--line);
+  border-radius: 46% 54% 48% 52%;
+  opacity: 0.36;
+  transform: rotate(18deg);
+}
+
+.globe-svg {
+  position: relative;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.globe-loading {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.globe-loading-error {
+  color: #cc5a5a;
+}
+
+.globe-marker-button {
+  position: absolute;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: var(--foreground);
+  cursor: pointer;
+  transform: translate(-10px, -50%);
+}
+
+.globe-marker-dot {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  border: 1px solid var(--background);
+  border-radius: 999px;
+}
+
+.globe-marker-button.is-current .globe-marker-dot {
+  background: var(--accent);
+  box-shadow: 0 0 0 7px color-mix(in srgb, var(--accent) 14%, transparent);
+}
+
+.globe-marker-button.is-previous .globe-marker-dot {
+  background: #cc5a5a;
+  box-shadow: 0 0 0 7px color-mix(in srgb, #cc5a5a 14%, transparent);
+}
+
+.globe-marker-dot::after {
+  position: absolute;
+  inset: -9px;
+  border-radius: inherit;
+  content: "";
+  opacity: 0;
+}
+
+.globe-marker-button.is-current .globe-marker-dot::after {
+  border: 1px solid var(--accent);
+}
+
+.globe-marker-button.is-previous .globe-marker-dot::after {
+  border: 1px solid #cc5a5a;
+}
+
+.globe-marker-label {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  padding: 6px 10px;
+  color: var(--foreground);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  backdrop-filter: blur(12px);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.globe-marker-button:hover .globe-marker-label,
+.globe-marker-button.is-active .globe-marker-label {
+  transform: translateY(-2px);
+}
+
+.globe-marker-button.is-current.is-active .globe-marker-label,
+.globe-marker-button.is-current:hover .globe-marker-label {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 14%, var(--panel));
+}
+
+.globe-marker-button.is-previous.is-active .globe-marker-label,
+.globe-marker-button.is-previous:hover .globe-marker-label {
+  border-color: #cc5a5a;
+  background: color-mix(in srgb, #cc5a5a 12%, var(--panel));
+}
+
+.globe-marker-button.is-active .globe-marker-dot::after {
+  animation: ring-pulse 1600ms ease-out infinite;
+}
+
+.experience-detail {
+  display: flex;
+  min-height: 470px;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  padding: 26px;
+}
+
+.experience-detail-topline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.experience-detail span,
+.project-block-head span {
+  display: block;
+  color: var(--accent);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.experience-detail h3 {
+  margin: 18px 0 0;
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1;
+}
+
+.detail-meta {
+  display: grid;
+  gap: 8px;
+  margin-top: 18px;
+  padding-top: 18px;
   border-top: 1px solid var(--line);
 }
 
-.timeline-row {
+.detail-meta strong,
+.detail-meta em {
+  font-style: normal;
+}
+
+.detail-meta em {
+  color: var(--muted);
+}
+
+.experience-detail p {
+  margin: 24px 0 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.status-badge {
+  border: 1px solid var(--line);
+  padding: 6px 9px;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+
+.status-badge.is-current {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+}
+
+.status-badge.is-previous {
+  border-color: #cc5a5a;
+  color: #cc5a5a;
+  background: color-mix(in srgb, #cc5a5a 10%, transparent);
+}
+
+.project-block {
+  margin-top: 28px;
+  border-top: 1px solid var(--line);
+  padding-top: 22px;
+}
+
+.project-block-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.project-list {
   display: grid;
-  grid-template-columns: 0.75fr 0.95fr 1.5fr;
-  gap: 34px;
-  border-bottom: 1px solid var(--line);
-  padding: 28px 0;
+  gap: 10px;
+  margin-top: 16px;
 }
 
-.timeline-row strong {
+.project-item {
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--panel) 78%, transparent);
+  padding: 14px;
+}
+
+.project-item strong {
   display: block;
-  margin-top: 10px;
+  font-size: 14px;
+}
+
+.project-item p {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.experience-selector {
+  display: grid;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 28px;
+}
+
+.experience-selector button {
+  border: 1px solid var(--line);
+  background: transparent;
+  padding: 11px 12px;
   color: var(--muted);
-  font-size: 13px;
+  cursor: pointer;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-align: left;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    color 180ms ease;
 }
 
-.timeline-row h3 {
-  margin: 0;
-  font-size: 22px;
+.experience-selector button:hover,
+.experience-selector button.is-active {
+  background: var(--panel-strong);
+  transform: translateY(-2px);
 }
 
-.timeline-row p {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.72;
-}
-
-.timeline-row div p {
-  margin-top: 8px;
+.experience-selector button.is-active {
+  border-color: var(--foreground);
   color: var(--foreground);
+}
+
+.experience-selector button span,
+.experience-selector button strong,
+.experience-selector button em {
+  display: block;
+}
+
+.experience-selector button span {
+  color: var(--foreground);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+.experience-selector button strong {
+  margin-top: 8px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.experience-selector button em {
+  margin-top: 8px;
+  font-style: normal;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.experience-selector button em.is-current {
+  color: var(--accent);
+}
+
+.experience-selector button em.is-previous {
+  color: #cc5a5a;
 }
 
 .impact-grid {
@@ -697,6 +999,18 @@ button {
   }
 }
 
+@keyframes ring-pulse {
+  0% {
+    opacity: 0.72;
+    transform: scale(0.72);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.8);
+  }
+}
+
 @media (max-width: 980px) {
   .topbar {
     top: 16px;
@@ -738,9 +1052,13 @@ button {
     grid-template-columns: 1fr;
   }
 
-  .timeline-row {
+  .experience-map-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
+  }
+
+  .experience-globe,
+  .experience-detail {
+    min-height: 420px;
   }
 
   .impact-grid,
@@ -787,6 +1105,32 @@ button {
     grid-template-columns: 1fr;
   }
 
+  .experience-globe {
+    min-height: 340px;
+  }
+
+  .experience-detail {
+    min-height: auto;
+    padding: 20px;
+  }
+
+  .globe-marker-label {
+    max-width: 104px;
+    overflow: hidden;
+    padding: 5px 7px;
+    font-size: 10px;
+    text-overflow: ellipsis;
+  }
+
+  .globe-marker-button {
+    gap: 6px;
+  }
+
+  .project-item p,
+  .experience-detail p {
+    font-size: 15px;
+  }
+
   .section h2,
   .about-grid h2 {
     font-size: clamp(38px, 13vw, 58px);
@@ -802,6 +1146,7 @@ button {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {

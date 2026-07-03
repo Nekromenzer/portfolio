@@ -5,11 +5,15 @@ import {
   BriefcaseBusiness,
   Code2,
   FileText,
+  MapPinned,
   Mail,
   MapPin,
   Moon,
   Sun,
 } from "lucide-react";
+import ExperienceGlobe, {
+  type ExperienceItem,
+} from "@/components/ExperienceGlobe";
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 
@@ -71,34 +75,74 @@ const work = [
   },
 ];
 
-const experience = [
+const experience: ExperienceItem[] = [
   {
     period: "11/2024 - Present",
     role: "Senior React Developer",
     company: "Dubai Technologies",
     location: "Dubai, UAE",
+    mapLabel: "Dubai",
+    countryCode: "ARE",
+    latitude: 25.2048,
+    longitude: 55.2708,
+    isCurrent: true,
     body: "React micro-frontends, map-heavy geolocation UX, Leaflet/Mapbox rendering, secure auth flows, frontend security, mentoring, and code review.",
+    projects: [
+      "Enterprise logistics dashboard revamp",
+      "Map-heavy operations console",
+      "Secure multi-tenant admin shell",
+    ],
   },
   {
     period: "02/2022 - 11/2024",
     role: "Software Engineer",
     company: "Parkway Labs",
     location: "Remote, Netherlands",
+    mapLabel: "Netherlands",
+    countryCode: "NLD",
+    latitude: 52.3676,
+    longitude: 4.9041,
+    isCurrent: false,
     body: "React Native apps for crypto bots, real estate, and finance; monorepo architecture; React/Redux web apps; smart-contract and API integrations; Jest and React Testing Library.",
+    projects: [
+      "Mobile fintech wallet experience",
+      "Crypto automation dashboard",
+      "Shared monorepo component library",
+    ],
   },
   {
     period: "06/2021 - 02/2022",
     role: "Software Developer",
     company: "Qualia Tech International",
     location: "Remote, Sweden",
+    mapLabel: "Sweden",
+    countryCode: "SWE",
+    latitude: 59.3293,
+    longitude: 18.0686,
+    isCurrent: false,
     body: "Mobile-friendly SaaS admin panel work with Chakra UI, React, Next.js, TypeScript, Storybook, ES6, generics, utility types, and reusable components.",
+    projects: [
+      "SaaS admin panel redesign",
+      "Design system component rollout",
+      "Storybook documentation workspace",
+    ],
   },
   {
     period: "09/2019 - 06/2021",
     role: "Frontend Developer",
     company: "Treeloq",
     location: "Hybrid, Sri Lanka",
+    mapLabel: "Sri Lanka",
+    countryCode: "LKA",
+    latitude: 6.9271,
+    longitude: 79.8612,
+    isCurrent: false,
     body: "Online resume builder and cover letter app, JSX template conversion, SEO improvements, WCAG-friendly interfaces, keyboard navigation, and 30% faster page loads.",
+    projects: [
+      "Resume builder product flow",
+      "Cover letter generator workspace",
+      "SEO and accessibility overhaul",
+    ],
   },
 ];
 
@@ -167,6 +211,7 @@ export default function Home() {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
   const [clock, setClock] = useState({ dxb: "--:--:--", cmb: "--:--:--" });
   const [pointer, setPointer] = useState({ x: "0.0000", y: "0.0000" });
+  const [activeExperience, setActiveExperience] = useState(0);
 
   useEffect(() => {
     const savedTheme =
@@ -207,6 +252,7 @@ export default function Home() {
   }, []);
 
   const topStack = useMemo(() => stack.slice(0, 8).join(" • "), []);
+  const selectedExperience = experience[activeExperience];
 
   return (
     <main className="site-shell">
@@ -333,22 +379,63 @@ export default function Home() {
       <section className="section" id="experience">
         <div className="section-heading">
           <p className="eyebrow">EXPERIENCE</p>
-          <h2>The trajectory.</h2>
+          <h2>Work mapped by location.</h2>
         </div>
-        <div className="timeline">
-          {experience.map((item) => (
-            <article key={`${item.company}-${item.period}`} className="timeline-row">
-              <div>
-                <span>{item.period}</span>
-                <strong>{item.location}</strong>
+        <div className="experience-map-grid">
+          <ExperienceGlobe
+            items={experience}
+            activeIndex={activeExperience}
+            onSelect={setActiveExperience}
+          />
+
+          <article className="experience-detail">
+            <div className="experience-detail-topline">
+              <span>{selectedExperience.period}</span>
+              <strong
+                className={
+                  selectedExperience.isCurrent ? "status-badge is-current" : "status-badge is-previous"
+                }
+              >
+                {selectedExperience.isCurrent ? "CURRENT LOCATION" : "PREVIOUS LOCATION"}
+              </strong>
+            </div>
+            <h3>{selectedExperience.role}</h3>
+            <div className="detail-meta">
+              <strong>{selectedExperience.company}</strong>
+              <em>{selectedExperience.location}</em>
+            </div>
+            <p>{selectedExperience.body}</p>
+            <div className="project-block">
+              <div className="project-block-head">
+                <MapPinned size={16} />
+                <span>Projects delivered here</span>
               </div>
-              <div>
-                <h3>{item.role}</h3>
-                <p>{item.company}</p>
+              <div className="project-list">
+                {selectedExperience.projects.map((project) => (
+                  <article key={`${selectedExperience.company}-${project}`} className="project-item">
+                    <strong>Dummy project</strong>
+                    <p>{project}</p>
+                  </article>
+                ))}
               </div>
-              <p>{item.body}</p>
-            </article>
-          ))}
+            </div>
+            <div className="experience-selector" aria-label="Select work experience">
+              {experience.map((item, index) => (
+                <button
+                  key={`${item.company}-selector`}
+                  type="button"
+                  className={index === activeExperience ? "is-active" : ""}
+                  onClick={() => setActiveExperience(index)}
+                >
+                  <span>{item.company}</span>
+                  <strong>{item.location}</strong>
+                  <em className={item.isCurrent ? "is-current" : "is-previous"}>
+                    {item.isCurrent ? "Current" : "Previous"}
+                  </em>
+                </button>
+              ))}
+            </div>
+          </article>
         </div>
       </section>
 
