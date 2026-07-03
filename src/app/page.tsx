@@ -16,12 +16,13 @@ import {
 import ExperienceGlobe, {
   type ExperienceItem,
 } from "@/components/ExperienceGlobe";
+import Work, { type WorkItem } from "@/components/Work";
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 
 const navItems = ["ABOUT", "EXPERIENCE", "IMPACT", "WORK", "STACK", "CONTACT"];
 
-const work = [
+const work: WorkItem[] = [
   {
     name: "AI-based Resume Management System",
     label: "AI PRODUCT • IN DEVELOPMENT",
@@ -34,6 +35,13 @@ const work = [
       "The product combines guided resume creation, content generation, job-description tailoring, and employer-facing candidate review workflows.",
     outcome:
       "Improves resume quality, application relevance, and candidate matching accuracy through AI-assisted content and structured workflows.",
+    accent: "#61d3c3",
+    stats: [
+      ["AI", "resume tailoring engine"],
+      ["B2B + B2C", "candidate and employer flow"],
+      ["WIP", "still evolving"],
+    ],
+    stack: ["React", "TypeScript", "Prompt UX", "Structured forms"],
   },
   {
     name: "TurnTaxi",
@@ -48,6 +56,13 @@ const work = [
     outcome:
       "Optimized Firestore usage by 40% while keeping the core ride experience responsive and predictable.",
     href: "https://turntaxi.com/",
+    accent: "#8cb3ff",
+    stats: [
+      ["40%", "Firestore usage reduction"],
+      ["Realtime", "driver and trip sync"],
+      ["Maps", "routing and tracking"],
+    ],
+    stack: ["React Native", "Firebase", "Google Maps", "Push notifications"],
   },
   {
     name: "Micro-frontend map platform",
@@ -61,6 +76,13 @@ const work = [
       "Independent frontend modules support team deployments, while map rendering and auth flows are optimized around production constraints.",
     outcome:
       "Improved geolocation data rendering speed by 60% and strengthened frontend security practices around XSS and CSRF.",
+    accent: "#f0b46a",
+    stats: [
+      ["60%", "faster geolocation rendering"],
+      ["MFE", "modular team delivery"],
+      ["Secure", "auth-first frontend"],
+    ],
+    stack: ["React", "Micro-frontends", "Leaflet", "Mapbox"],
   },
   {
     name: "Finance and mobile systems",
@@ -74,6 +96,13 @@ const work = [
       "Monorepo architecture improved code reuse, scalability, collaboration, and consistency across multiple product surfaces.",
     outcome:
       "Delivered high-quality cross-platform apps with robust performance, security standards, and unit/integration coverage.",
+    accent: "#d77676",
+    stats: [
+      ["Cross-platform", "mobile + web delivery"],
+      ["Monorepo", "shared product architecture"],
+      ["Finance", "secure API-heavy flows"],
+    ],
+    stack: ["React Native", "React", "Redux", "API integrations"],
   },
 ];
 
@@ -499,40 +528,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section" id="work">
-        <div className="section-heading">
-          <p className="eyebrow">WORK</p>
-          <h2>Systems that had to hold.</h2>
-        </div>
-        <div className="work-grid">
-          {work.map((item) => (
-            <a
-              key={item.name}
-              href={item.href ?? "#contact"}
-              target={item.href ? "_blank" : undefined}
-              rel={item.href ? "noreferrer" : undefined}
-              className="work-card"
-            >
-              <div className="work-card-head">
-                <span>{item.name}</span>
-                <ArrowUpRight size={18} />
-              </div>
-              <p className="tagline">{item.label}</p>
-              <p className="meta-line">{item.meta}</p>
-              <dl>
-                <dt>CONTEXT</dt>
-                <dd>{item.context}</dd>
-                <dt>APPROACH</dt>
-                <dd>{item.approach}</dd>
-                <dt>SYSTEM</dt>
-                <dd>{item.system}</dd>
-                <dt>OUTCOME</dt>
-                <dd>{item.outcome}</dd>
-              </dl>
-            </a>
-          ))}
-        </div>
-      </section>
+      <Work items={work} />
 
       <section className="section proof-band">
         <div>
