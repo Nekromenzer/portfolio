@@ -672,7 +672,7 @@ button {
   right: 24px;
   z-index: 8;
   display: flex;
-  width: min(75%, calc(100% - 48px));
+  width: min(100%, calc(100% - 48px));
   max-height: calc(100% - 132px);
   flex-direction: column;
   overflow: auto;
