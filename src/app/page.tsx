@@ -1,17 +1,21 @@
 "use client";
 
 import {
+  Activity,
   ArrowUpRight,
   BriefcaseBusiness,
   ChevronRight,
   CircleX,
   Code2,
   FileText,
+  Layers3,
   MapPinned,
   Mail,
   MapPin,
   Moon,
+  Send,
   Sun,
+  UserRound,
 } from "lucide-react";
 import ExperienceGlobe from "@/components/ExperienceGlobe";
 import Work from "@/components/Work";
@@ -94,6 +98,14 @@ export default function Home() {
 
   const topStack = useMemo(() => stack.slice(0, 8).join(" • "), [stack]);
   const selectedExperience = experience[activeExperience];
+  const navIcons = {
+    ABOUT: UserRound,
+    EXPERIENCE: MapPinned,
+    IMPACT: Activity,
+    WORK: BriefcaseBusiness,
+    STACK: Layers3,
+    CONTACT: Send,
+  };
 
   return (
     <main className="site-shell">
@@ -113,7 +125,11 @@ export default function Home() {
         <nav aria-label="Primary navigation">
           {navItems.map((item) => (
             <a key={item} href={`#${item.toLowerCase()}`}>
-              {item}
+              {(() => {
+                const Icon = navIcons[item as keyof typeof navIcons];
+                return <Icon size={15} aria-hidden />;
+              })()}
+              <span>{item}</span>
             </a>
           ))}
         </nav>
