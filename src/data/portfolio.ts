@@ -25,6 +25,7 @@ export type ContactItem = {
   label: string;
   value: string;
   href: string;
+  icon?: "resume" | "email" | "github" | "linkedin" | "youtube" | "tiktok" | "phone" | "location";
   external?: boolean;
 };
 
@@ -32,7 +33,7 @@ export const portfolioData = {
   navItems: ["ABOUT", "EXPERIENCE", "IMPACT", "WORK", "STACK", "CONTACT"],
   hero: {
     pretitle:
-      "Senior React Developer • Frontend systems • Mobile products • AI-driven workflows",
+      "Frontend systems • Mobile products • AI-driven workflows",
     firstName: "Maneesha",
     lastName: "Barandeniya",
     role: "Senior React Developer",
@@ -433,33 +434,39 @@ export const portfolioData = {
         label: "RESUME",
         value: "maneesha-gimshan.pdf",
         href: "/maneesha-gimshan.pdf",
+        icon: "resume",
       },
       {
         label: "EMAIL",
         value: "bagimshan@gmail.com",
         href: "mailto:bagimshan@gmail.com",
+        icon: "email",
       },
       {
         label: "GITHUB",
         value: "github.com/nekromenzer",
         href: "https://github.com/nekromenzer",
+        icon: "github",
         external: true,
       },
       {
         label: "LINKEDIN",
         value: "linkedin.com/in/maneesha-gimshan",
         href: "https://www.linkedin.com/in/maneesha-gimshan/",
+        icon: "linkedin",
         external: true,
       },
       {
         label: "PHONE",
         value: "+971 55 288 3528",
         href: "tel:+971552883528",
+        icon: "phone",
       },
       {
         label: "LOCATION",
         value: "Dubai, UAE",
         href: "https://maps.google.com/?q=Dubai,UAE",
+        icon: "location",
         external: true,
       },
     ] satisfies ContactItem[],
