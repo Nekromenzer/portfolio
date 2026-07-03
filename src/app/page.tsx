@@ -298,11 +298,14 @@ export default function Home() {
                   <div className="project-list">
                     {selectedExperience.projects.map((project) => (
                       <article
-                        key={`${selectedExperience.company}-${project}`}
+                        key={`${selectedExperience.company}-${project.title}`}
                         className="project-item"
                       >
-                        <strong>{experienceSection.projectLabel}</strong>
-                        <p>{project}</p>
+                        <div className="project-item-head">
+                          <strong>{project.title}</strong>
+                          <span>{project.place}</span>
+                        </div>
+                        <p>{project.description}</p>
                       </article>
                     ))}
                   </div>

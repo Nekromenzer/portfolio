@@ -786,9 +786,22 @@ button {
   padding: 14px;
 }
 
-.project-item strong {
-  display: block;
+.project-item-head {
+  display: grid;
+  gap: 6px;
+}
+
+.project-item-head strong {
   font-size: 14px;
+  line-height: 1.35;
+}
+
+.project-item-head span {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .project-item p {

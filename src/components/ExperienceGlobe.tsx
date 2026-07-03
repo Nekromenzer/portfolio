@@ -2,6 +2,12 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 
+export type ExperienceProject = {
+  title: string;
+  place: string;
+  description: string;
+};
+
 export type ExperienceItem = {
   period: string;
   role: string;
@@ -13,7 +19,7 @@ export type ExperienceItem = {
   longitude: number;
   isCurrent: boolean;
   body: string;
-  projects: string[];
+  projects: ExperienceProject[];
 };
 
 type Props = {

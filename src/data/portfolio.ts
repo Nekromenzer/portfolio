@@ -67,7 +67,6 @@ export const portfolioData = {
     currentBadge: "CURRENT LOCATION",
     previousBadge: "PREVIOUS LOCATION",
     projectsTitle: "Projects delivered here",
-    projectLabel: "Dummy project",
   },
   experience: [
     {
@@ -82,9 +81,24 @@ export const portfolioData = {
       isCurrent: true,
       body: "React micro-frontends, map-heavy geolocation UX, Leaflet/Mapbox rendering, secure auth flows, frontend security, mentoring, and code review.",
       projects: [
-        "Enterprise logistics dashboard revamp",
-        "Map-heavy operations console",
-        "Secure multi-tenant admin shell",
+        {
+          title: "Enterprise logistics dashboard revamp",
+          place: "Dubai, UAE",
+          description:
+            "Modernized operational dashboards with React micro-frontends, cleaner data surfaces, and faster decision workflows for logistics teams.",
+        },
+        {
+          title: "Map-heavy operations console",
+          place: "Dubai, UAE",
+          description:
+            "Built geolocation-heavy interfaces using Leaflet and Mapbox patterns for real-time fleet visibility and map-driven task handling.",
+        },
+        {
+          title: "Secure multi-tenant admin shell",
+          place: "Dubai, UAE",
+          description:
+            "Improved authenticated admin flows, permission-aware navigation, and reusable frontend foundations for multi-tenant enterprise users.",
+        },
       ],
     },
     {
@@ -99,9 +113,24 @@ export const portfolioData = {
       isCurrent: false,
       body: "React Native apps for crypto bots, real estate, and finance; monorepo architecture; React/Redux web apps; smart-contract and API integrations; Jest and React Testing Library.",
       projects: [
-        "Mobile fintech wallet experience",
-        "Crypto automation dashboard",
-        "Shared monorepo component library",
+        {
+          title: "Mobile fintech wallet experience",
+          place: "Remote, Netherlands",
+          description:
+            "Delivered React Native wallet screens, transaction flows, and finance-focused mobile interactions backed by API integrations.",
+        },
+        {
+          title: "Crypto automation dashboard",
+          place: "Remote, Netherlands",
+          description:
+            "Created web dashboard workflows for crypto bots, smart-contract integrations, portfolio controls, and automation visibility.",
+        },
+        {
+          title: "Shared monorepo component library",
+          place: "Remote, Netherlands",
+          description:
+            "Built reusable React and React Native components inside a monorepo to improve delivery speed and interface consistency.",
+        },
       ],
     },
     {
@@ -116,9 +145,24 @@ export const portfolioData = {
       isCurrent: false,
       body: "Mobile-friendly SaaS admin panel work with Chakra UI, React, Next.js, TypeScript, Storybook, ES6, generics, utility types, and reusable components.",
       projects: [
-        "SaaS admin panel redesign",
-        "Design system component rollout",
-        "Storybook documentation workspace",
+        {
+          title: "SaaS admin panel redesign",
+          place: "Remote, Sweden",
+          description:
+            "Reworked admin panel screens with Chakra UI, responsive layouts, and typed React patterns for SaaS operations.",
+        },
+        {
+          title: "Design system component rollout",
+          place: "Remote, Sweden",
+          description:
+            "Expanded reusable TypeScript components and UI patterns to make product screens easier to maintain and extend.",
+        },
+        {
+          title: "Storybook documentation workspace",
+          place: "Remote, Sweden",
+          description:
+            "Documented shared components and interaction states in Storybook so teams could review and reuse interface pieces reliably.",
+        },
       ],
     },
     {
@@ -133,9 +177,24 @@ export const portfolioData = {
       isCurrent: false,
       body: "Online resume builder and cover letter app, JSX template conversion, SEO improvements, WCAG-friendly interfaces, keyboard navigation, and 30% faster page loads.",
       projects: [
-        "Resume builder product flow",
-        "Cover letter generator workspace",
-        "SEO and accessibility overhaul",
+        {
+          title: "Resume builder product flow",
+          place: "Sri Lanka",
+          description:
+            "Built guided resume creation screens, template conversion flows, and user-friendly editing paths for job seekers.",
+        },
+        {
+          title: "Cover letter generator workspace",
+          place: "Sri Lanka",
+          description:
+            "Created workspace interactions for generating, editing, and managing cover letters alongside resume content.",
+        },
+        {
+          title: "SEO and accessibility overhaul",
+          place: "Sri Lanka",
+          description:
+            "Improved semantic structure, keyboard navigation, WCAG-friendly UI behavior, and page performance for public-facing product pages.",
+        },
       ],
     },
   ] satisfies ExperienceItem[],
