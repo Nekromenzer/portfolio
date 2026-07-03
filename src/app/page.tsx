@@ -119,6 +119,7 @@ export default function Home() {
   const [pointer, setPointer] = useState({ x: "0.0000", y: "0.0000" });
   const [activeExperience, setActiveExperience] = useState(0);
   const [isExperienceOpen, setIsExperienceOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("about");
 
   useEffect(() => {
     const savedTheme =
@@ -158,6 +159,52 @@ export default function Home() {
     return () => window.removeEventListener("pointermove", updatePointer);
   }, []);
 
+  useEffect(() => {
+    const sections = Array.from(
+      document.querySelectorAll<HTMLElement>("section[id], footer[id]"),
+    );
+
+    if (sections.length === 0) return undefined;
+
+    const sectionScores = new Map<string, number>();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const id = entry.target.getAttribute("id");
+          if (!id) continue;
+
+          sectionScores.set(id, entry.isIntersecting ? entry.intersectionRatio : 0);
+        }
+
+        let nextSection = activeSection;
+        let highestScore = 0;
+
+        for (const section of sections) {
+          const id = section.getAttribute("id");
+          if (!id) continue;
+
+          const score = sectionScores.get(id) ?? 0;
+          if (score > highestScore) {
+            highestScore = score;
+            nextSection = id;
+          }
+        }
+
+        if (highestScore > 0 && nextSection !== activeSection) {
+          setActiveSection(nextSection);
+        }
+      },
+      {
+        rootMargin: "-26% 0px -44% 0px",
+        threshold: [0, 0.12, 0.24, 0.36, 0.48, 0.6, 0.72],
+      },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, [activeSection]);
+
   const topStack = useMemo(() => stack.slice(0, 8).join(" • "), [stack]);
   const selectedExperience = experience[activeExperience];
   const navIcons = {
@@ -170,7 +217,12 @@ export default function Home() {
   };
 
   return (
-    <main className="site-shell">
+    <main className="site-shell" data-active-section={activeSection}>
+      <div className="section-bg-scene" aria-hidden>
+        <span className="star-field" />
+        <span className="section-planet" />
+        <span className="section-aurora" />
+      </div>
       <div className="noise-layer" />
       <aside className="side-mark" aria-hidden>
         <span>{hero.sideMarkInitial}</span>
@@ -186,7 +238,11 @@ export default function Home() {
         </div>
         <nav aria-label="Primary navigation">
           {navItems.map((item) => (
-            <a key={item} href={`#${item.toLowerCase()}`}>
+            <a
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              className={activeSection === item.toLowerCase() ? "is-active" : ""}
+            >
               {(() => {
                 const Icon = navIcons[item as keyof typeof navIcons];
                 return <Icon size={15} aria-hidden />;
