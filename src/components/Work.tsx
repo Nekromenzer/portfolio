@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowUpRight, CircleX } from "lucide-react";
+import Image from "next/image";
 import type { CSSProperties } from "react";
 import { useState } from "react";
 
@@ -8,6 +9,11 @@ export type WorkItem = {
   name: string;
   label: string;
   meta: string;
+  logo: {
+    initials: string;
+    src?: string;
+    alt?: string;
+  };
   context: string;
   approach: string;
   system: string;
@@ -31,6 +37,21 @@ export default function Work({ items, heading }: Props) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const activeItem = activeIndex === null ? null : items[activeIndex];
 
+  const renderLogo = (item: WorkItem) => (
+    <span className="work-logo" aria-label={item.logo.alt ?? `${item.name} logo placeholder`}>
+      {item.logo.src ? (
+        <Image
+          src={item.logo.src}
+          alt={item.logo.alt ?? `${item.name} logo`}
+          width={72}
+          height={72}
+        />
+      ) : (
+        <strong>{item.logo.initials}</strong>
+      )}
+    </span>
+  );
+
   return (
     <section className="section" id="work">
       <div className="section-heading work-heading">
@@ -51,6 +72,7 @@ export default function Work({ items, heading }: Props) {
             style={{ "--work-accent": item.accent } as CSSProperties}
           >
             <div className="work-tile-surface" />
+            {renderLogo(item)}
             <div className="work-tile-topline">
               <span>{item.label}</span>
               <strong>{item.meta}</strong>
@@ -94,6 +116,7 @@ export default function Work({ items, heading }: Props) {
 
             <div className="work-drawer-hero" style={{ "--work-accent": activeItem.accent } as CSSProperties}>
               <div className="work-drawer-hero-copy">
+                {renderLogo(activeItem)}
                 <span>{activeItem.label}</span>
                 <h3>{activeItem.name}</h3>
                 <p>{activeItem.meta}</p>

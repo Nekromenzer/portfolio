@@ -222,6 +222,10 @@ export const portfolioData = {
       name: "AI-based Resume Management System",
       label: "AI PRODUCT • IN DEVELOPMENT",
       meta: "Personal • May 2022 - Present",
+      logo: {
+        initials: "AI",
+        alt: "AI Resume Management System logo placeholder",
+      },
       context:
         "Job seekers need role-specific resumes, while employers need stronger candidate matching instead of generic profile screening.",
       approach:
@@ -242,6 +246,10 @@ export const portfolioData = {
       name: "TurnTaxi",
       label: "MOBILITY • REAL-TIME SYSTEM",
       meta: "Commercial project • Jun 2024 - Present",
+      logo: {
+        initials: "TT",
+        alt: "TurnTaxi logo placeholder",
+      },
       context:
         "A ride platform needs live driver visibility, reliable trip states, fare calculation, routing, and instant user feedback.",
       approach:
@@ -263,6 +271,10 @@ export const portfolioData = {
       name: "Micro-frontend map platform",
       label: "CLIENT DELIVERY • ENTERPRISE FRONTEND",
       meta: "Dubai Technologies • Nov 2024 - Present",
+      logo: {
+        initials: "DT",
+        alt: "Dubai Technologies project logo placeholder",
+      },
       context:
         "Large teams needed modular frontend delivery while map-heavy workflows had to render geolocation data quickly and reliably.",
       approach:
@@ -283,6 +295,10 @@ export const portfolioData = {
       name: "Finance and mobile systems",
       label: "FINTECH • MOBILE PRODUCT",
       meta: "Parkway Labs • Feb 2022 - Nov 2024",
+      logo: {
+        initials: "PL",
+        alt: "Parkway Labs project logo placeholder",
+      },
       context:
         "Finance, crypto bot, and real estate products required secure mobile UX, API reliability, and reusable frontend architecture.",
       approach:
