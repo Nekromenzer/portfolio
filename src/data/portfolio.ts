@@ -120,28 +120,30 @@ export const portfolioData = {
       body: "Built React Native and React applications for fintech, telephony, crypto and real-estate platforms while leading frontend architecture and reusable component development.",
       projects: [
         {
-          title: "Tellit Business Communication Platform",
-          place: "Remote, Netherlands",
+          title: "Tellit - Business Communication App",
+          place: "Remote, Sweden",
+          href: "https://www.tellit.se/",
           description:
-            "Led development of a cross-platform business telephony application with call management, subscriptions, personalized numbers and presence status.",
+            "Led the architecture and development of the Tellit mobile app from scratch, a B2B telephony solution integrating call management, personalized numbers, presence status, and mobile subscriptions. Engineered a seamless UI/UX, integrated advanced telephony APIs, and optimized Android and iOS delivery with cross-platform tools.",
         },
         {
-          title: "Tecta Real Estate Platform",
-          place: "Remote, Netherlands",
+          title: "Tecta - Cloud-Based Real Estate Backoffice System",
+          place: "Remote, Sweden",
+          href: "https://tecta.se/",
           description:
-            "Developed a cloud-based real-estate back-office system with BankID integration, dashboards, plugin architecture and virtualized data handling.",
+            "Developed a secure real estate management platform enabling Swedish users to register properties via BankID. Focused on frontend architecture, plugin management, virtualized data handling, and responsive dashboards to streamline property and tenant oversight.",
         },
         {
-          title: "TradingBot",
-          place: "Remote, Netherlands",
+          title: "TradingBot - Crypto Trading Interface",
+          place: "Global",
           description:
-            "Built a crypto trading dashboard supporting Binance automation, portfolio monitoring and responsive trading workflows.",
+            "Built an intuitive trading dashboard that enabled users to automate strategies, monitor trends, and execute trades on Binance. Collaborated closely with design and backend teams to refine flows and ensure responsive, data-driven UI components.",
         },
         {
-          title: "TaskBuddy",
+          title: "TaskBuddy - Task Management Tool",
           place: "Remote, Netherlands",
           description:
-            "Developed responsive task management interfaces for productivity and team collaboration.",
+            "Contributed to the design and functionality of a productivity app for task tracking and team collaboration, with emphasis on responsive interfaces and clean user flows.",
         },
       ],
     },
@@ -158,22 +160,34 @@ export const portfolioData = {
       body: "Developed modern SaaS applications using React, Next.js, TypeScript and GraphQL while improving reusable UI architecture and application performance.",
       projects: [
         {
-          title: "SaaS Administration Platform",
-          place: "Remote, Sweden",
+          title: "Next.js Development",
           description:
-            "Developed responsive administration dashboards using React, Next.js, Chakra UI and TypeScript.",
+            "Built dynamic, scalable web applications leveraging server-side rendering and static site generation for optimal performance and SEO impact.",
         },
         {
           title: "GraphQL Integration",
-          place: "Remote, Sweden",
           description:
-            "Implemented GraphQL data layers improving client-server communication and reducing unnecessary network requests.",
+            "Designed and implemented a robust GraphQL layer to streamline data fetching, reduce over-fetching, and improve client-server communication efficiency.",
         },
         {
-          title: "Reusable Component Library",
-          place: "Remote, Sweden",
+          title: "TypeScript Adoption",
           description:
-            "Built reusable Storybook-based UI components following scalable frontend architecture and best practices.",
+            "Utilized TypeScript to enhance code quality, enforce type safety, and improve code maintainability and developer productivity across the codebase.",
+        },
+        {
+          title: "Cross-Functional Collaboration",
+          description:
+            "Worked closely with designers, backend engineers, and product managers to gather requirements and deliver user-centric solutions that aligned with business goals.",
+        },
+        {
+          title: "Code Quality & Best Practices",
+          description:
+            "Participated actively in code reviews, promoted clean code standards, and ensured adherence to modern frontend development best practices.",
+        },
+        {
+          title: "Continuous Learning & Innovation",
+          description:
+            "Explored and integrated emerging tools and technologies to optimize development workflows and stay ahead of industry trends.",
         },
       ],
     },
@@ -190,22 +204,34 @@ export const portfolioData = {
       body: "Built online resume and cover letter products with React while improving SEO, accessibility, performance and frontend architecture.",
       projects: [
         {
-          title: "Resume Builder",
-          place: "Sri Lanka",
+          title: "Modern Web Development",
           description:
-            "Developed an online resume builder with reusable templates, dynamic editing and responsive user experience.",
+            "Built responsive and accessible UIs using React.js, HTML5, CSS3, JavaScript ES6+, and Tailwind CSS, ensuring cross-device compatibility and fast load times. Improved page load performance by 40%, leading to a smoother user experience.",
         },
         {
-          title: "Cover Letter Builder",
-          place: "Sri Lanka",
+          title: "Machine Learning Personalization",
           description:
-            "Built an interactive cover letter generation platform with reusable React components.",
+            "Integrated machine learning algorithms through TensorFlow.js and backend APIs to deliver real-time content suggestions based on user behavior and input context. Boosted user engagement by 30% through personalized document guidance.",
         },
         {
-          title: "SEO & Performance Optimization",
-          place: "Sri Lanka",
+          title: "SEO Optimization",
           description:
-            "Improved SEO, accessibility and frontend performance resulting in faster page loads and improved search visibility.",
+            "Implemented a robust SEO strategy using Next.js, structured metadata, keyword optimization, and canonical tagging. Achieved a 60% increase in organic traffic and improved SERP ranking for targeted keywords.",
+        },
+        {
+          title: "Collaborative UI/UX Delivery",
+          description:
+            "Worked alongside Figma-based UX/UI designs to implement visually polished and highly usable components. Contributed to increasing user retention by 25% through consistent design language and improved navigation flows.",
+        },
+        {
+          title: "Agile & Feedback-Driven Development",
+          description:
+            "Collaborated in an Agile environment with product managers and QA teams. Gathered user feedback through analytics and A/B testing, then iterated on features for better usability and adoption.",
+        },
+        {
+          title: "Cross-Team Communication",
+          description:
+            "Acted as the bridge between frontend, ML, and backend teams, ensuring seamless integration of APIs, personalized logic, and frontend performance.",
         },
       ],
     },

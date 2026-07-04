@@ -1013,6 +1013,21 @@ button {
   gap: 6px;
 }
 
+.project-item-head a {
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  align-items: center;
+  gap: 7px;
+  color: var(--foreground);
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.project-item-head a:hover {
+  color: var(--accent);
+}
+
 .project-item-head strong {
   font-size: 14px;
   line-height: 1.35;

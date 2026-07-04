@@ -1,6 +1,6 @@
 import ExperienceGlobe, { type ExperienceItem } from "@/components/ExperienceGlobe";
 import SectionHeading from "@/components/common/SectionHeading";
-import { ChevronRight, CircleX, MapPinned } from "lucide-react";
+import { ChevronRight, CircleX, ExternalLink, MapPinned } from "lucide-react";
 import type { PortfolioData } from "./types";
 
 type Props = {
@@ -113,8 +113,19 @@ export default function ExperienceSection({
                       className="project-item"
                     >
                       <div className="project-item-head">
-                        <strong>{project.title}</strong>
-                        <span>{project.place}</span>
+                        {project.href ? (
+                          <a
+                            href={project.href}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <strong>{project.title}</strong>
+                            <ExternalLink size={13} />
+                          </a>
+                        ) : (
+                          <strong>{project.title}</strong>
+                        )}
+                        {project.place ? <span>{project.place}</span> : null}
                       </div>
                       <p>{project.description}</p>
                     </article>
@@ -128,4 +139,3 @@ export default function ExperienceSection({
     </section>
   );
 }
-
