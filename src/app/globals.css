@@ -400,7 +400,7 @@ button {
 }
 
 .section {
-  width: min(calc(100% - 96px), 1150px);
+  width: min(calc(100% - 96px), 1400px);
   margin: 0 auto;
   padding: 96px 0;
   scroll-margin-top: 118px;
@@ -424,14 +424,14 @@ button {
 .site-shell[data-active-section="impact"] #impact .impact-heading-panel,
 .site-shell[data-active-section="work"] #work .section-heading,
 .site-shell[data-active-section="stack"] #stack .section-heading,
-.site-shell[data-active-section="contact"] #contact > div:first-child {
+.site-shell[data-active-section="contact"] #contact>div:first-child {
   position: relative;
 }
 
 .site-shell[data-active-section="experience"] #experience .section-heading::after,
 .site-shell[data-active-section="work"] #work .section-heading::after,
 .site-shell[data-active-section="stack"] #stack .section-heading::after,
-.site-shell[data-active-section="contact"] #contact > div:first-child::after {
+.site-shell[data-active-section="contact"] #contact>div:first-child::after {
   display: block;
   width: min(180px, 42vw);
   height: 2px;
@@ -1389,6 +1389,7 @@ button {
 .work-drawer {
   position: absolute;
   inset: 24px;
+  top: 75px;
   overflow: auto;
   border: 1px solid var(--line-strong);
   background: color-mix(in srgb, var(--background) 72%, var(--panel));
@@ -1458,7 +1459,7 @@ button {
 .work-drawer-stats strong {
   display: block;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(26px, 4vw, 44px);
+  font-size: clamp(26px, 4vw, 36px);
   font-weight: 500;
   line-height: 0.92;
 }
@@ -2186,6 +2187,7 @@ button {
 
   .work-drawer {
     inset: 18px;
+    top: 0px;
   }
 
   .work-drawer-stats {
@@ -2391,6 +2393,7 @@ button {
   .work-drawer {
     inset: 0;
     border: 0;
+    top: -120;
   }
 
   .work-drawer-close {
