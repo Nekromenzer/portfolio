@@ -30,6 +30,14 @@ RXRESUME_BASE_URL=https://rxresu.me
 
 If the API key or resume ID is missing, the route falls back to `public/maneesha-gimshan.pdf`.
 
+## Visit Logs
+
+The portfolio sends one anonymous visit event per browser session to `/api/visit`.
+Each event logs the date/time, country, page path, referrer, and a browser-generated visitor ID. IP addresses are not stored.
+
+In local development, logs are written to `.visit-logs/visits.jsonl`.
+In production, the same JSON event is printed to server logs. On Vercel, the country is read from the `x-vercel-ip-country` request header.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
