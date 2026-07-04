@@ -45,6 +45,9 @@ export default function Work({ items, heading }: Props) {
           alt={item.logo.alt ?? `${item.name} logo`}
           width={72}
           height={72}
+          style={{
+            padding:0
+          }}
         />
       ) : (
         <strong>{item.logo.initials}</strong>

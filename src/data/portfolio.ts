@@ -239,7 +239,7 @@ export const portfolioData = {
       label: "AI PRODUCT • IN DEVELOPMENT",
       meta: "Personal Project • May 2022 - Present",
       logo: {
-        initials: "AI",
+        initials: "RS",
         alt: "AI Resume Management System",
       },
       context:
@@ -259,10 +259,12 @@ export const portfolioData = {
       stack: [
         "React",
         "TypeScript",
-        "AI",
         "OpenAI",
-        "Prompt Engineering",
+        "AI",
         "Structured Forms",
+        "RXJS",
+        "GatsBy",
+        "Docker"
       ],
     },
     {
@@ -272,6 +274,7 @@ export const portfolioData = {
       logo: {
         initials: "TT",
         alt: "TurnTaxi",
+        src: '/projects-logo/logo-trans.png'
       },
       context:
         "A ride-hailing application requiring reliable real-time driver tracking, routing, fare calculation and trip state management.",
@@ -297,6 +300,77 @@ export const portfolioData = {
         "Push Notifications",
       ],
     },
+    {
+      name: "cookiz-auth",
+      label: "OPEN SOURCE • REACT AUTH LIBRARY",
+      meta: "NPM Package • Open Source • Aug 2025 - Present",
+      logo: {
+        initials: "CA",
+        alt: "cookiz-auth",
+      },
+      context:
+        "React applications often rely on localStorage token handling, which can create security risks and repetitive authentication setup across projects.",
+      approach:
+        "Built a lightweight React authentication library using secure HTTP-only cookies, customizable backend endpoints, React context, and reusable auth hooks.",
+      system:
+        "The package provides an AuthProvider, useAuth hook, configurable login/logout/user/refresh endpoints, TypeScript support, and backend-agnostic session handling.",
+      outcome:
+        "Helps React developers integrate secure cookie-based authentication faster without storing tokens in localStorage.",
+      href: "https://www.npmjs.com/package/cookiz-auth",
+      accent: "#f0b46a",
+      stats: [
+        ["NPM", "Published Package"],
+        ["HTTP-only", "Cookie Auth"],
+        ["React", "Auth Provider + Hook"],
+      ],
+      stack: [
+        "React",
+        "TypeScript",
+        "HTTP-only Cookies",
+        "Authentication",
+        "React Context",
+        "NPM Package",
+      ],
+    },
+    {
+      name: "Trust-ora",
+      label: "AI-ASSISTED • SECURE FINTECH PLATFORM",
+      meta: "Mobile App • Admin Dashboard • Backend System",
+      logo: {
+        initials: "TO",
+        alt: "Trust Ora",
+        src: '/projects-logo/trustora-mark.png'
+      },
+      context:
+        "Financial service platforms require secure user onboarding, reliable account management, protected admin operations, and smooth handling of loans, collections, and customer data across multiple applications.",
+      approach:
+        "Built an AI-assisted fintech application ecosystem with a secure mobile experience, role-based admin dashboard, backend-owned data workflows, and structured API integrations for scalable financial operations.",
+      system:
+        "The platform includes customer mobile flows, admin user management, RBAC permissions, loan and collection management, profile and bank account handling, backend pagination/filtering, authentication flows, and documented frontend-backend API contracts.",
+      outcome:
+        "Provides a secure and extensible foundation for managing financial users, loans, collections, and administrative operations while improving development speed through AI-assisted implementation and verification.",
+      accent: "#4fffbe",
+      stats: [
+        ["AI-Assisted", "Full-Stack Development"],
+        ["RBAC", "Secure Admin Access"],
+        ["Mobile + Admin", "Fintech Operations"],
+      ],
+      stack: [
+        "Flutter",
+        "Go",
+        "AI-Assisted Development",
+        "TypeScript",
+        "React",
+        "Authentication",
+        "RBAC",
+        "REST APIs",
+        "PostgreSQL",
+        "Docker",
+        "AWS",
+        "Secure App Development",
+        ,
+      ],
+    }
   ] satisfies WorkItem[],
 
   proof: {
@@ -378,6 +452,7 @@ export const portfolioData = {
         "web hooks",
         "Graph QL",
         "API Integration",
+        "Prettier"
       ],
     },
     {
@@ -410,6 +485,21 @@ export const portfolioData = {
         "Prompt Engineering",
         "AI-assisted Development",
         "LLM Integration",
+      ],
+    },
+    {
+      title: "Frontend Libraries",
+      note: "Battle-tested libraries used to build scalable, interactive, and data-driven React applications.",
+      items: [
+        "Chart.js",
+        "Recharts",
+        "TanStack Query",
+        "Formik",
+        "Yup",
+        "Gatsby",
+        "React Hook Form",
+        "Tree Js",
+        "Framer Motion",
       ],
     },
   ] satisfies StackGroup[],
