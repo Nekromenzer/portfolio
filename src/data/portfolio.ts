@@ -48,8 +48,10 @@ export const portfolioData = {
       email: "mailto:bagimshan@gmail.com",
       github: "https://github.com/nekromenzer",
       linkedin: "https://www.linkedin.com/in/maneesha-gimshan/",
-      resume: "/maneesha-gimshan.pdf",
+      resumeView: "/api/resume?mode=view",
+      resumeDownload: "/api/resume?mode=download",
       resumeLabel: "DOWNLOAD RESUME",
+      resumeViewLabel: "VIEW RESUME",
     },
   },
   about: {
@@ -432,8 +434,14 @@ export const portfolioData = {
     items: [
       {
         label: "RESUME",
-        value: "maneesha-gimshan.pdf",
-        href: "/maneesha-gimshan.pdf",
+        value: "Download PDF",
+        href: "/api/resume?mode=download",
+        icon: "resume",
+      },
+      {
+        label: "RESUME",
+        value: "View PDF",
+        href: "/api/resume?mode=view",
         icon: "resume",
       },
       {

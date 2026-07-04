@@ -16,6 +16,20 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Resume PDF
+
+The portfolio serves resume view/download links through `/api/resume`, which proxies the Reactive Resume PDF API without exposing the API key in the browser.
+
+Set these environment variables locally and in production:
+
+```bash
+RXRESUME_API_KEY=your_reactive_resume_api_key
+RXRESUME_RESUME_ID=your_resume_id
+RXRESUME_BASE_URL=https://rxresu.me
+```
+
+If the API key or resume ID is missing, the route falls back to `public/maneesha-gimshan.pdf`.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

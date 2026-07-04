@@ -57,7 +57,11 @@ export default function HeroSection({ hero, pointer, topStack }: Props) {
           >
             <LinkedinBrandIcon width={18} height={18} />
           </a>
-          <a className="resume-link" href={hero.actions.resume}>
+          <a className="resume-link" href={hero.actions.resumeView}>
+            <FileText size={16} />
+            {hero.actions.resumeViewLabel}
+          </a>
+          <a className="resume-link" href={hero.actions.resumeDownload}>
             <FileText size={16} />
             {hero.actions.resumeLabel}
           </a>
@@ -85,4 +89,3 @@ export default function HeroSection({ hero, pointer, topStack }: Props) {
     </section>
   );
 }
-

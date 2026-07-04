@@ -18,7 +18,7 @@ export default function ContactSection({ contact }: Props) {
 
           return (
             <a
-              key={item.label}
+              key={`${item.label}-${item.href}`}
               href={item.href}
               target={item.external ? "_blank" : undefined}
               rel={item.external ? "noreferrer" : undefined}
