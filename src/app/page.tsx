@@ -2,6 +2,7 @@
 
 import SiteBackground from "@/components/common/SiteBackground";
 import TopBar from "@/components/common/TopBar";
+import VisitLogger from "@/components/VisitLogger";
 import AboutSection from "@/components/sections/AboutSection";
 import ContactSection from "@/components/sections/ContactSection";
 import EducationSection from "@/components/sections/EducationSection";
@@ -118,6 +119,7 @@ export default function Home() {
 
   return (
     <main className="site-shell" data-active-section={activeSection}>
+      <VisitLogger />
       <SiteBackground
         sideMarkInitial={hero.sideMarkInitial}
         sideMarkLabel={hero.sideMarkLabel}
