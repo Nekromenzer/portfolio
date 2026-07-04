@@ -460,13 +460,17 @@ export default function ExperienceGlobe({
           </filter>
 
           <linearGradient id="globeOverlay" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="rgba(44, 49, 55, 0.25)" />
-            <stop offset="60%" stopColor="rgba(23, 26, 30, 0.08)" />
-            <stop offset="100%" stopColor="rgba(15, 17, 20, 0.2)" />
+            <stop offset="0%" stopColor="var(--map-overlay-start)" />
+            <stop offset="60%" stopColor="var(--map-overlay-mid)" />
+            <stop offset="100%" stopColor="var(--map-overlay-end)" />
           </linearGradient>
         </defs>
 
-        <rect width={dimensions.width} height={dimensions.height} fill="#111417" />
+        <rect
+          width={dimensions.width}
+          height={dimensions.height}
+          fill="var(--map-water)"
+        />
 
         <rect
           width={dimensions.width}
@@ -477,24 +481,24 @@ export default function ExperienceGlobe({
         <path
           d={graticule}
           fill="none"
-          stroke="rgba(97, 211, 195, 0.12)"
+          stroke="var(--map-grid)"
           strokeWidth="0.5"
           vectorEffect="non-scaling-stroke"
         />
 
-        {countryPaths.map((country,idx) => (
+        {countryPaths.map((country, idx) => (
           <path
             key={`${country.id}_${idx}`}
             d={country.pathD}
             fill={
               country.isExperienceCountry
-                ? "rgba(97, 211, 195, 0.28)"
-                : "rgba(34, 40, 44, 0.96)"
+                ? "var(--map-land-active)"
+                : "var(--map-land)"
             }
             stroke={
               country.isExperienceCountry
-                ? "rgba(97, 211, 195, 0.65)"
-                : "rgba(97, 211, 195, 0.14)"
+                ? "var(--map-stroke-active)"
+                : "var(--map-stroke)"
             }
             strokeWidth={country.isExperienceCountry ? "0.9" : "0.45"}
             vectorEffect="non-scaling-stroke"
@@ -504,7 +508,7 @@ export default function ExperienceGlobe({
         {positions.map((position, index) => {
           const item = items[index];
           const isActive = index === activeIndex;
-          const markerColor = item.isCurrent ? "#61d3c3" : "#cc5a5a";
+          const markerColor = item.isCurrent ? "var(--accent)" : "var(--danger)";
 
           return (
             <g
@@ -516,8 +520,8 @@ export default function ExperienceGlobe({
                 r={isActive ? 18 : 13}
                 fill={
                   item.isCurrent
-                    ? "rgba(97, 211, 195, 0.12)"
-                    : "rgba(204, 90, 90, 0.12)"
+                    ? "color-mix(in srgb, var(--accent) 12%, transparent)"
+                    : "color-mix(in srgb, var(--danger) 12%, transparent)"
                 }
               />
               <circle r={isActive ? 8 : 6} fill={markerColor} />

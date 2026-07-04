@@ -14,16 +14,6 @@ import Work from "@/components/Work";
 import { portfolioData } from "@/data/portfolio";
 import { useEffect, useMemo, useState } from "react";
 
-function formatTime(zone: string) {
-  return new Intl.DateTimeFormat("en-GB", {
-    timeZone: zone,
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-    hour12: false,
-  }).format(new Date());
-}
-
 export default function Home() {
   const {
     about,
@@ -44,7 +34,6 @@ export default function Home() {
     workSection,
   } = portfolioData;
   const [theme, setTheme] = useState<"dark" | "light">("dark");
-  const [clock, setClock] = useState({ dxb: "--:--:--", cmb: "--:--:--" });
   const [pointer, setPointer] = useState({ x: "0.0000", y: "0.0000" });
   const [activeExperience, setActiveExperience] = useState(0);
   const [isExperienceOpen, setIsExperienceOpen] = useState(false);
@@ -63,18 +52,6 @@ export default function Home() {
     document.documentElement.dataset.theme = theme;
     window.localStorage.setItem("theme", theme);
   }, [theme]);
-
-  useEffect(() => {
-    const tick = () =>
-      setClock({
-        dxb: formatTime("Asia/Dubai"),
-        cmb: formatTime("Asia/Colombo"),
-      });
-
-    tick();
-    const interval = window.setInterval(tick, 1000);
-    return () => window.clearInterval(interval);
-  }, []);
 
   useEffect(() => {
     const updatePointer = (event: PointerEvent) => {
@@ -147,7 +124,6 @@ export default function Home() {
       />
       <TopBar
         activeSection={activeSection}
-        clock={clock}
         navItems={navItems}
         theme={theme}
         onToggleTheme={() => setTheme(theme === "dark" ? "light" : "dark")}

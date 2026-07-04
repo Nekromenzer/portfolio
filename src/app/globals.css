@@ -12,21 +12,69 @@ html[data-theme="dark"] {
   --panel-strong: rgba(244, 241, 234, 0.06);
   --accent: #61d3c3;
   --accent-2: #e7e0d1;
+  --danger: #cc5a5a;
+  --danger-contrast: #ff8f8f;
   --shadow: rgba(0, 0, 0, 0.45);
+  --scene-overlay-start: rgba(0, 0, 0, 0.1);
+  --scene-overlay-end: rgba(1, 2, 6, 0.5);
+  --star-primary: rgba(244, 241, 234, 0.54);
+  --star-accent: rgba(97, 211, 195, 0.34);
+  --star-soft: rgba(244, 241, 234, 0.24);
+  --planet-highlight: rgba(244, 241, 234, 0.46);
+  --planet-water: rgba(17, 65, 96, 0.9);
+  --planet-core: rgba(3, 8, 18, 0.95);
+  --planet-edge: rgba(0, 0, 0, 0.98);
+  --planet-shadow: rgba(0, 0, 0, 0.88);
+  --surface-shade: rgba(5, 5, 5, 0.22);
+  --modal-backdrop: rgba(5, 5, 5, 0.76);
+  --inline-overlay: rgba(5, 5, 5, 0.28);
+  --map-water: #111417;
+  --map-overlay-start: rgba(44, 49, 55, 0.25);
+  --map-overlay-mid: rgba(23, 26, 30, 0.08);
+  --map-overlay-end: rgba(15, 17, 20, 0.2);
+  --map-grid: rgba(97, 211, 195, 0.12);
+  --map-land: rgba(34, 40, 44, 0.96);
+  --map-land-active: rgba(97, 211, 195, 0.28);
+  --map-stroke: rgba(97, 211, 195, 0.14);
+  --map-stroke-active: rgba(97, 211, 195, 0.65);
 }
 
 html[data-theme="light"] {
-  --background: #f4f1ea;
+  --background: #f7f4ec;
   --foreground: #151412;
-  --muted: #5f5b52;
-  --faint: #8c8679;
-  --line: rgba(21, 20, 18, 0.16);
-  --line-strong: rgba(21, 20, 18, 0.34);
-  --panel: rgba(244, 241, 234, 0.86);
-  --panel-strong: rgba(21, 20, 18, 0.055);
-  --accent: #0f766e;
+  --muted: #4f4b43;
+  --faint: #777064;
+  --line: rgba(21, 20, 18, 0.18);
+  --line-strong: rgba(21, 20, 18, 0.38);
+  --panel: rgba(255, 253, 247, 0.88);
+  --panel-strong: rgba(21, 20, 18, 0.075);
+  --accent: #0a6f66;
   --accent-2: #211f1a;
-  --shadow: rgba(21, 20, 18, 0.14);
+  --danger: #b84242;
+  --danger-contrast: #9f3030;
+  --shadow: rgba(21, 20, 18, 0.12);
+  --scene-overlay-start: rgba(255, 253, 247, 0.5);
+  --scene-overlay-end: rgba(247, 244, 236, 0.82);
+  --star-primary: rgba(21, 20, 18, 0.28);
+  --star-accent: rgba(10, 111, 102, 0.22);
+  --star-soft: rgba(21, 20, 18, 0.16);
+  --planet-highlight: rgba(255, 253, 247, 0.9);
+  --planet-water: rgba(101, 147, 164, 0.48);
+  --planet-core: rgba(199, 221, 214, 0.86);
+  --planet-edge: rgba(130, 151, 151, 0.62);
+  --planet-shadow: rgba(95, 88, 78, 0.2);
+  --surface-shade: rgba(21, 20, 18, 0.06);
+  --modal-backdrop: rgba(21, 20, 18, 0.42);
+  --inline-overlay: rgba(21, 20, 18, 0.1);
+  --map-water: #f0eadf;
+  --map-overlay-start: rgba(10, 111, 102, 0.09);
+  --map-overlay-mid: rgba(21, 20, 18, 0.03);
+  --map-overlay-end: rgba(21, 20, 18, 0.08);
+  --map-grid: rgba(10, 111, 102, 0.18);
+  --map-land: rgba(201, 193, 179, 0.82);
+  --map-land-active: rgba(10, 111, 102, 0.28);
+  --map-stroke: rgba(10, 111, 102, 0.2);
+  --map-stroke-active: rgba(10, 111, 102, 0.7);
 }
 
 @theme inline {
@@ -97,6 +145,11 @@ button {
   --scene-aurora-y: 32%;
 }
 
+html[data-theme="light"] .site-shell[data-active-section="experience"] {
+  --scene-accent: #0a6f66;
+  --scene-glow: rgba(10, 111, 102, 0.16);
+}
+
 .site-shell[data-active-section="impact"] {
   --scene-accent: #e7e0d1;
   --scene-glow: rgba(231, 224, 209, 0.16);
@@ -106,6 +159,11 @@ button {
   --scene-planet-opacity: 0.38;
   --scene-aurora-x: 44%;
   --scene-aurora-y: 24%;
+}
+
+html[data-theme="light"] .site-shell[data-active-section="impact"] {
+  --scene-accent: #7c6543;
+  --scene-glow: rgba(124, 101, 67, 0.13);
 }
 
 .site-shell[data-active-section="work"] {
@@ -119,6 +177,11 @@ button {
   --scene-aurora-y: 20%;
 }
 
+html[data-theme="light"] .site-shell[data-active-section="work"] {
+  --scene-accent: #315fba;
+  --scene-glow: rgba(49, 95, 186, 0.13);
+}
+
 .site-shell[data-active-section="stack"] {
   --scene-accent: #b9d17c;
   --scene-glow: rgba(185, 209, 124, 0.16);
@@ -128,6 +191,11 @@ button {
   --scene-planet-opacity: 0.36;
   --scene-aurora-x: 78%;
   --scene-aurora-y: 30%;
+}
+
+html[data-theme="light"] .site-shell[data-active-section="stack"] {
+  --scene-accent: #607524;
+  --scene-glow: rgba(96, 117, 36, 0.13);
 }
 
 .site-shell[data-active-section="contact"] {
@@ -141,6 +209,11 @@ button {
   --scene-aurora-y: 20%;
 }
 
+html[data-theme="light"] .site-shell[data-active-section="contact"] {
+  --scene-accent: #b85d31;
+  --scene-glow: rgba(184, 93, 49, 0.13);
+}
+
 .section-bg-scene {
   position: fixed;
   inset: 0;
@@ -149,7 +222,7 @@ button {
   pointer-events: none;
   background:
     radial-gradient(circle at var(--scene-aurora-x) var(--scene-aurora-y), var(--scene-glow), transparent 26rem),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(1, 2, 6, 0.5));
+    linear-gradient(180deg, var(--scene-overlay-start), var(--scene-overlay-end));
   opacity: 0.96;
   transition:
     background 700ms ease,
@@ -168,9 +241,9 @@ button {
   inset: 0;
   opacity: 0.62;
   background-image:
-    radial-gradient(circle, rgba(244, 241, 234, 0.54) 0 1px, transparent 1.4px),
-    radial-gradient(circle, rgba(97, 211, 195, 0.34) 0 1px, transparent 1.6px),
-    radial-gradient(circle, rgba(244, 241, 234, 0.24) 0 1px, transparent 1.8px);
+    radial-gradient(circle, var(--star-primary) 0 1px, transparent 1.4px),
+    radial-gradient(circle, var(--star-accent) 0 1px, transparent 1.6px),
+    radial-gradient(circle, var(--star-soft) 0 1px, transparent 1.8px);
   background-position:
     0 0,
     38px 58px,
@@ -190,12 +263,12 @@ button {
   border-radius: 999px;
   opacity: var(--scene-planet-opacity);
   background:
-    radial-gradient(circle at 34% 26%, rgba(244, 241, 234, 0.46), transparent 0 11%),
+    radial-gradient(circle at 34% 26%, var(--planet-highlight), transparent 0 11%),
     radial-gradient(circle at 38% 34%, var(--scene-accent), transparent 0 22%),
-    radial-gradient(circle at 56% 54%, rgba(17, 65, 96, 0.9), transparent 0 48%),
-    radial-gradient(circle at 50% 50%, rgba(3, 8, 18, 0.95), rgba(0, 0, 0, 0.98) 72%);
+    radial-gradient(circle at 56% 54%, var(--planet-water), transparent 0 48%),
+    radial-gradient(circle at 50% 50%, var(--planet-core), var(--planet-edge) 72%);
   box-shadow:
-    inset 34px -46px 90px rgba(0, 0, 0, 0.88),
+    inset 34px -46px 90px var(--planet-shadow),
     0 0 90px var(--scene-glow);
   filter: blur(0.2px) saturate(0.9);
   transform: translate(-50%, -50%) scale(0.96);
@@ -277,7 +350,7 @@ button {
   z-index: 20;
   display: grid;
   width: min(calc(100% - 64px), 1150px);
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 1fr auto;
   align-items: stretch;
   overflow: hidden;
   border: 1px solid color-mix(in srgb, var(--line-strong) 72%, transparent);
@@ -303,8 +376,7 @@ button {
 }
 
 .topbar a,
-.theme-toggle,
-.telemetry {
+.theme-toggle {
   display: flex;
   min-height: 48px;
   align-items: center;
@@ -348,18 +420,6 @@ button {
 
 .topbar a.is-active {
   box-shadow: inset 0 -2px 0 var(--accent);
-}
-
-.telemetry {
-  justify-content: flex-start;
-  gap: 8px;
-  white-space: nowrap;
-}
-
-.telemetry strong {
-  color: var(--foreground);
-  font-size: 12px;
-  letter-spacing: 0;
 }
 
 .theme-toggle {
@@ -714,7 +774,7 @@ button {
 }
 
 .globe-loading-error {
-  color: #cc5a5a;
+  color: var(--danger);
 }
 
 .globe-marker-button {
@@ -746,8 +806,8 @@ button {
 }
 
 .globe-marker-button.is-previous .globe-marker-dot {
-  background: #cc5a5a;
-  box-shadow: 0 0 0 7px color-mix(in srgb, #cc5a5a 14%, transparent);
+  background: var(--danger);
+  box-shadow: 0 0 0 7px color-mix(in srgb, var(--danger) 14%, transparent);
 }
 
 .globe-marker-dot::after {
@@ -763,7 +823,7 @@ button {
 }
 
 .globe-marker-button.is-previous .globe-marker-dot::after {
-  border: 1px solid #cc5a5a;
+  border: 1px solid var(--danger);
 }
 
 .globe-marker-label {
@@ -795,8 +855,8 @@ button {
 
 .globe-marker-button.is-previous.is-active .globe-marker-label,
 .globe-marker-button.is-previous:hover .globe-marker-label {
-  border-color: #cc5a5a;
-  background: color-mix(in srgb, #cc5a5a 12%, var(--panel));
+  border-color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 12%, var(--panel));
 }
 
 .globe-marker-button.is-active .globe-marker-dot::after {
@@ -841,7 +901,7 @@ button {
 }
 
 .legend-dot.is-previous {
-  background: #cc5a5a;
+  background: var(--danger);
 }
 
 .experience-quick-list {
@@ -881,7 +941,7 @@ button {
   inset: 66px 0 0;
   z-index: 7;
   border: 0;
-  background: rgba(5, 5, 5, 0.28);
+  background: var(--inline-overlay);
   backdrop-filter: blur(2px);
   cursor: pointer;
 }
@@ -979,9 +1039,9 @@ button {
 }
 
 .status-badge.is-previous {
-  border-color: #cc5a5a;
-  color: #cc5a5a;
-  background: color-mix(in srgb, #cc5a5a 10%, transparent);
+  border-color: var(--danger);
+  color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 10%, transparent);
 }
 
 .project-block {
@@ -1274,7 +1334,7 @@ button {
   background:
     radial-gradient(circle at 80% 20%, color-mix(in srgb, var(--work-accent) 22%, transparent), transparent 10rem),
     radial-gradient(circle at 12% 100%, color-mix(in srgb, var(--work-accent) 12%, transparent), transparent 12rem),
-    linear-gradient(180deg, transparent, rgba(5, 5, 5, 0.22));
+    linear-gradient(180deg, transparent, var(--surface-shade));
   opacity: 0.95;
 }
 
@@ -1399,7 +1459,7 @@ button {
   position: absolute;
   inset: 0;
   border: 0;
-  background: rgba(5, 5, 5, 0.76);
+  background: var(--modal-backdrop);
   backdrop-filter: blur(10px);
   cursor: pointer;
 }
@@ -1809,7 +1869,7 @@ button {
 .admin-shell {
   min-height: 100vh;
   background:
-    linear-gradient(135deg, rgba(97, 211, 195, 0.1), transparent 34rem),
+    linear-gradient(135deg, color-mix(in srgb, var(--accent) 10%, transparent), transparent 34rem),
     var(--background);
   color: var(--foreground);
   padding: 28px;
@@ -2045,7 +2105,7 @@ button {
 
 .admin-danger-button {
   border-color: rgba(204, 90, 90, 0.55);
-  color: #ff8f8f;
+  color: var(--danger-contrast);
 }
 
 .admin-secondary-link {
@@ -2053,7 +2113,7 @@ button {
 }
 
 .admin-error {
-  color: #ff8f8f;
+  color: var(--danger-contrast);
   font-size: 13px;
   font-weight: 600;
 }
@@ -2161,10 +2221,6 @@ button {
     top: 16px;
     width: min(calc(100% - 28px), 740px);
     grid-template-columns: 1fr auto;
-  }
-
-  .telemetry {
-    display: none;
   }
 
   .topbar nav {

@@ -11,10 +11,6 @@ import {
 
 type Props = {
   activeSection: string;
-  clock: {
-    dxb: string;
-    cmb: string;
-  };
   navItems: string[];
   theme: "dark" | "light";
   onToggleTheme: () => void;
@@ -31,19 +27,12 @@ const navIcons = {
 
 export default function TopBar({
   activeSection,
-  clock,
   navItems,
   theme,
   onToggleTheme,
 }: Props) {
   return (
     <header className="topbar">
-      <div className="telemetry">
-        <span>DXB</span>
-        <strong>{clock.dxb}</strong>
-        <span>CMB</span>
-        <strong>{clock.cmb}</strong>
-      </div>
       <nav aria-label="Primary navigation">
         {navItems.map((item) => {
           const Icon = navIcons[item as keyof typeof navIcons];
@@ -73,4 +62,3 @@ export default function TopBar({
     </header>
   );
 }
-
