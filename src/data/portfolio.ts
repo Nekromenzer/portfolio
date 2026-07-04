@@ -41,7 +41,7 @@ export const portfolioData = {
     period: "Nov 2024 - Present",
     imageSrc: "/profile.png",
     imageAlt: "Maneesha Barandeniya",
-    sideMarkInitial: "M.",
+    sideMarkInitial: "MG",
     sideMarkLabel: "Maneesha",
     signal: "BUILDING: PRODUCT FRONTENDS • NOT: STATIC PAGES",
     actions: {
@@ -56,10 +56,19 @@ export const portfolioData = {
   },
   about: {
     eyebrow: "ABOUT",
-    title: "Frontend is easy. Product-grade frontend is not.",
+    title: "Building experiences that work beautifully at scale.",
     paragraphs: [
-      "Senior Frontend Engineer specializing in React.js, TypeScript, Next.js, and React Native with extensive experience building SaaS, FinTech, and enterprise applications.",
-      "Strong expertise in frontend architecture, API integration, testing, accessibility, performance optimization, responsive UI development, and leading technical initiatives that improve developer experience.",
+
+      "I'm a Senior React Developer with 6+ years of experience building modern web and mobile applications using React.js, Next.js, React Native, and TypeScript. I enjoy turning complex business requirements into intuitive, high-performance user experiences.",
+
+      "Throughout my career, I've worked across startups, SaaS products, fintech platforms, enterprise applications, and real-time mobility systems. My experience spans frontend architecture, reusable component systems, API integrations, authentication, state management, and cross-platform development.",
+
+      "Most recently at Dubai Technologies, I've been developing enterprise geospatial applications using React micro-frontends, Leaflet, Mapbox, and ArcGIS. My work focuses on scalable frontend architecture, performance optimization, and rendering large geolocation datasets efficiently.",
+
+      "Beyond commercial projects, I enjoy building products from the ground up. My personal projects include an AI-powered Resume Management System that helps candidates tailor resumes using AI, and TurnTaxi, a real-time ride-hailing platform featuring live tracking, trip management, and optimized Firebase synchronization.",
+
+      "I care about writing clean, maintainable code, creating reusable systems, and building products that people genuinely enjoy using. Whether it's architecting frontend applications, improving performance, or collaborating with cross-functional teams, my goal is always the same—deliver reliable software that scales.",
+
     ],
   },
   experienceSection: {
@@ -82,25 +91,19 @@ export const portfolioData = {
       latitude: 25.2048,
       longitude: 55.2708,
       isCurrent: true,
-      body: "React micro-frontends, map-heavy geolocation UX, Leaflet/Mapbox rendering, secure auth flows, frontend security, mentoring, and code review.",
+      body: "Developing enterprise geospatial applications using React, Micro-frontends, Leaflet, Mapbox and ArcGIS. Focused on high-performance rendering, modular architecture, and scalable mapping solutions.",
       projects: [
         {
-          title: "Enterprise logistics dashboard revamp",
+          title: "Enterprise Geospatial Mapping Platform",
           place: "Dubai, UAE",
           description:
-            "Modernized operational dashboards with React micro-frontends, cleaner data surfaces, and faster decision workflows for logistics teams.",
+            "Developed advanced geospatial visualization using Leaflet, Mapbox and ArcGIS with custom clustering, polylines and large-scale marker rendering.",
         },
         {
-          title: "Map-heavy operations console",
+          title: "Micro-Frontend Enterprise Platform",
           place: "Dubai, UAE",
           description:
-            "Built geolocation-heavy interfaces using Leaflet and Mapbox patterns for real-time fleet visibility and map-driven task handling.",
-        },
-        {
-          title: "Secure multi-tenant admin shell",
-          place: "Dubai, UAE",
-          description:
-            "Improved authenticated admin flows, permission-aware navigation, and reusable frontend foundations for multi-tenant enterprise users.",
+            "Worked across multiple React micro-frontends delivering reusable modules, scalable architecture and seamless cross-team integration.",
         },
       ],
     },
@@ -114,25 +117,33 @@ export const portfolioData = {
       latitude: 52.3676,
       longitude: 4.9041,
       isCurrent: false,
-      body: "React Native apps for crypto bots, real estate, and finance; monorepo architecture; React/Redux web apps; smart-contract and API integrations; Jest and React Testing Library.",
+      body: "Built React Native and React applications for fintech, telephony, crypto and real-estate platforms while leading frontend architecture and reusable component development.",
       projects: [
         {
-          title: "Mobile fintech wallet experience",
-          place: "Remote, Netherlands",
+          title: "Tellit - Business Communication App",
+          place: "Remote, Sweden",
+          href: "https://www.tellit.se/",
           description:
-            "Delivered React Native wallet screens, transaction flows, and finance-focused mobile interactions backed by API integrations.",
+            "Led the architecture and development of the Tellit mobile app from scratch, a B2B telephony solution integrating call management, personalized numbers, presence status, and mobile subscriptions. Engineered a seamless UI/UX, integrated advanced telephony APIs, and optimized Android and iOS delivery with cross-platform tools.",
         },
         {
-          title: "Crypto automation dashboard",
-          place: "Remote, Netherlands",
+          title: "Tecta - Cloud-Based Real Estate Backoffice System",
+          place: "Remote, Sweden",
+          href: "https://tecta.se/",
           description:
-            "Created web dashboard workflows for crypto bots, smart-contract integrations, portfolio controls, and automation visibility.",
+            "Developed a secure real estate management platform enabling Swedish users to register properties via BankID. Focused on frontend architecture, plugin management, virtualized data handling, and responsive dashboards to streamline property and tenant oversight.",
         },
         {
-          title: "Shared monorepo component library",
+          title: "TradingBot - Crypto Trading Interface",
+          place: "Global",
+          description:
+            "Built an intuitive trading dashboard that enabled users to automate strategies, monitor trends, and execute trades on Binance. Collaborated closely with design and backend teams to refine flows and ensure responsive, data-driven UI components.",
+        },
+        {
+          title: "TaskBuddy - Task Management Tool",
           place: "Remote, Netherlands",
           description:
-            "Built reusable React and React Native components inside a monorepo to improve delivery speed and interface consistency.",
+            "Contributed to the design and functionality of a productivity app for task tracking and team collaboration, with emphasis on responsive interfaces and clean user flows.",
         },
       ],
     },
@@ -146,25 +157,37 @@ export const portfolioData = {
       latitude: 59.3293,
       longitude: 18.0686,
       isCurrent: false,
-      body: "Mobile-friendly SaaS admin panel work with Chakra UI, React, Next.js, TypeScript, Storybook, ES6, generics, utility types, and reusable components.",
+      body: "Developed modern SaaS applications using React, Next.js, TypeScript and GraphQL while improving reusable UI architecture and application performance.",
       projects: [
         {
-          title: "SaaS admin panel redesign",
-          place: "Remote, Sweden",
+          title: "Next.js Development",
           description:
-            "Reworked admin panel screens with Chakra UI, responsive layouts, and typed React patterns for SaaS operations.",
+            "Built dynamic, scalable web applications leveraging server-side rendering and static site generation for optimal performance and SEO impact.",
         },
         {
-          title: "Design system component rollout",
-          place: "Remote, Sweden",
+          title: "GraphQL Integration",
           description:
-            "Expanded reusable TypeScript components and UI patterns to make product screens easier to maintain and extend.",
+            "Designed and implemented a robust GraphQL layer to streamline data fetching, reduce over-fetching, and improve client-server communication efficiency.",
         },
         {
-          title: "Storybook documentation workspace",
-          place: "Remote, Sweden",
+          title: "TypeScript Adoption",
           description:
-            "Documented shared components and interaction states in Storybook so teams could review and reuse interface pieces reliably.",
+            "Utilized TypeScript to enhance code quality, enforce type safety, and improve code maintainability and developer productivity across the codebase.",
+        },
+        {
+          title: "Cross-Functional Collaboration",
+          description:
+            "Worked closely with designers, backend engineers, and product managers to gather requirements and deliver user-centric solutions that aligned with business goals.",
+        },
+        {
+          title: "Code Quality & Best Practices",
+          description:
+            "Participated actively in code reviews, promoted clean code standards, and ensured adherence to modern frontend development best practices.",
+        },
+        {
+          title: "Continuous Learning & Innovation",
+          description:
+            "Explored and integrated emerging tools and technologies to optimize development workflows and stay ahead of industry trends.",
         },
       ],
     },
@@ -178,147 +201,203 @@ export const portfolioData = {
       latitude: 6.9271,
       longitude: 79.8612,
       isCurrent: false,
-      body: "Online resume builder and cover letter app, JSX template conversion, SEO improvements, WCAG-friendly interfaces, keyboard navigation, and 30% faster page loads.",
+      body: "Built online resume and cover letter products with React while improving SEO, accessibility, performance and frontend architecture.",
       projects: [
         {
-          title: "Resume builder product flow",
-          place: "Sri Lanka",
+          title: "Modern Web Development",
           description:
-            "Built guided resume creation screens, template conversion flows, and user-friendly editing paths for job seekers.",
+            "Built responsive and accessible UIs using React.js, HTML5, CSS3, JavaScript ES6+, and Tailwind CSS, ensuring cross-device compatibility and fast load times. Improved page load performance by 40%, leading to a smoother user experience.",
         },
         {
-          title: "Cover letter generator workspace",
-          place: "Sri Lanka",
+          title: "Machine Learning Personalization",
           description:
-            "Created workspace interactions for generating, editing, and managing cover letters alongside resume content.",
+            "Integrated machine learning algorithms through TensorFlow.js and backend APIs to deliver real-time content suggestions based on user behavior and input context. Boosted user engagement by 30% through personalized document guidance.",
         },
         {
-          title: "SEO and accessibility overhaul",
-          place: "Sri Lanka",
+          title: "SEO Optimization",
           description:
-            "Improved semantic structure, keyboard navigation, WCAG-friendly UI behavior, and page performance for public-facing product pages.",
+            "Implemented a robust SEO strategy using Next.js, structured metadata, keyword optimization, and canonical tagging. Achieved a 60% increase in organic traffic and improved SERP ranking for targeted keywords.",
+        },
+        {
+          title: "Collaborative UI/UX Delivery",
+          description:
+            "Worked alongside Figma-based UX/UI designs to implement visually polished and highly usable components. Contributed to increasing user retention by 25% through consistent design language and improved navigation flows.",
+        },
+        {
+          title: "Agile & Feedback-Driven Development",
+          description:
+            "Collaborated in an Agile environment with product managers and QA teams. Gathered user feedback through analytics and A/B testing, then iterated on features for better usability and adoption.",
+        },
+        {
+          title: "Cross-Team Communication",
+          description:
+            "Acted as the bridge between frontend, ML, and backend teams, ensuring seamless integration of APIs, personalized logic, and frontend performance.",
         },
       ],
     },
   ] satisfies ExperienceItem[],
+
   impactSection: {
     eyebrow: "IMPACT",
     title: "Proof, not promises.",
   },
+
   impact: [
     ["60%", "faster geolocation rendering", "Leaflet / Mapbox platform"],
     ["40%", "Firestore usage optimized", "TurnTaxi real-time sync"],
     ["30%", "page load reduction", "Treeloq resume builder"],
-    ["4+", "years production React", "SaaS, FinTech, enterprise"],
+    ["6+", "years production React", "SaaS, FinTech, enterprise"],
     ["20+", "tools and frameworks", "Frontend and mobile stack"],
     ["1000s", "users served", "multi-region SaaS products"],
     ["4", "major role chapters", "startup to enterprise delivery"],
     ["2", "formal qualifications", "BEng + IT diploma"],
   ] satisfies ImpactItem[],
+
   workSection: {
     eyebrow: "WORK",
     title: "Systems that had to hold.",
     copy: "Selected builds arranged like a project wall. Open any tile for the full delivery story.",
   },
+
   work: [
     {
       name: "AI-based Resume Management System",
       label: "AI PRODUCT • IN DEVELOPMENT",
-      meta: "Personal • May 2022 - Present",
+      meta: "Personal Project • May 2022 - Present",
       logo: {
-        initials: "AI",
-        alt: "AI Resume Management System logo placeholder",
+        initials: "RS",
+        alt: "AI Resume Management System",
       },
       context:
-        "Job seekers need role-specific resumes, while employers need stronger candidate matching instead of generic profile screening.",
+        "Job seekers struggle to tailor resumes while recruiters spend significant time reviewing irrelevant applications.",
       approach:
-        "Built React and TypeScript interfaces for resume generation, candidate management, and AI-powered enhancement from job descriptions.",
+        "Developed an AI-powered platform that generates resumes, enhances existing resumes from job descriptions and streamlines candidate management.",
       system:
-        "The product combines guided resume creation, content generation, job-description tailoring, and employer-facing candidate review workflows.",
+        "Built structured resume generation, AI content enhancement, candidate tracking and employer matching workflows using modern React architecture.",
       outcome:
-        "Improves resume quality, application relevance, and candidate matching accuracy through AI-assisted content and structured workflows.",
+        "Improves resume quality, job relevance and recruiter efficiency through AI-assisted resume optimization.",
       accent: "#61d3c3",
       stats: [
-        ["AI", "resume tailoring engine"],
-        ["B2B + B2C", "candidate and employer flow"],
-        ["WIP", "still evolving"],
+        ["AI", "Resume Generation"],
+        ["B2B + B2C", "Candidate Platform"],
+        ["May 2022", "Started"],
       ],
-      stack: ["React", "TypeScript", "Prompt UX", "Structured forms"],
+      stack: [
+        "React",
+        "TypeScript",
+        "OpenAI",
+        "AI",
+        "Structured Forms",
+        "RXJS",
+        "GatsBy",
+        "Docker"
+      ],
     },
     {
       name: "TurnTaxi",
-      label: "MOBILITY • REAL-TIME SYSTEM",
-      meta: "Commercial project • Jun 2024 - Present",
+      label: "REAL-TIME MOBILITY PLATFORM",
+      meta: "Commercial Project • Jun 2024 - Present",
       logo: {
         initials: "TT",
-        alt: "TurnTaxi logo placeholder",
+        alt: "TurnTaxi",
+        src: '/projects-logo/logo-trans.png'
       },
       context:
-        "A ride platform needs live driver visibility, reliable trip states, fare calculation, routing, and instant user feedback.",
+        "A ride-hailing application requiring reliable real-time driver tracking, routing, fare calculation and trip state management.",
       approach:
-        "Implemented an Uber-style product with live driver tracking, Google Maps routing, push notifications, and trip state management.",
+        "Built a complete Uber-style experience using React Native with Google Maps, Firebase, push notifications and real-time synchronization.",
       system:
-        "Firebase Firestore powers real-time synchronization between ride state, location updates, and mobile app interactions.",
+        "Implemented live driver tracking, trip state machine, routing, fare calculation, Firestore synchronization and notification workflows.",
       outcome:
-        "Optimized Firestore usage by 40% while keeping the core ride experience responsive and predictable.",
+        "Optimized Firestore usage by 40% while delivering a fast and reliable ride-booking experience.",
       href: "https://turntaxi.com/",
       accent: "#8cb3ff",
       stats: [
-        ["40%", "Firestore usage reduction"],
-        ["Realtime", "driver and trip sync"],
-        ["Maps", "routing and tracking"],
+        ["40%", "Firestore Optimization"],
+        ["Realtime", "Driver Tracking"],
+        ["Google Maps", "Navigation"],
       ],
-      stack: ["React Native", "Firebase", "Google Maps", "Push notifications"],
+      stack: [
+        "React Native",
+        "Firebase",
+        "Google Maps",
+        "Firestore",
+        "GCP",
+        "Push Notifications",
+      ],
     },
     {
-      name: "Micro-frontend map platform",
-      label: "CLIENT DELIVERY • ENTERPRISE FRONTEND",
-      meta: "Dubai Technologies • Nov 2024 - Present",
+      name: "cookiz-auth",
+      label: "OPEN SOURCE • REACT AUTH LIBRARY",
+      meta: "NPM Package • Open Source • Aug 2025 - Present",
       logo: {
-        initials: "DT",
-        alt: "Dubai Technologies project logo placeholder",
+        initials: "CA",
+        alt: "cookiz-auth",
       },
       context:
-        "Large teams needed modular frontend delivery while map-heavy workflows had to render geolocation data quickly and reliably.",
+        "React applications often rely on localStorage token handling, which can create security risks and repetitive authentication setup across projects.",
       approach:
-        "Designed scalable React micro-frontends and engineered Leaflet/Mapbox map features with secure authentication practices.",
+        "Built a lightweight React authentication library using secure HTTP-only cookies, customizable backend endpoints, React context, and reusable auth hooks.",
       system:
-        "Independent frontend modules support team deployments, while map rendering and auth flows are optimized around production constraints.",
+        "The package provides an AuthProvider, useAuth hook, configurable login/logout/user/refresh endpoints, TypeScript support, and backend-agnostic session handling.",
       outcome:
-        "Improved geolocation data rendering speed by 60% and strengthened frontend security practices around XSS and CSRF.",
+        "Helps React developers integrate secure cookie-based authentication faster without storing tokens in localStorage.",
+      href: "https://www.npmjs.com/package/cookiz-auth",
       accent: "#f0b46a",
       stats: [
-        ["60%", "faster geolocation rendering"],
-        ["MFE", "modular team delivery"],
-        ["Secure", "auth-first frontend"],
+        ["NPM", "Published Package"],
+        ["HTTP-only", "Cookie Auth"],
+        ["React", "Auth Provider + Hook"],
       ],
-      stack: ["React", "Micro-frontends", "Leaflet", "Mapbox"],
+      stack: [
+        "React",
+        "TypeScript",
+        "HTTP-only Cookies",
+        "Authentication",
+        "React Context",
+        "NPM Package",
+      ],
     },
     {
-      name: "Finance and mobile systems",
-      label: "FINTECH • MOBILE PRODUCT",
-      meta: "Parkway Labs • Feb 2022 - Nov 2024",
+      name: "Trust-ora",
+      label: "AI-ASSISTED • SECURE FINTECH PLATFORM",
+      meta: "Mobile App • Admin Dashboard • Backend System",
       logo: {
-        initials: "PL",
-        alt: "Parkway Labs project logo placeholder",
+        initials: "TO",
+        alt: "Trust Ora",
+        src: '/projects-logo/trustora-mark.png'
       },
       context:
-        "Finance, crypto bot, and real estate products required secure mobile UX, API reliability, and reusable frontend architecture.",
+        "Financial service platforms require secure user onboarding, reliable account management, protected admin operations, and smooth handling of loans, collections, and customer data across multiple applications.",
       approach:
-        "Led React Native apps, built React and Redux web apps, and integrated APIs, smart contracts, tests, and client requirements.",
+        "Built an AI-assisted fintech application ecosystem with a secure mobile experience, role-based admin dashboard, backend-owned data workflows, and structured API integrations for scalable financial operations.",
       system:
-        "Monorepo architecture improved code reuse, scalability, collaboration, and consistency across multiple product surfaces.",
+        "The platform includes customer mobile flows, admin user management, RBAC permissions, loan and collection management, profile and bank account handling, backend pagination/filtering, authentication flows, and documented frontend-backend API contracts.",
       outcome:
-        "Delivered high-quality cross-platform apps with robust performance, security standards, and unit/integration coverage.",
-      accent: "#d77676",
+        "Provides a secure and extensible foundation for managing financial users, loans, collections, and administrative operations while improving development speed through AI-assisted implementation and verification.",
+      accent: "#4fffbe",
       stats: [
-        ["Cross-platform", "mobile + web delivery"],
-        ["Monorepo", "shared product architecture"],
-        ["Finance", "secure API-heavy flows"],
+        ["AI-Assisted", "Full-Stack Development"],
+        ["RBAC", "Secure Admin Access"],
+        ["Mobile + Admin", "Fintech Operations"],
       ],
-      stack: ["React Native", "React", "Redux", "API integrations"],
-    },
+      stack: [
+        "Flutter",
+        "Go",
+        "AI-Assisted Development",
+        "TypeScript",
+        "React",
+        "Authentication",
+        "RBAC",
+        "REST APIs",
+        "PostgreSQL",
+        "Docker",
+        "AWS",
+        "Secure App Development",
+      ],
+    }
   ] satisfies WorkItem[],
+
   proof: {
     eyebrow: "RECOMMENDATIONS",
     title: "What teams get.",
@@ -337,6 +416,7 @@ export const portfolioData = {
       },
     ] satisfies ProofItem[],
   },
+
   stackSection: {
     eyebrow: "STACK",
     title: "What I run in production.",
@@ -345,10 +425,11 @@ export const portfolioData = {
     cardBody:
       "The stack is less about tool collection and more about shipping frontend systems that stay fast, testable, and adaptable as the product grows.",
     signals: [
-      ["20+", "core tools used in production"],
-      ["4", "delivery lanes across web, mobile, scale, platform"],
+      ["30+", "core tools used in production"],
+      ["5", "delivery lanes across web, mobile, scale, platform"],
     ],
   },
+
   stack: [
     "React.js",
     "React Native",
@@ -373,6 +454,7 @@ export const portfolioData = {
     "Vite",
     "Expo",
   ],
+
   stackGroups: [
     {
       title: "Frontend systems",
@@ -382,7 +464,7 @@ export const portfolioData = {
     {
       title: "Mobile delivery",
       note: "Cross-platform app work with production-focused state and release flow.",
-      items: ["React Native", "Expo", "Redux", "Zustand"],
+      items: ["React Native", "Expo", "Redux", "Zustand", "Context API"],
     },
     {
       title: "Quality and scale",
@@ -392,7 +474,10 @@ export const portfolioData = {
         "React Testing Library",
         "Micro Frontends",
         "Monorepo",
+        "web hooks",
+        "Graph QL",
         "API Integration",
+        "Prettier"
       ],
     },
     {
@@ -403,20 +488,55 @@ export const portfolioData = {
         "Ant Design",
         "Tailwind CSS",
         "SASS",
+        "Chakra UI",
+        "Google Cloud Platform",
         "Firebase",
         "Docker",
         "Azure",
         "Vite",
       ],
     },
+    {
+      title: "AI & Agentic Development",
+      note: "AI-assisted development, autonomous coding workflows, and modern LLM tooling used to accelerate software delivery.",
+      items: [
+        "OpenAI",
+        "ChatGPT",
+        "GitHub Copilot",
+        "Claude Code",
+        "OpenAI Codex",
+        "Cursor",
+        "Agentic Development",
+        "Prompt Engineering",
+        "AI-assisted Development",
+        "LLM Integration",
+      ],
+    },
+    {
+      title: "Frontend Libraries",
+      note: "Battle-tested libraries used to build scalable, interactive, and data-driven React applications.",
+      items: [
+        "Chart.js",
+        "Recharts",
+        "TanStack Query",
+        "Formik",
+        "Yup",
+        "Gatsby",
+        "React Hook Form",
+        "Tree Js",
+        "Framer Motion",
+      ],
+    },
   ] satisfies StackGroup[],
+
   educationSection: {
     eyebrow: "EDUCATION",
     title: "Formal foundation.",
   },
+
   education: [
     {
-      title: "Bachelor of Engineering, Software Engineering",
+      title: "BEng in Software Engineering",
       place: "London Metropolitan University",
       period: "02/2023 - 01/2024",
       result: "Upper Second Class Honors",
@@ -425,9 +545,16 @@ export const portfolioData = {
       title: "Diploma in Information Technology",
       place: "University of Colombo",
       period: "01/2021 - 01/2022",
-      result: "Colombo",
+      result: "IT",
+    },
+    {
+      title: "English Language & Literature",
+      place: "University Of Cambridge",
+      period: "2016 - 2017",
+      result: "B+",
     },
   ] satisfies EducationItem[],
+
   contact: {
     eyebrow: "CONTACT",
     title: "Hard frontend problems welcome.",

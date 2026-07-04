@@ -4,8 +4,9 @@ import { useEffect, useMemo, useRef, useState } from "react";
 
 export type ExperienceProject = {
   title: string;
-  place: string;
+  place?: string;
   description: string;
+  href?: string;
 };
 
 export type ExperienceItem = {
