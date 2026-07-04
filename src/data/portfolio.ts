@@ -368,7 +368,6 @@ export const portfolioData = {
         "Docker",
         "AWS",
         "Secure App Development",
-        ,
       ],
     }
   ] satisfies WorkItem[],

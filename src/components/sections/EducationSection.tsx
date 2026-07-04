@@ -19,7 +19,7 @@ export default function EducationSection({
       />
       <div className="education-grid">
         {education.map((item) => (
-          <article key={item.title}>
+          <article key={`${item.title}-${item.period}`}>
             <span>{item.period}</span>
             <h3>{item.title}</h3>
             <p>{item.place}</p>
@@ -30,4 +30,3 @@ export default function EducationSection({
     </section>
   );
 }
-
