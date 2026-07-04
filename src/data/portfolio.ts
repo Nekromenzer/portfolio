@@ -56,10 +56,19 @@ export const portfolioData = {
   },
   about: {
     eyebrow: "ABOUT",
-    title: "Frontend is easy. Product-grade frontend is not.",
+    title: "Building experiences that work beautifully at scale.",
     paragraphs: [
-      "Senior Frontend Engineer specializing in React.js, TypeScript, Next.js, and React Native with extensive experience building SaaS, FinTech, and enterprise applications.",
-      "Strong expertise in frontend architecture, API integration, testing, accessibility, performance optimization, responsive UI development, and leading technical initiatives that improve developer experience.",
+
+      "I'm a Senior React Developer with 6+ years of experience building modern web and mobile applications using React.js, Next.js, React Native, and TypeScript. I enjoy turning complex business requirements into intuitive, high-performance user experiences.",
+
+      "Throughout my career, I've worked across startups, SaaS products, fintech platforms, enterprise applications, and real-time mobility systems. My experience spans frontend architecture, reusable component systems, API integrations, authentication, state management, and cross-platform development.",
+
+      "Most recently at Dubai Technologies, I've been developing enterprise geospatial applications using React micro-frontends, Leaflet, Mapbox, and ArcGIS. My work focuses on scalable frontend architecture, performance optimization, and rendering large geolocation datasets efficiently.",
+
+      "Beyond commercial projects, I enjoy building products from the ground up. My personal projects include an AI-powered Resume Management System that helps candidates tailor resumes using AI, and TurnTaxi, a real-time ride-hailing platform featuring live tracking, trip management, and optimized Firebase synchronization.",
+
+      "I care about writing clean, maintainable code, creating reusable systems, and building products that people genuinely enjoy using. Whether it's architecting frontend applications, improving performance, or collaborating with cross-functional teams, my goal is always the same—deliver reliable software that scales.",
+
     ],
   },
   experienceSection: {
@@ -211,7 +220,7 @@ export const portfolioData = {
     ["60%", "faster geolocation rendering", "Leaflet / Mapbox platform"],
     ["40%", "Firestore usage optimized", "TurnTaxi real-time sync"],
     ["30%", "page load reduction", "Treeloq resume builder"],
-    ["4+", "years production React", "SaaS, FinTech, enterprise"],
+    ["6+", "years production React", "SaaS, FinTech, enterprise"],
     ["20+", "tools and frameworks", "Frontend and mobile stack"],
     ["1000s", "users served", "multi-region SaaS products"],
     ["4", "major role chapters", "startup to enterprise delivery"],
@@ -317,8 +326,8 @@ export const portfolioData = {
     cardBody:
       "The stack is less about tool collection and more about shipping frontend systems that stay fast, testable, and adaptable as the product grows.",
     signals: [
-      ["20+", "core tools used in production"],
-      ["4", "delivery lanes across web, mobile, scale, platform"],
+      ["30+", "core tools used in production"],
+      ["5", "delivery lanes across web, mobile, scale, platform"],
     ],
   },
 
@@ -356,7 +365,7 @@ export const portfolioData = {
     {
       title: "Mobile delivery",
       note: "Cross-platform app work with production-focused state and release flow.",
-      items: ["React Native", "Expo", "Redux", "Zustand"],
+      items: ["React Native", "Expo", "Redux", "Zustand", "Context API"],
     },
     {
       title: "Quality and scale",
@@ -366,6 +375,8 @@ export const portfolioData = {
         "React Testing Library",
         "Micro Frontends",
         "Monorepo",
+        "web hooks",
+        "Graph QL",
         "API Integration",
       ],
     },
@@ -377,10 +388,28 @@ export const portfolioData = {
         "Ant Design",
         "Tailwind CSS",
         "SASS",
+        "Chakra UI",
+        "Google Cloud Platform",
         "Firebase",
         "Docker",
         "Azure",
         "Vite",
+      ],
+    },
+    {
+      title: "AI & Agentic Development",
+      note: "AI-assisted development, autonomous coding workflows, and modern LLM tooling used to accelerate software delivery.",
+      items: [
+        "OpenAI",
+        "ChatGPT",
+        "GitHub Copilot",
+        "Claude Code",
+        "OpenAI Codex",
+        "Cursor",
+        "Agentic Development",
+        "Prompt Engineering",
+        "AI-assisted Development",
+        "LLM Integration",
       ],
     },
   ] satisfies StackGroup[],
@@ -402,6 +431,12 @@ export const portfolioData = {
       place: "University of Colombo",
       period: "01/2021 - 01/2022",
       result: "IT",
+    },
+    {
+      title: "English Language & Literature",
+      place: "University Of Cambridge",
+      period: "2016 - 2017",
+      result: "B+",
     },
   ] satisfies EducationItem[],
 
