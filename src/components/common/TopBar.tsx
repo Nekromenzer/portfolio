@@ -1,5 +1,6 @@
 import {
   Activity,
+  BookOpenText,
   BriefcaseBusiness,
   Layers3,
   MapPinned,
@@ -23,6 +24,7 @@ const navIcons = {
   WORK: BriefcaseBusiness,
   STACK: Layers3,
   CONTACT: Send,
+  BLOG: BookOpenText,
 };
 
 export default function TopBar({
@@ -37,11 +39,12 @@ export default function TopBar({
         {navItems.map((item) => {
           const Icon = navIcons[item as keyof typeof navIcons];
           const sectionId = item.toLowerCase();
+          const isBlog = item === "BLOG";
 
           return (
             <a
               key={item}
-              href={`#${sectionId}`}
+              href={isBlog ? "/blog" : `#${sectionId}`}
               className={activeSection === sectionId ? "is-active" : ""}
             >
               <Icon size={15} aria-hidden />

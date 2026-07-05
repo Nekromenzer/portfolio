@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -13,9 +14,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
   title: "Maneesha Barandeniya | Senior React Developer",
   description:
     "Portfolio for Maneesha Barandeniya, a Senior React Developer specializing in React.js, TypeScript, Next.js, React Native, SaaS, FinTech, and AI-driven products.",
+  authors: [{ name: "Maneesha Barandeniya" }],
 };
 
 export default function RootLayout({
@@ -31,6 +34,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
         {children}
+        <Analytics />
       </body>
     </html>
   );

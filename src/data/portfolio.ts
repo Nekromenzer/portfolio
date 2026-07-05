@@ -30,7 +30,7 @@ export type ContactItem = {
 };
 
 export const portfolioData = {
-  navItems: ["ABOUT", "EXPERIENCE", "IMPACT", "WORK", "STACK", "CONTACT"],
+  navItems: ["ABOUT", "EXPERIENCE", "IMPACT", "WORK", "STACK", "BLOG", "CONTACT"],
   hero: {
     pretitle:
       "Frontend systems • Mobile products • AI-driven workflows",

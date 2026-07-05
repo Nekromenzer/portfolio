@@ -1,0 +1,28 @@
+backend:
+  name: github
+  repo: Nekromenzer/portfolio
+  branch: main
+
+media_folder: public/uploads
+public_folder: /uploads
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: blog
+    label: Blog
+    folder: content/blog
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Description, name: description, widget: text }
+      - { label: Date, name: date, widget: datetime, format: "YYYY-MM-DD" }
+      - { label: Category, name: category, widget: string, default: Engineering }
+      - { label: Cover Image, name: coverImage, widget: image }
+      - { label: Cover Alt Text, name: coverAlt, widget: string }
+      - { label: Tags, name: tags, widget: list, required: false }
+      - { label: Featured, name: featured, widget: boolean, default: false }
+      - { label: Body, name: body, widget: markdown }
