@@ -1,5 +1,6 @@
 import SiteBackground from "@/components/common/SiteBackground";
 import { getBlogPost, getBlogPosts, markdownToHtml } from "@/lib/blog";
+import { siteUrl } from "@/lib/site";
 import { ArrowLeft, CalendarDays } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -9,8 +10,6 @@ import { notFound } from "next/navigation";
 type Props = {
   params: Promise<{ slug: string }>;
 };
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 function absoluteUrl(path: string) {
   if (path.startsWith("http://") || path.startsWith("https://")) return path;
