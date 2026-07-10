@@ -40,7 +40,7 @@ In production, the same JSON event is printed to server logs. On Vercel, the cou
 
 ## Blog CMS
 
-Decap CMS writes blog posts to the `dev` branch under `content/blog`. Keep the
+Decap CMS writes blog posts to the `main` branch under `content/blog`. Keep the
 Vercel deployment branch and the CMS branch aligned so new posts trigger a
 deploy of the same branch the website renders from.
 
