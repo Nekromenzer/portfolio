@@ -28,9 +28,21 @@ function parseFrontMatter(raw: string): { data: FrontMatter; content: string } {
 
   const fields: Record<string, string | string[] | boolean> = {};
   const lines = match[1].split("\n");
+  let lastStringKey: string | null = null;
 
   for (let index = 0; index < lines.length; index += 1) {
     const line = lines[index];
+
+    if (/^\s+\S/.test(line) && !line.trim().startsWith("- ") && lastStringKey) {
+      const currentValue = fields[lastStringKey];
+
+      if (typeof currentValue === "string") {
+        fields[lastStringKey] = `${currentValue} ${line.trim().replace(/^"|"$/g, "")}`;
+      }
+
+      continue;
+    }
+
     const [rawKey, ...valueParts] = line.split(":");
     const key = rawKey.trim();
     const rawValue = valueParts.join(":").trim();
@@ -44,15 +56,18 @@ function parseFrontMatter(raw: string): { data: FrontMatter; content: string } {
         list.push(lines[index].trim().replace(/^- /, "").replace(/^"|"$/g, ""));
       }
       fields[key] = list;
+      lastStringKey = null;
       continue;
     }
 
     if (rawValue === "true" || rawValue === "false") {
       fields[key] = rawValue === "true";
+      lastStringKey = null;
       continue;
     }
 
     fields[key] = rawValue.replace(/^"|"$/g, "");
+    lastStringKey = key;
   }
 
   return {
