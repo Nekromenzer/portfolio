@@ -38,6 +38,12 @@ Each event logs the date/time, country, page path, referrer, and a browser-gener
 In local development, logs are written to `.visit-logs/visits.jsonl`.
 In production, the same JSON event is printed to server logs. On Vercel, the country is read from the `x-vercel-ip-country` request header.
 
+## Blog CMS
+
+Decap CMS writes blog posts to the `main` branch under `content/blog`. Keep the
+Vercel deployment branch and the CMS branch aligned so new posts trigger a
+deploy of the same branch the website renders from.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
