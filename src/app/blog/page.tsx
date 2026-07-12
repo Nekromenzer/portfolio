@@ -92,39 +92,41 @@ export default function BlogPage() {
         </section>
       ) : null}
 
-      <section className="section blog-index">
-        <div className="section-heading">
-          <p className="eyebrow">LATEST</p>
-          <h2>All posts.</h2>
-        </div>
+      {regularPosts.length > 0 ? (
+        <section className="section blog-index">
+          <div className="section-heading">
+            <p className="eyebrow">LATEST</p>
+            <h2>All posts.</h2>
+          </div>
 
-        <div className="blog-grid">
-          {regularPosts.map((post) => (
-            <Link href={`/blog/${post.slug}`} className="blog-card" key={post.slug}>
-              <span className="blog-card-cover">
-                <Image
-                  src={post.coverImage}
-                  alt={post.coverAlt}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 33vw"
-                />
-              </span>
-              <span className="blog-card-icon">
-                <PenLine size={18} aria-hidden />
-              </span>
-              <div>
-                <span>{post.category}</span>
-                <h3>{post.title}</h3>
-                <p>{post.description}</p>
-              </div>
-              <footer>
-                <span>{post.readingTime}</span>
-                <ArrowUpRight size={16} aria-hidden />
-              </footer>
-            </Link>
-          ))}
-        </div>
-      </section>
+          <div className="blog-grid">
+            {regularPosts.map((post) => (
+              <Link href={`/blog/${post.slug}`} className="blog-card" key={post.slug}>
+                <span className="blog-card-cover">
+                  <Image
+                    src={post.coverImage}
+                    alt={post.coverAlt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 33vw"
+                  />
+                </span>
+                <span className="blog-card-icon">
+                  <PenLine size={18} aria-hidden />
+                </span>
+                <div>
+                  <span>{post.category}</span>
+                  <h3>{post.title}</h3>
+                  <p>{post.description}</p>
+                </div>
+                <footer>
+                  <span>{post.readingTime}</span>
+                  <ArrowUpRight size={16} aria-hidden />
+                </footer>
+              </Link>
+            ))}
+          </div>
+        </section>
+      ) : null}
     </main>
   );
 }
