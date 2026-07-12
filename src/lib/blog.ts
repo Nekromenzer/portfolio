@@ -137,6 +137,9 @@ export function markdownToHtml(markdown: string) {
   const lines = markdown.split("\n");
   const blocks: string[] = [];
   let listItems: string[] = [];
+  let codeLines: string[] = [];
+  let codeLanguage = "";
+  let isInCodeBlock = false;
 
   const flushList = () => {
     if (listItems.length === 0) return;
@@ -144,15 +147,48 @@ export function markdownToHtml(markdown: string) {
     listItems = [];
   };
 
+  const flushCodeBlock = () => {
+    if (!isInCodeBlock) return;
+
+    const languageClass = codeLanguage
+      ? ` class="language-${escapeHtml(codeLanguage)}"`
+      : "";
+
+    blocks.push(
+      `<pre><code${languageClass}>${escapeHtml(codeLines.join("\n"))}</code></pre>`,
+    );
+    codeLines = [];
+    codeLanguage = "";
+    isInCodeBlock = false;
+  };
+
   for (const line of lines) {
     const trimmed = line.trim();
+
+    if (trimmed.startsWith("```")) {
+      if (isInCodeBlock) {
+        flushCodeBlock();
+        continue;
+      }
+
+      flushList();
+      isInCodeBlock = true;
+      codeLanguage = trimmed.slice(3).trim().split(/\s+/)[0] ?? "";
+      codeLines = [];
+      continue;
+    }
+
+    if (isInCodeBlock) {
+      codeLines.push(line);
+      continue;
+    }
 
     if (!trimmed) {
       flushList();
       continue;
     }
 
-    if (trimmed.startsWith("- ")) {
+    if (trimmed.startsWith("- ") || trimmed.startsWith("* ")) {
       listItems.push(formatInline(trimmed.slice(2)));
       continue;
     }
@@ -170,6 +206,7 @@ export function markdownToHtml(markdown: string) {
     }
   }
 
+  flushCodeBlock();
   flushList();
   return blocks.join("\n");
 }
