@@ -302,7 +302,7 @@ Micro frontends may not be a good choice when:
 
 For a small application, a well-structured React or Next.js project is usually enough.
 
-A modular monolith can provide clean separation without the operational complexity of micro frontends.\
+### A modular monolith can provide clean separation without the operational complexity of micro frontends.\
 \
 Micro Frontends vs a Modular Monolith
 
