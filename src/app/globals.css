@@ -1936,19 +1936,19 @@ html[data-theme="light"] .site-shell[data-active-section="blog"] {
 
 .blog-hero {
   display: grid;
-  grid-template-columns: 0.62fr 1.38fr;
+  grid-template-columns: 0.2fr 2fr;
   gap: 56px;
-  padding-top: 78px;
+  padding-top: 50px;
   padding-bottom: 72px;
   border-bottom: 1px solid var(--line);
 }
 
 .blog-hero h1,
 .blog-article-header h1 {
-  max-width: 920px;
+  max-width: 1020px;
   margin: 0;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(50px, 8vw, 112px);
+  font-size: clamp(50px, 8vw, 100px);
   font-weight: 500;
   letter-spacing: 0;
   line-height: 0.92;

@@ -51,7 +51,7 @@ export default function BlogPage() {
       <section className="section blog-hero">
         <p className="eyebrow">BLOG</p>
         <div>
-          <h1>Writing about frontend systems and product delivery.</h1>
+          <h1>Frontend systems and product delivery.</h1>
           <p>
             Practical notes from building React, Next.js, React Native, SaaS,
             fintech, and enterprise mapping products.
