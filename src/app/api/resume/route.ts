@@ -5,8 +5,8 @@ import { NextRequest, NextResponse } from "next/server";
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
-const fallbackPdfPath = path.join(process.cwd(), "public", "maneesha-gimshan.pdf");
-const filename = "maneesha-gimshan.pdf";
+const fallbackPdfPath = path.join(process.cwd(), "public", "maneesha-barandeniya.pdf");
+const filename = "maneesha-barandeniya.pdf";
 
 function contentDisposition(mode: string | null) {
   const disposition = mode === "download" ? "attachment" : "inline";
