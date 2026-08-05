@@ -261,6 +261,49 @@ export const portfolioData = {
 
   work: [
     {
+      name: "Showloomz",
+      label: "MULTI-TENANT SAAS • PORTFOLIO PLATFORM",
+      meta: "Product • Jun 2026 - Present",
+      logo: {
+        initials: "SL",
+        alt: "Showloomz",
+        src: "/projects-logo/showloomz-logo.png",
+      },
+      context:
+        "Photographers, studios and visual businesses need a premium portfolio site on their own domain, plus galleries, client proofing, invoicing and billing — without managing any infrastructure themselves.",
+      approach:
+        "Built a multi-tenant SaaS end to end where a business subscribes to a plan, picks a theme, connects a custom domain and gets a fully managed website backed by a content dashboard.",
+      system:
+        "One Next.js application serves three surfaces — public tenant sites resolved by hostname middleware across three designed themes, a tenant dashboard for galleries, packages, enquiries, invoices, domains and billing, and a platform admin console for tenant lifecycle, plan versions and payments. Tenant isolation is an invariant, entitlements resolve from immutable plan versions, billing runs on idempotent payment webhooks, uploads go presigned direct to Cloudflare R2, and client proofing uses unguessable share tokens gated to the signed-in matching email.",
+      outcome:
+        "A managed platform that launches a premium portfolio site on a custom domain with proofing, invoicing and subscription billing, without the tenant touching infrastructure.",
+      href: "https://showloomz.online/",
+      accent: "#c9a0ff",
+      stats: [
+        ["Multi-Tenant", "Hostname Routing"],
+        ["3 Themes", "Designed Tenant Sites"],
+        ["Webhook-Driven", "Subscription Billing"],
+      ],
+      stack: [
+        "Next.js 16",
+        "React 19",
+        "TypeScript",
+        "Tailwind v4",
+        "Radix / shadcn",
+        "React Hook Form",
+        "Zod",
+        "PostgreSQL",
+        "AWS Cognito",
+        "Cloudflare R2",
+        "Dodo Payments",
+        "Resend",
+        "pdf-lib",
+        "GSAP",
+        "Vitest",
+        "Docker",
+      ],
+    },
+    {
       name: "AI-based Resume Management System",
       label: "AI PRODUCT • IN DEVELOPMENT",
       meta: "Personal Project • May 2022 - Present",
