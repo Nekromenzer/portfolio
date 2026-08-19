@@ -12,7 +12,7 @@
   --ap-black: #000000;
   --ap-hairline: #e0e0e0;
   min-height: 100vh;
-  overflow: clip;
+  overflow-x: clip;
   background: var(--ap-white);
   color: var(--ap-ink);
   font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Inter",
@@ -33,12 +33,12 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-.apple-portfolio :where(a, summary):focus-visible {
+.apple-portfolio :where(a, summary, button):focus-visible {
   outline: 2px solid var(--ap-blue-focus);
   outline-offset: 4px;
 }
 
-.apple-portfolio :where(a, summary):active {
+.apple-portfolio :where(a, summary, button):active {
   transform: scale(0.95);
 }
 
@@ -75,7 +75,7 @@
   display: grid;
   grid-template-columns: 72px 1fr 72px;
   align-items: center;
-  width: min(100% - 40px, 1024px);
+  width: min(calc(100% - 40px), 1024px);
   height: 44px;
   margin: 0 auto;
 }
@@ -113,7 +113,8 @@
   justify-self: end;
 }
 
-.ap-mobile-menu {
+.ap-mobile-menu-trigger,
+.ap-mobile-panel {
   display: none;
 }
 
@@ -133,12 +134,16 @@
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 20px;
-  width: min(100% - 40px, 1024px);
+  width: min(calc(100% - 40px), 1024px);
   height: 52px;
   margin: 0 auto;
 }
 
 .ap-subnav-title {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  min-height: 44px;
   color: var(--ap-ink);
   font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Inter",
     system-ui, sans-serif;
@@ -173,8 +178,8 @@
 }
 
 .ap-pill-small {
-  min-height: 34px;
-  padding: 7px 15px;
+  min-height: 44px;
+  padding: 8px 16px;
   font-size: 14px;
   letter-spacing: -0.016em;
 }
@@ -210,7 +215,7 @@
   grid-template-columns: minmax(0, 1fr) minmax(360px, 0.84fr);
   align-items: center;
   gap: clamp(40px, 7vw, 104px);
-  width: min(100% - 64px, 1240px);
+  width: min(calc(100% - 64px), 1240px);
   min-height: calc(100svh - 96px);
   margin: 0 auto;
   padding: 76px 0 88px;
@@ -218,6 +223,7 @@
 }
 
 .ap-hero-copy {
+  min-width: 0;
   animation: ap-reveal 620ms ease-out both;
 }
 
@@ -293,6 +299,7 @@
 
 .ap-portrait {
   position: relative;
+  min-width: 0;
   width: 100%;
   margin: 0;
   animation: ap-reveal 620ms 100ms ease-out both;
@@ -438,8 +445,6 @@
 .ap-project {
   min-height: 86svh;
   padding: clamp(64px, 8vw, 112px) 32px;
-  content-visibility: auto;
-  contain-intrinsic-size: auto 900px;
 }
 
 .ap-project-dark {
@@ -462,6 +467,12 @@
   margin: 0 auto;
 }
 
+.ap-project-inner > *,
+.ap-section-heading > *,
+.ap-timeline-main > * {
+  min-width: 0;
+}
+
 .ap-project:nth-child(even) .ap-project-copy {
   order: 2;
 }
@@ -474,6 +485,7 @@
   font-size: clamp(40px, 4.6vw, 64px);
   line-height: 1.07;
   letter-spacing: -0.04em;
+  overflow-wrap: anywhere;
 }
 
 .ap-project-meta {
@@ -575,11 +587,7 @@
   color: #cccccc;
 }
 
-.ap-case-study {
-  position: relative;
-}
-
-.ap-case-study summary,
+.ap-case-study-trigger,
 .ap-role-details summary {
   display: inline-flex;
   align-items: center;
@@ -590,66 +598,205 @@
   list-style: none;
 }
 
-.ap-project-dark .ap-case-study summary {
-  color: var(--ap-blue-dark);
-}
-
-.ap-case-study summary::-webkit-details-marker,
-.ap-role-details summary::-webkit-details-marker,
-.ap-mobile-menu summary::-webkit-details-marker {
+.ap-role-details summary::-webkit-details-marker {
   display: none;
 }
 
-.ap-case-study summary svg,
+.ap-case-study-trigger svg,
 .ap-role-details summary svg {
   transition: transform 160ms ease;
 }
 
-.ap-case-study[open] summary svg,
+.ap-case-study.is-open .ap-case-study-trigger svg,
 .ap-role-details[open] summary svg {
   transform: rotate(90deg);
 }
 
-.ap-case-study > div {
-  position: absolute;
-  z-index: 5;
-  left: 0;
-  top: calc(100% + 14px);
-  width: min(680px, calc(100vw - 64px));
-  max-height: min(70vh, 720px);
-  overflow: auto;
+.ap-case-study {
+  width: min(100%, 1240px);
+  margin: clamp(32px, 5vw, 64px) auto 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.16);
+}
+
+.ap-project-dark .ap-case-study {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.ap-case-study-trigger {
+  appearance: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  min-height: 76px;
+  border: 0;
+  background: transparent;
+  color: var(--ap-blue);
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  touch-action: manipulation;
+}
+
+.apple-portfolio .ap-case-study-trigger:active {
+  transform: none;
+}
+
+.ap-project-dark .ap-case-study-trigger {
+  color: var(--ap-blue-dark);
+}
+
+.ap-case-study-trigger > span:first-child {
+  display: grid;
+  min-width: 0;
+}
+
+.ap-case-study-trigger strong {
+  color: currentColor;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.24;
+}
+
+.ap-case-study-trigger small {
+  margin-top: 3px;
+  color: var(--ap-muted);
+  font-size: 12px;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+.ap-project-dark .ap-case-study-trigger small {
+  color: #cccccc;
+}
+
+.ap-case-study-control {
+  display: grid;
+  flex: 0 0 44px;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  background: rgba(210, 210, 215, 0.64);
+  color: var(--ap-ink);
+  pointer-events: none;
+  user-select: none;
+}
+
+.ap-case-study-panel {
   border: 1px solid var(--ap-hairline);
   border-radius: 18px;
   background: var(--ap-white);
   color: var(--ap-ink);
-  padding: 28px;
+  padding: clamp(24px, 4vw, 48px);
 }
 
-.ap-project-dark .ap-case-study > div {
-  border-color: rgba(255, 255, 255, 0.18);
+.ap-project-dark .ap-case-study-panel {
+  border-color: rgba(255, 255, 255, 0.16);
   background: var(--ap-dark);
   color: var(--ap-white);
 }
 
-.ap-case-study section + section {
-  margin-top: 22px;
+.ap-case-study-heading {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.28fr) 1fr;
+  gap: 32px;
+  align-items: end;
+  margin-bottom: 32px;
 }
 
-.ap-case-study h3 {
-  margin: 0 0 6px;
+.ap-case-study-heading .ap-eyebrow {
+  margin: 0;
+}
+
+.ap-case-study-heading h3 {
+  margin: 0;
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Inter",
+    system-ui, sans-serif;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  overflow-wrap: anywhere;
+}
+
+.ap-case-study-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 0.75fr) minmax(0, 1.5fr);
+  border-top: 1px solid var(--ap-hairline);
+  border-bottom: 1px solid var(--ap-hairline);
+}
+
+.ap-project-dark .ap-case-study-grid {
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.ap-case-study-grid section {
+  min-width: 0;
+  padding: 28px;
+}
+
+.ap-case-study-grid section:first-child {
+  padding-left: 0;
+}
+
+.ap-case-study-grid section:last-child {
+  padding-right: 0;
+}
+
+.ap-case-study-grid section + section {
+  border-left: 1px solid var(--ap-hairline);
+}
+
+.ap-project-dark .ap-case-study-grid section + section {
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.ap-case-study-grid section > span {
+  display: block;
+  margin-bottom: 28px;
+  color: var(--ap-muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+}
+
+.ap-case-study-grid h4 {
+  margin: 0 0 10px;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.24;
+}
+
+.ap-case-study-grid p {
+  margin: 0;
+  color: var(--ap-muted);
+  font-size: 14px;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.ap-project-dark .ap-case-study-grid p,
+.ap-project-dark .ap-case-study-grid section > span {
+  color: #cccccc;
+}
+
+.ap-case-study-stack {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.28fr) 1fr;
+  gap: 32px;
+  padding-top: 32px;
+}
+
+.ap-case-study-stack > strong {
+  padding-top: 9px;
   font-size: 14px;
   font-weight: 600;
 }
 
-.ap-case-study p {
-  margin: 0;
-  color: var(--ap-muted);
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-.ap-project-dark .ap-case-study p {
-  color: #cccccc;
+.ap-case-study-stack .ap-stack-row {
+  margin-top: 0;
 }
 
 .ap-stack-row {
@@ -995,7 +1142,8 @@
 .ap-footer nav a {
   display: inline-flex;
   align-items: center;
-  min-height: 40px;
+  min-width: 44px;
+  min-height: 44px;
   color: #333333;
   font-size: 14px;
 }
@@ -1044,7 +1192,7 @@
   }
 }
 
-@media (max-width: 833px) {
+@media (max-width: 900px) {
   .ap-global-nav-inner {
     grid-template-columns: 44px 1fr 44px;
   }
@@ -1059,35 +1207,33 @@
     display: none;
   }
 
-  .ap-mobile-menu {
-    position: relative;
+  .ap-mobile-menu-trigger {
     grid-column: 3;
-    display: block;
-    justify-self: end;
-  }
-
-  .ap-mobile-menu summary {
     display: grid;
     place-items: center;
+    justify-self: end;
     width: 44px;
     height: 44px;
+    border: 0;
+    background: transparent;
     color: var(--ap-white);
     cursor: pointer;
-    list-style: none;
+    padding: 0;
   }
 
-  .ap-mobile-menu nav {
+  .ap-mobile-panel {
     position: fixed;
     top: 44px;
     right: 0;
     left: 0;
     display: grid;
+    z-index: 49;
     border-bottom: 1px solid rgba(255, 255, 255, 0.16);
     background: var(--ap-black);
     padding: 10px 20px 20px;
   }
 
-  .ap-mobile-menu nav a {
+  .ap-mobile-panel a {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1108,7 +1254,7 @@
   .ap-hero {
     grid-template-columns: 1fr;
     gap: 42px;
-    width: min(100% - 40px, 680px);
+    width: min(calc(100% - 40px), 680px);
     padding: 64px 0 84px;
   }
 
@@ -1172,17 +1318,33 @@
     margin-left: auto;
   }
 
-  .ap-case-study > div {
-    position: static;
-    width: 100%;
-    max-height: none;
-    margin-top: 14px;
-    transform: none;
-    text-align: left;
+  .ap-case-study-heading,
+  .ap-case-study-stack {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 
-  .ap-case-study {
-    width: 100%;
+  .ap-case-study-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ap-case-study-grid section,
+  .ap-case-study-grid section:first-child,
+  .ap-case-study-grid section:last-child {
+    padding: 24px 0;
+  }
+
+  .ap-case-study-grid section + section {
+    border-top: 1px solid var(--ap-hairline);
+    border-left: 0;
+  }
+
+  .ap-project-dark .ap-case-study-grid section + section {
+    border-color: rgba(255, 255, 255, 0.16);
+  }
+
+  .ap-case-study-grid section > span {
+    margin-bottom: 16px;
   }
 
   .ap-section-heading {
@@ -1293,8 +1455,7 @@
     text-align: left;
   }
 
-  .ap-case-study > div {
-    width: calc(100vw - 40px);
+  .ap-case-study-panel {
     padding: 22px;
   }
 
@@ -1374,7 +1535,7 @@
   }
 
   .ap-pill-small {
-    min-height: 32px;
+    min-height: 44px;
     padding: 6px 12px;
     font-size: 12px;
   }

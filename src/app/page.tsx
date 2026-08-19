@@ -1,4 +1,6 @@
 import VisitLogger from "@/components/VisitLogger";
+import PortfolioHeader from "@/components/PortfolioHeader";
+import CaseStudy from "@/components/CaseStudy";
 import type { WorkItem } from "@/components/Work";
 import { portfolioData } from "@/data/portfolio";
 import {
@@ -7,7 +9,6 @@ import {
   ChevronRight,
   Download,
   Mail,
-  Menu,
 } from "lucide-react";
 import Image from "next/image";
 import "./portfolio.css";
@@ -56,52 +57,11 @@ export default function Home() {
         Skip to main content
       </a>
 
-      <header className="ap-global-nav">
-        <nav className="ap-global-nav-inner" aria-label="Primary navigation">
-          <a
-            className="ap-wordmark"
-            href="#about"
-            aria-label="Maneesha Barandeniya, home"
-          >
-            MB
-          </a>
-          <div className="ap-desktop-links">
-            {primaryNav.map(([label, href]) => (
-              <a key={label} href={href}>
-                {label}
-              </a>
-            ))}
-          </div>
-          <a className="ap-global-contact" href={hero.actions.email}>
-            Contact
-          </a>
-          <details className="ap-mobile-menu">
-            <summary aria-label="Open navigation">
-              <Menu size={19} aria-hidden />
-            </summary>
-            <nav aria-label="Mobile navigation">
-              {primaryNav.map(([label, href]) => (
-                <a key={label} href={href}>
-                  {label}
-                  <ChevronRight size={16} aria-hidden />
-                </a>
-              ))}
-            </nav>
-          </details>
-        </nav>
-      </header>
-
-      <nav className="ap-subnav" aria-label="Portfolio navigation">
-        <div className="ap-subnav-inner">
-          <a href="#about" className="ap-subnav-title">
-            Maneesha Barandeniya
-          </a>
-          <span className="ap-subnav-role">Senior Frontend Engineer</span>
-          <a className="ap-pill ap-pill-small" href={hero.actions.resumeView}>
-            View résumé
-          </a>
-        </div>
-      </nav>
+      <PortfolioHeader
+        emailHref={hero.actions.email}
+        items={primaryNav}
+        resumeHref={hero.actions.resumeView}
+      />
 
       <div id="main-content">
         <section className="ap-hero" id="about">
@@ -214,34 +174,6 @@ export default function Home() {
                           <ArrowUpRight size={17} aria-hidden />
                         </a>
                       ) : null}
-                      <details className="ap-case-study">
-                        <summary>
-                          Case study
-                          <ChevronRight size={17} aria-hidden />
-                        </summary>
-                        <div>
-                          <section>
-                            <h3>Challenge</h3>
-                            <p>{item.context}</p>
-                          </section>
-                          <section>
-                            <h3>Approach</h3>
-                            <p>{item.approach}</p>
-                          </section>
-                          <section>
-                            <h3>System</h3>
-                            <p>{item.system}</p>
-                          </section>
-                          <div
-                            className="ap-stack-row"
-                            aria-label={`${item.name} technology stack`}
-                          >
-                            {item.stack.map((entry) => (
-                              <span key={`${item.name}-${entry}`}>{entry}</span>
-                            ))}
-                          </div>
-                        </div>
-                      </details>
                     </div>
                   </div>
 
@@ -259,6 +191,8 @@ export default function Home() {
                     </dl>
                   </div>
                 </div>
+
+                <CaseStudy item={item} />
               </article>
             );
           })}
