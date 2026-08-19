@@ -36,7 +36,7 @@ export const portfolioData = {
       "Frontend systems • Mobile products • AI-driven workflows",
     firstName: "Maneesha",
     lastName: "Barandeniya",
-    role: "Senior React Developer",
+    role: "Senior Frontend Engineer",
     company: "Dubai Technologies",
     period: "Nov 2024 - Present",
     imageSrc: "/profile.png",
@@ -59,7 +59,7 @@ export const portfolioData = {
     title: "Building experiences that work beautifully at scale.",
     paragraphs: [
 
-      "I'm a Senior React Developer with 6+ years of experience building modern web and mobile applications using React.js, Next.js, React Native, and TypeScript. I enjoy turning complex business requirements into intuitive, high-performance user experiences.",
+      "I'm a Senior Frontend Engineer with 6+ years of experience building modern web and mobile applications using React.js, Next.js, React Native, and TypeScript. I enjoy turning complex business requirements into intuitive, high-performance user experiences.",
 
       "Throughout my career, I've worked across startups, SaaS products, fintech platforms, enterprise applications, and real-time mobility systems. My experience spans frontend architecture, reusable component systems, API integrations, authentication, state management, and cross-platform development.",
 
@@ -83,7 +83,7 @@ export const portfolioData = {
   experience: [
     {
       period: "11/2024 - Present",
-      role: "Senior React Developer",
+      role: "Senior Frontend Engineer",
       company: "Dubai Technologies",
       location: "Dubai, UAE",
       mapLabel: "UAE",
