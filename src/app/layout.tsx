@@ -16,9 +16,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Maneesha Barandeniya | Senior React Developer",
+  title: "Maneesha Barandeniya | Senior Frontend Engineer",
   description:
-    "Portfolio for Maneesha Barandeniya, a Senior React Developer specializing in React.js, TypeScript, Next.js, React Native, SaaS, FinTech, and AI-driven products.",
+    "Portfolio for Maneesha Barandeniya, a Senior Frontend Engineer specializing in React.js, TypeScript, Next.js, React Native, SaaS, FinTech, and AI-driven products.",
   authors: [{ name: "Maneesha Barandeniya" }],
 };
 
