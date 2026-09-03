@@ -279,17 +279,36 @@
 .dz-dock-item svg {
   width: 52%;
   height: 52%;
+  /* set here rather than per icon so the outline set can never drift apart */
+  stroke-width: 2;
+}
+
+/* solid brand glyphs carry more ink than an outline — size them down to match */
+.dz-dock-brand svg {
+  width: 46%;
+  height: 46%;
 }
 
 .dz-dock-avatar {
+  position: relative;
   background: #a9e6f5;
   padding: 0;
 }
 
+/*
+ * profile.png is a full-body cut-out. Measured head box in the 1370x1371
+ * source: y 165-827, x 372-926, so the face centre is x=649 — 36px left of the
+ * image centre. Centring the image therefore pushes the face off-axis. These
+ * values map a 919px square crop (head = 72% of it, centred on x=649) onto the
+ * chip: width 1370/919, offsets -189.5/919 and -55/919.
+ */
 .dz-dock-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  position: absolute;
+  left: -20.6%;
+  top: -6%;
+  width: 149.1%;
+  height: auto;
+  max-width: none;
 }
 
 /* ============================================================
