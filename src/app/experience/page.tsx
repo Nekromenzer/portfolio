@@ -1,0 +1,77 @@
+import { ArrowUpRight } from "lucide-react";
+import type { Metadata } from "next";
+import ContactCta from "@/components/design/ContactCta";
+import DockNav from "@/components/design/DockNav";
+import SiteFooter from "@/components/design/SiteFooter";
+import TopMeta from "@/components/design/TopMeta";
+import { portfolioData } from "@/data/portfolio";
+import "../design.css";
+
+export const metadata: Metadata = {
+  title: "Experience | Maneesha Barandeniya",
+  description:
+    "Six years of frontend delivery across Dubai Technologies, Parkway Labs, Qualia Tech International and Treeloq.",
+  alternates: { canonical: "/experience" },
+};
+
+export default function ExperiencePage() {
+  const { experience, experienceSection } = portfolioData;
+
+  return (
+    <main className="dz dz-dark">
+      <a className="dz-skip" href="#main">
+        Skip to main content
+      </a>
+
+      <TopMeta />
+
+      <header className="dz-skills-hero" id="main">
+        <h1>{experienceSection.title}</h1>
+      </header>
+
+      <div className="dz-body">
+        <div className="dz-list">
+          {experience.map((role) => (
+            <article className="dz-role" key={`${role.company}-${role.period}`}>
+              <div>
+                <p className="dz-role-period">
+                  {role.period}
+                  {role.isCurrent ? <em>{experienceSection.currentBadge}</em> : null}
+                </p>
+                <h2>{role.role}</h2>
+                <p className="dz-role-company">
+                  {role.company} · {role.location}
+                </p>
+              </div>
+
+              <div>
+                <p className="dz-role-body">{role.body}</p>
+                <div className="dz-role-projects">
+                  {role.projects.map((project) => (
+                    <div
+                      className="dz-role-project"
+                      key={`${role.company}-${project.title}`}
+                    >
+                      <h3>{project.title}</h3>
+                      <p>{project.description}</p>
+                      {"href" in project && project.href ? (
+                        <a href={project.href} target="_blank" rel="noreferrer">
+                          Visit product
+                          <ArrowUpRight size={14} aria-hidden />
+                        </a>
+                      ) : null}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <ContactCta />
+      <SiteFooter />
+      <DockNav />
+    </main>
+  );
+}

@@ -1,0 +1,1317 @@
+/*
+ * Design system ported from Figma "Portfoloio (Community)"
+ * File: NdnvXOoWpWCwEQUpq1jTtc — frames Home (7:14), Skills (56:20), Projects (79:287)
+ *
+ * The Figma canvas is a fixed 1920px artboard. Every token below is expressed as
+ * clamp(min, <design px / 19.2>vw, <design px>) so the rendered page is pixel-exact
+ * at a 1920px viewport and scales down cleanly underneath it.
+ */
+
+.dz {
+  /* ---- palette (exact Figma fills) ---- */
+  --dz-white: #ffffff;
+  --dz-black: #000000;
+  --dz-card: #1e1e1e;
+  --dz-chip: #141414;
+  --dz-dock: #171717;
+  --dz-dock-chip: #262626;
+  --dz-dock-active: #d4d4d4;
+  --dz-dim: #aaaaaa;
+  --dz-grey: #616161;
+  --dz-label: #7e7e7e;
+  --dz-hair: #aeaeae;
+  --dz-accent: #455ce9;
+
+  /* ---- type scale ---- */
+  --dz-t300: clamp(52px, 15.625vw, 300px);
+  --dz-t140: clamp(40px, 7.2917vw, 140px);
+  --dz-t100: clamp(34px, 5.2083vw, 100px);
+  --dz-t80: clamp(30px, 4.1667vw, 80px);
+  --dz-t77: clamp(30px, 4.0104vw, 77px);
+  --dz-t40: clamp(21px, 2.0833vw, 40px);
+  --dz-t30: clamp(19px, 1.5625vw, 30px);
+  --dz-t28: clamp(18px, 1.4583vw, 28px);
+  --dz-t24: clamp(16px, 1.25vw, 24px);
+  --dz-t22: clamp(14px, 1.1458vw, 22px);
+  --dz-t20: clamp(14px, 1.0417vw, 20px);
+  --dz-t16: clamp(12px, 0.8333vw, 16px);
+
+  /* ---- spacing ---- */
+  --dz-pad: clamp(20px, 6.9271vw, 133px); /* 133 side margin */
+  --dz-gap100: clamp(48px, 5.2083vw, 100px);
+  --dz-gap113: clamp(52px, 5.8854vw, 113px);
+  --dz-gap70: clamp(36px, 3.6458vw, 70px);
+  --dz-gap66: clamp(34px, 3.4375vw, 66px);
+  --dz-gap60: clamp(30px, 3.125vw, 60px);
+  --dz-gap40: clamp(20px, 2.0833vw, 40px);
+  --dz-gap30: clamp(16px, 1.5625vw, 30px);
+  --dz-gap29: clamp(16px, 1.5104vw, 29px);
+  --dz-gap20: clamp(12px, 1.0417vw, 20px);
+
+  /* ---- radii ---- */
+  --dz-r42: clamp(18px, 2.1875vw, 42px);
+  --dz-r32: clamp(18px, 1.6667vw, 32px);
+
+  --dz-font-inter: var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif;
+  --dz-font-dm: var(--font-dm-sans), "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --dz-font-mono: var(--font-plex-mono), "IBM Plex Mono", ui-monospace, monospace;
+
+  display: block;
+  width: 100%;
+  min-height: 100dvh;
+  margin: 0;
+  background: var(--dz-white);
+  color: var(--dz-black);
+  font-family: var(--dz-font-inter);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+.dz-dark {
+  background: var(--dz-black);
+  color: var(--dz-white);
+}
+
+.dz *,
+.dz *::before,
+.dz *::after {
+  box-sizing: border-box;
+}
+
+:where(.dz) :where(h1, h2, h3, h4, p, figure, dl, dd) {
+  margin: 0;
+}
+
+/*
+ * :where() keeps this reset at zero specificity. As a plain `.dz a` rule it
+ * outranked every component class that sets a colour on an anchor — which
+ * rendered the dock icons, the footer arrow and the "Get in touch" label in the
+ * inherited page colour instead of their own.
+ */
+:where(.dz a) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.dz-skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 12px 20px;
+  background: var(--dz-black);
+  color: var(--dz-white);
+  font-size: var(--dz-t16);
+}
+
+.dz-skip:focus {
+  left: 16px;
+  top: 16px;
+}
+
+.dz :focus-visible {
+  outline: 2px solid var(--dz-accent);
+  outline-offset: 4px;
+}
+
+/* ============================================================
+   Shell / top meta bar   (Figma "Frame 16": 1797 wide, y=37)
+   ============================================================ */
+
+.dz-shell {
+  width: 100%;
+  padding-inline: var(--dz-pad);
+}
+
+.dz-topbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--dz-gap40);
+  padding-block: clamp(18px, 1.927vw, 37px);
+  padding-inline: clamp(16px, 3.2292vw, 62px);
+}
+
+.dz-topbar-brand {
+  font-family: var(--dz-font-inter);
+  font-weight: 500;
+  font-size: var(--dz-t20);
+  line-height: 1.21;
+}
+
+.dz-topbar-note {
+  max-width: clamp(240px, 31.25vw, 600px);
+  font-family: var(--dz-font-inter);
+  font-weight: 300;
+  font-size: var(--dz-t20);
+  line-height: 1.21;
+  text-align: right;
+}
+
+/* ============================================================
+   Hero  (Figma "Frame 15": 1920x972, image fill)
+   ============================================================ */
+
+.dz-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: clamp(560px, 50.625vw, 972px);
+  overflow: hidden;
+  color: var(--dz-white);
+  isolation: isolate;
+}
+
+/* Flat #a3a7a8 field with the cut-out portrait centred on it, as in the frame. */
+.dz-hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: #a3a7a8;
+}
+
+.dz-hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  filter: grayscale(1) contrast(1.02);
+}
+
+/* the oversized headline — Inter 500 / 300px, deliberately wider than the frame */
+.dz-hero-title {
+  position: absolute;
+  left: 50%;
+  top: 48.77%; /* y=474 of 972 */
+  transform: translateX(-50%);
+  margin: 0;
+  white-space: nowrap;
+  font-family: var(--dz-font-inter);
+  font-weight: 500;
+  font-size: var(--dz-t300);
+  line-height: 1.2103;
+  letter-spacing: -0.005em;
+  color: var(--dz-white);
+  pointer-events: none;
+}
+
+.dz-hero-arrow {
+  position: absolute;
+  left: 63.7%; /* x=1223 of 1920 */
+  top: 37.24%; /* y=362 of 972 */
+  display: grid;
+  place-items: center;
+  width: clamp(64px, 7.3438vw, 141px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 50%;
+  color: var(--dz-white);
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.dz-hero-arrow:hover {
+  background: rgba(255, 255, 255, 0.16);
+  transform: translate(2px, -2px);
+}
+
+.dz-hero-arrow svg {
+  width: 52%;
+  height: 52%;
+  stroke-width: 1.2;
+}
+
+/* ============================================================
+   Dock navigation  (Figma "Frame 3": 456x70, r=18, #171717)
+   ============================================================ */
+
+.dz-dock {
+  position: fixed;
+  left: 50%;
+  bottom: clamp(16px, 2.2vw, 42px);
+  z-index: 60;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: clamp(6px, 0.5729vw, 11px);
+  padding: clamp(6px, 0.5208vw, 10px) clamp(12px, 1.0417vw, 20px);
+  border-radius: clamp(14px, 0.9375vw, 18px);
+  background: var(--dz-dock);
+  /* inset ring instead of a border so the bar stays exactly 456x70 */
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2),
+    0 18px 48px rgba(0, 0, 0, 0.45);
+}
+
+/* #171717 vanishes against a black page, so lift the surface and the ring */
+.dz-dark .dz-dock {
+  background: #262626;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.3),
+    0 18px 52px rgba(0, 0, 0, 0.7);
+}
+
+.dz-dark .dz-dock-item {
+  background: #3d3d3d;
+}
+
+.dz-dock-item {
+  display: grid;
+  place-items: center;
+  width: clamp(38px, 2.6042vw, 50px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--dz-dock-chip);
+  color: var(--dz-white);
+  overflow: hidden;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.dz-dock-item:hover {
+  transform: translateY(-3px);
+  background: #3a3a3a;
+}
+
+.dz-dock-item[aria-current="page"] {
+  background: var(--dz-dock-active);
+  color: var(--dz-black);
+}
+
+.dz-dock-item svg {
+  width: 52%;
+  height: 52%;
+}
+
+.dz-dock-avatar {
+  background: #a9e6f5;
+  padding: 0;
+}
+
+.dz-dock-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ============================================================
+   Intro row  (Figma "Frame 13")
+   ============================================================ */
+
+.dz-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dz-gap100);
+  padding: var(--dz-gap100) var(--dz-pad);
+}
+
+/* Figma "Frame 13": 1015 + 487 columns inside a 1654 row, 73px minimum gutter. */
+.dz-intro {
+  display: grid;
+  grid-template-columns: 61.366% 29.444%;
+  justify-content: space-between;
+  gap: clamp(24px, 3.8021vw, 73px);
+  align-items: start;
+}
+
+.dz-intro-lead {
+  font-family: var(--dz-font-dm);
+  font-weight: 500;
+  font-size: var(--dz-t40);
+  line-height: 1.3025;
+  letter-spacing: -0.01em;
+}
+
+.dz-intro-side {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 0.8854vw, 17px);
+  align-items: flex-end;
+  text-align: right;
+}
+
+.dz-intro-note {
+  font-family: var(--dz-font-dm);
+  font-weight: 300;
+  font-size: var(--dz-t22);
+  line-height: 1.3;
+  color: var(--dz-grey);
+}
+
+.dz-link-lg {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(10px, 1.0417vw, 20px);
+  font-family: var(--dz-font-dm);
+  font-weight: 400;
+  font-size: var(--dz-t30);
+  line-height: 1.3;
+}
+
+.dz-link-lg span {
+  display: grid;
+  place-items: center;
+  width: clamp(34px, 2.5vw, 48px);
+  aspect-ratio: 1;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.dz-link-lg span svg {
+  width: 62%;
+  height: 62%;
+}
+
+.dz-link-lg:hover span {
+  transform: translate(3px, -3px);
+  background: var(--dz-black);
+  color: var(--dz-white);
+}
+
+.dz-dark .dz-link-lg:hover span {
+  background: var(--dz-white);
+  color: var(--dz-black);
+}
+
+/* ============================================================
+   Section header  (Figma "Headre")
+   ============================================================ */
+
+.dz-works {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dz-gap66);
+}
+
+.dz-headline {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, clamp(240px, 22.2917vw, 428px));
+  gap: var(--dz-gap40);
+  align-items: start;
+}
+
+.dz-headline h2 {
+  font-family: var(--dz-font-inter);
+  font-weight: 500;
+  font-size: var(--dz-t100);
+  line-height: 1.21;
+  letter-spacing: -0.02em;
+}
+
+.dz-headline p {
+  font-family: var(--dz-font-dm);
+  font-weight: 300;
+  font-size: var(--dz-t22);
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   Project grid  (Figma "Projects Grid": 2 x 807 cols, 40 gap,
+   image 807x470 r=42, 29 gap, caption row 68 arrow + 13 gap)
+   ============================================================ */
+
+.dz-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--dz-gap40);
+}
+
+.dz-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dz-gap29);
+}
+
+.dz-card-link {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dz-gap29);
+}
+
+.dz-card-media {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 807 / 470;
+  border-radius: var(--dz-r42);
+  overflow: hidden;
+  background: var(--dz-chip);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dz-card-link:hover .dz-card-media {
+  transform: translateY(-6px);
+}
+
+/* logo assets carry their own white plate, so present them as an app icon */
+.dz-card-logo {
+  display: grid;
+  place-items: center;
+  width: clamp(104px, 11.98vw, 230px);
+  aspect-ratio: 1;
+  padding: clamp(10px, 1.0417vw, 20px);
+  border-radius: clamp(18px, 1.9792vw, 38px);
+  background: var(--dz-white);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.34);
+}
+
+.dz-card-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.dz-card-initials {
+  font-family: var(--dz-font-inter);
+  font-weight: 500;
+  font-size: clamp(48px, 6.25vw, 120px);
+  line-height: 1;
+  color: var(--dz-white);
+  mix-blend-mode: luminosity;
+}
+
+.dz-card-tag {
+  position: absolute;
+  left: clamp(16px, 1.8229vw, 35px);
+  top: clamp(16px, 1.8229vw, 35px);
+  font-family: var(--dz-font-mono);
+  font-weight: 400;
+  font-size: var(--dz-t16);
+  line-height: 1.3;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.dz-card-foot {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 0.6771vw, 13px);
+}
+
+.dz-card-foot span {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: clamp(40px, 3.5417vw, 68px);
+  aspect-ratio: 1;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.dz-card-foot span svg {
+  width: 62%;
+  height: 62%;
+}
+
+.dz-card-link:hover .dz-card-foot span {
+  transform: translate(3px, -3px);
+  background: var(--dz-black);
+  color: var(--dz-white);
+}
+
+.dz-dark .dz-card-link:hover .dz-card-foot span {
+  background: var(--dz-white);
+  color: var(--dz-black);
+}
+
+.dz-card-foot h3 {
+  margin: 0;
+  font-family: var(--dz-font-inter);
+  font-weight: 400;
+  font-size: var(--dz-t40);
+  line-height: 1.21;
+  letter-spacing: -0.01em;
+}
+
+/* ---- project copy: outcome line + expandable case study ---- */
+
+.dz-card-summary {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4px, 0.3125vw, 6px);
+  max-width: 62ch;
+}
+
+.dz-card-meta {
+  font-family: var(--dz-font-mono);
+  font-weight: 400;
+  font-size: var(--dz-t16);
+  line-height: 1.4;
+  letter-spacing: 0.03em;
+  color: var(--dz-label);
+}
+
+.dz-card-summary p:not(.dz-card-meta) {
+  font-family: var(--dz-font-dm);
+  font-weight: 300;
+  font-size: var(--dz-t20);
+  line-height: 1.45;
+  color: var(--dz-grey);
+}
+
+.dz-dark .dz-card-summary p:not(.dz-card-meta) {
+  color: var(--dz-dim);
+}
+
+.dz-case {
+  border-top: 1px solid rgba(0, 0, 0, 0.14);
+}
+
+.dz-dark .dz-case {
+  border-top-color: rgba(255, 255, 255, 0.18);
+}
+
+.dz-case > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--dz-gap20);
+  padding: clamp(14px, 1.0417vw, 20px) 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.dz-case > summary::-webkit-details-marker {
+  display: none;
+}
+
+.dz-case > summary strong {
+  display: block;
+  font-family: var(--dz-font-dm);
+  font-weight: 500;
+  font-size: var(--dz-t20);
+  line-height: 1.3;
+}
+
+.dz-case > summary small {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--dz-font-dm);
+  font-weight: 300;
+  font-size: var(--dz-t16);
+  line-height: 1.4;
+  color: var(--dz-label);
+}
+
+.dz-case-chevron {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: clamp(32px, 2.1875vw, 42px);
+  aspect-ratio: 1;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  transition: transform 0.25s ease;
+}
+
+.dz-case-chevron svg {
+  width: 56%;
+  height: 56%;
+}
+
+.dz-case[open] .dz-case-chevron {
+  transform: rotate(90deg);
+}
+
+.dz-case-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dz-gap30);
+  padding-bottom: clamp(16px, 1.5625vw, 30px);
+}
+
+/* the tile is only half the grid, so the three steps stack with a number gutter */
+.dz-case-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dz-gap20);
+}
+
+.dz-case-grid section {
+  display: grid;
+  grid-template-columns: clamp(26px, 1.875vw, 36px) minmax(0, 1fr);
+  column-gap: clamp(8px, 0.8333vw, 16px);
+}
+
+.dz-case-grid span {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  font-family: var(--dz-font-mono);
+  font-size: var(--dz-t16);
+  line-height: 1.5;
+  color: var(--dz-label);
+}
+
+.dz-case-grid h4 {
+  grid-column: 2;
+  font-family: var(--dz-font-dm);
+  font-weight: 500;
+  font-size: var(--dz-t20);
+  line-height: 1.3;
+}
+
+.dz-case-grid p {
+  grid-column: 2;
+  margin-top: clamp(4px, 0.3125vw, 6px);
+  font-family: var(--dz-font-dm);
+  font-weight: 300;
+  font-size: var(--dz-t16);
+  line-height: 1.55;
+  color: var(--dz-grey);
+}
+
+.dz-dark .dz-case-grid p {
+  color: var(--dz-dim);
+}
+
+.dz-case-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--dz-gap20);
+  margin: 0;
+}
+
+.dz-case-stats dt {
+  font-family: var(--dz-font-inter);
+  font-weight: 500;
+  font-size: var(--dz-t24);
+  line-height: 1.21;
+  letter-spacing: -0.01em;
+}
+
+.dz-case-stats dd {
+  margin-top: 2px;
+  font-family: var(--dz-font-dm);
+  font-weight: 300;
+  font-size: var(--dz-t16);
+  line-height: 1.4;
+  color: var(--dz-label);
+}
+
+.dz-case-stack strong {
+  display: block;
+  margin-bottom: clamp(8px, 0.625vw, 12px);
+  font-family: var(--dz-font-mono);
+  font-weight: 400;
+  font-size: var(--dz-t16);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--dz-label);
+}
+
+/* pill button  (Figma "Explore btn": 215x50, r=37, 1px #aeaeae) */
+.dz-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(8px, 0.5729vw, 11px);
+  align-self: center;
+  padding: clamp(9px, 0.6771vw, 13px) clamp(20px, 1.7708vw, 34px);
+  border: 1px solid var(--dz-hair);
+  border-radius: 999px;
+  font-family: var(--dz-font-inter);
+  font-weight: 400;
+  font-size: var(--dz-t20);
+  line-height: 1.21;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.dz-pill::before {
+  content: "";
+  width: clamp(5px, 0.3646vw, 7px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.dz-pill:hover {
+  background: var(--dz-black);
+  border-color: var(--dz-black);
+  color: var(--dz-white);
+}
+
+.dz-dark .dz-pill:hover {
+  background: var(--dz-white);
+  border-color: var(--dz-white);
+  color: var(--dz-black);
+}
+
+/* ============================================================
+   Page title  (Figma Projects "welcome to my realm…": Inter 500 80px)
+   ============================================================ */
+
+/* Figma Projects title: x=133, y=316, 1078 wide; grid starts at y=889. */
+.dz-page-title {
+  max-width: clamp(320px, 56.146vw, 1078px);
+  padding-top: clamp(40px, 8.802vw, 169px);
+  padding-bottom: clamp(32px, 14.6875vw, 282px);
+  font-family: var(--dz-font-inter);
+  font-weight: 500;
+  font-size: var(--dz-t80);
+  line-height: 1.21;
+  letter-spacing: -0.02em;
+}
+
+/* ============================================================
+   CTA  (Figma "Frame 26": 1920x634, pad 66/133, gap 113)
+   ============================================================ */
+
+.dz-cta {
+  position: relative;
+  padding: var(--dz-gap66) var(--dz-pad) clamp(38px, 3.906vw, 75px);
+  background: var(--dz-white);
+  color: var(--dz-black);
+}
+
+.dz-dark .dz-cta {
+  background: var(--dz-black);
+  color: var(--dz-white);
+}
+
+.dz-cta-eyebrow {
+  font-family: var(--dz-font-mono);
+  font-weight: 400;
+  font-size: var(--dz-t20);
+  line-height: 1.3;
+}
+
+.dz-cta h2 {
+  padding-top: 2px;
+  font-family: var(--dz-font-inter);
+  font-weight: 400;
+  font-size: var(--dz-t77);
+  line-height: 1.2104;
+  letter-spacing: -0.02em;
+}
+
+.dz-cta-rule {
+  position: relative;
+  margin-top: clamp(40px, 5.885vw, 113px);
+  border: 0;
+  border-top: 1px solid currentColor;
+}
+
+.dz-cta-circle {
+  position: absolute;
+  right: clamp(0px, 9.427vw, 181px); /* disc left edge lands on x=1328 */
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: clamp(120px, 14.479vw, 278px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--dz-accent);
+  color: var(--dz-white);
+  font-family: var(--dz-font-inter);
+  font-weight: 400;
+  font-size: var(--dz-t24);
+  line-height: 1.21;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.dz-cta-circle:hover {
+  transform: translateY(-50%) scale(1.05);
+}
+
+.dz-cta-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(24px, 2.9688vw, 57px);
+  margin-top: clamp(40px, 5.885vw, 113px);
+}
+
+.dz-cta-details > div {
+  min-width: clamp(180px, 21.5625vw, 414px);
+}
+
+.dz-cta-details dt {
+  font-family: var(--dz-font-inter);
+  font-weight: 400;
+  font-size: var(--dz-t16);
+  line-height: 1.21;
+  color: var(--dz-label);
+}
+
+.dz-cta-details dd {
+  font-family: var(--dz-font-inter);
+  font-weight: 400;
+  font-size: var(--dz-t24);
+  line-height: 1.21;
+}
+
+/* ============================================================
+   Footer  (Figma "Frame 27": 1920x565, #000)
+   ============================================================ */
+
+.dz-footer {
+  position: relative;
+  padding: clamp(28px, 2.9688vw, 57px) clamp(18px, 1.875vw, 36px)
+    clamp(14px, 0.9375vw, 18px);
+  background: var(--dz-black);
+  color: var(--dz-white);
+  overflow: hidden;
+}
+
+.dz-dark .dz-footer {
+  background: var(--dz-white);
+  color: var(--dz-black);
+}
+
+.dz-footer-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--dz-gap40);
+  padding-left: clamp(6px, 1.7188vw, 33px); /* tagline at x=69, disc flush at x=1742 */
+}
+
+.dz-footer-top p {
+  font-family: var(--dz-font-dm);
+  font-weight: 300;
+  font-size: var(--dz-t100);
+  line-height: 1.302;
+  letter-spacing: -0.01em;
+}
+
+.dz-footer-arrow {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: clamp(56px, 7.3958vw, 142px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--dz-white);
+  color: var(--dz-black);
+  transition: transform 0.25s ease;
+}
+
+.dz-dark .dz-footer-arrow {
+  background: var(--dz-black);
+  color: var(--dz-white);
+}
+
+.dz-footer-arrow:hover {
+  transform: translate(3px, -3px);
+}
+
+.dz-footer-arrow svg {
+  width: 51%;
+  height: 51%;
+}
+
+.dz-footer-mark {
+  display: block;
+  margin-top: max(-43px, -2.2396vw); /* wordmark rides up to y=156 */
+  font-family: var(--dz-font-dm);
+  font-weight: 500;
+  font-size: clamp(44px, 15.625vw, 300px);
+  line-height: 1.302;
+  letter-spacing: clamp(1px, 0.3125vw, 6px);
+  white-space: nowrap;
+}
+
+.dz-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ============================================================
+   Skills  (Figma "Frame 26" on Skills: #000, pad 66/133, gap 70)
+   3 masonry columns 586 / 442 / 586, gap 20
+   card r=32 #1e1e1e pad 50/40 — icon chips 100 r=200 #141414 gap 30
+   ============================================================ */
+
+/* Figma Skills title: centred, y=310, 1212 wide; masonry starts at y=988. */
+.dz-skills-hero {
+  padding: clamp(48px, 8.49vw, 163px) var(--dz-pad) clamp(40px, 16.354vw, 314px);
+  text-align: center;
+}
+
+.dz-skills-hero h1 {
+  max-width: clamp(320px, 63.125vw, 1212px);
+  margin: 0 auto;
+  font-family: var(--dz-font-dm);
+  font-weight: 400;
+  font-size: var(--dz-t140);
+  line-height: 1.302;
+  letter-spacing: -0.02em;
+}
+
+.dz-masonry {
+  display: grid;
+  grid-template-columns: minmax(0, 586fr) minmax(0, 442fr) minmax(0, 586fr);
+  gap: var(--dz-gap20);
+  align-items: start;
+  padding: 0 var(--dz-pad) var(--dz-gap70);
+}
+
+.dz-masonry-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dz-gap20);
+}
+
+.dz-skill-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dz-gap30);
+  padding: clamp(24px, 2.6042vw, 50px) clamp(20px, 2.0833vw, 40px);
+  border-radius: var(--dz-r32);
+  background: var(--dz-card);
+  color: var(--dz-white);
+}
+
+.dz-skill-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--dz-gap30);
+}
+
+.dz-skill-chip {
+  display: grid;
+  place-items: center;
+  width: clamp(52px, 5.2083vw, 100px);
+  aspect-ratio: 1;
+  padding: clamp(12px, 1.25vw, 24px);
+  border-radius: 200px;
+  background: var(--dz-chip);
+  font-family: var(--dz-font-dm);
+  font-weight: 500;
+  font-size: var(--dz-t20);
+  line-height: 1;
+  text-align: center;
+  color: var(--dz-white);
+}
+
+.dz-skill-chip img,
+.dz-skill-chip svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.dz-skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(8px, 0.5729vw, 11px);
+}
+
+.dz-tag {
+  padding: clamp(6px, 0.5729vw, 11px) clamp(12px, 1.0417vw, 20px);
+  border-radius: 200px;
+  background: #f1f1f1;
+  font-family: var(--dz-font-dm);
+  font-weight: 300;
+  font-size: var(--dz-t20);
+  line-height: 1.3;
+  color: #141414;
+}
+
+/* on a dark ground the chip inverts to the Figma #141414 fill */
+.dz-dark .dz-tag,
+.dz-skill-card .dz-tag {
+  background: var(--dz-chip);
+  color: var(--dz-white);
+}
+
+.dz-skill-text h2 {
+  font-family: var(--dz-font-dm);
+  font-weight: 500;
+  font-size: var(--dz-t28);
+  line-height: 1.3036;
+  letter-spacing: -0.01em;
+}
+
+.dz-skill-text p {
+  margin-top: clamp(6px, 0.5208vw, 10px);
+  font-family: var(--dz-font-dm);
+  font-weight: 300;
+  font-size: var(--dz-t20);
+  line-height: 1.3;
+  color: var(--dz-dim);
+}
+
+/* ============================================================
+   Timeline / list pages (experience, education) — same tokens
+   ============================================================ */
+
+.dz-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dz-gap20);
+}
+
+/* long-form copy block — mirrors the "Driven by curiosity" lead pairing */
+.dz-prose {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--dz-gap40) clamp(24px, 3.8021vw, 73px);
+}
+
+.dz-prose p {
+  font-family: var(--dz-font-dm);
+  font-weight: 300;
+  font-size: var(--dz-t22);
+  line-height: 1.55;
+  color: var(--dz-dim);
+}
+
+.dz-dark .dz-prose p:first-child {
+  color: var(--dz-white);
+}
+
+.dz-cards-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--dz-gap20);
+}
+
+.dz-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dz-gap66);
+}
+
+.dz-role {
+  display: grid;
+  grid-template-columns: minmax(0, 586fr) minmax(0, 1048fr);
+  gap: var(--dz-gap40);
+  padding: clamp(24px, 2.6042vw, 50px) clamp(20px, 2.0833vw, 40px);
+  border-radius: var(--dz-r32);
+  background: var(--dz-card);
+  color: var(--dz-white);
+}
+
+.dz-role-period {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(8px, 0.5729vw, 11px);
+  font-family: var(--dz-font-mono);
+  font-weight: 400;
+  font-size: var(--dz-t20);
+  line-height: 1.3;
+  color: var(--dz-dim);
+}
+
+.dz-role-period em {
+  padding: 4px clamp(10px, 0.7292vw, 14px);
+  border-radius: 200px;
+  background: var(--dz-accent);
+  color: var(--dz-white);
+  font-family: var(--dz-font-inter);
+  font-size: var(--dz-t16);
+  font-style: normal;
+}
+
+.dz-role h2 {
+  margin-top: clamp(8px, 0.7292vw, 14px);
+  font-family: var(--dz-font-dm);
+  font-weight: 500;
+  font-size: var(--dz-t28);
+  line-height: 1.3036;
+}
+
+.dz-role-company {
+  margin-top: clamp(4px, 0.3125vw, 6px);
+  font-family: var(--dz-font-dm);
+  font-weight: 300;
+  font-size: var(--dz-t20);
+  line-height: 1.3;
+  color: var(--dz-dim);
+}
+
+.dz-role-body {
+  font-family: var(--dz-font-dm);
+  font-weight: 300;
+  font-size: var(--dz-t20);
+  line-height: 1.45;
+  color: var(--dz-dim);
+}
+
+.dz-role-projects {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--dz-gap20);
+  margin-top: var(--dz-gap30);
+}
+
+.dz-role-project {
+  padding: clamp(16px, 1.25vw, 24px);
+  border-radius: var(--dz-r32);
+  background: var(--dz-chip);
+}
+
+.dz-role-project h3 {
+  font-family: var(--dz-font-dm);
+  font-weight: 500;
+  font-size: var(--dz-t20);
+  line-height: 1.3;
+  color: var(--dz-white);
+}
+
+.dz-role-project p {
+  margin-top: clamp(4px, 0.3125vw, 6px);
+  font-family: var(--dz-font-dm);
+  font-weight: 300;
+  font-size: var(--dz-t16);
+  line-height: 1.5;
+  color: var(--dz-dim);
+}
+
+.dz-role-project a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: clamp(6px, 0.5208vw, 10px);
+  font-family: var(--dz-font-inter);
+  font-size: var(--dz-t16);
+  color: var(--dz-white);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* stat / education blocks reuse the card shell */
+.dz-tiles {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--dz-gap20);
+}
+
+.dz-tile {
+  padding: clamp(24px, 2.6042vw, 50px) clamp(20px, 2.0833vw, 40px);
+  border-radius: var(--dz-r32);
+  background: var(--dz-card);
+  color: var(--dz-white);
+}
+
+.dz-tile strong {
+  display: block;
+  font-family: var(--dz-font-inter);
+  font-weight: 500;
+  font-size: var(--dz-t40);
+  line-height: 1.21;
+  letter-spacing: -0.02em;
+}
+
+.dz-tile span {
+  display: block;
+  margin-top: clamp(6px, 0.5208vw, 10px);
+  font-family: var(--dz-font-dm);
+  font-weight: 300;
+  font-size: var(--dz-t20);
+  line-height: 1.3;
+  color: var(--dz-dim);
+}
+
+.dz-tile small {
+  display: block;
+  margin-top: clamp(4px, 0.3125vw, 6px);
+  font-family: var(--dz-font-mono);
+  font-weight: 400;
+  font-size: var(--dz-t16);
+  line-height: 1.4;
+  color: var(--dz-label);
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+
+@media (max-width: 1100px) {
+  .dz-masonry {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dz-tiles,
+  .dz-cards-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dz-role {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 860px) {
+  .dz-intro,
+  .dz-headline {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dz-intro-side,
+  .dz-headline p {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .dz-intro-side {
+    align-items: flex-start;
+  }
+
+  .dz-grid,
+  .dz-role-projects,
+  .dz-case-stats {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dz-hero {
+    height: clamp(520px, 96vw, 720px);
+  }
+
+  .dz-hero-title {
+    font-size: clamp(44px, 13vw, 120px);
+  }
+
+  .dz-cta-circle {
+    position: static;
+    transform: none;
+    margin-top: clamp(24px, 6vw, 48px);
+    margin-left: auto;
+  }
+
+  .dz-cta-circle:hover {
+    transform: scale(1.05);
+  }
+
+  .dz-body {
+    padding-bottom: clamp(90px, 24vw, 140px);
+  }
+
+  .dz-masonry {
+    padding-bottom: clamp(90px, 24vw, 140px);
+  }
+
+  .dz-prose {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .dz-masonry,
+  .dz-tiles,
+  .dz-cards-3 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dz-footer-top {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dz * {
+    transition-duration: 0.01ms !important;
+  }
+}
