@@ -60,11 +60,11 @@ export const portfolioData = {
     title: "Building experiences that work beautifully at scale.",
     paragraphs: [
 
-      "I'm a Senior Frontend Engineer with 6+ years of experience building modern web and mobile applications using React.js, Next.js, React Native, and TypeScript. I enjoy turning complex business requirements into intuitive, high-performance user experiences.",
+      "I'm a Senior Frontend Engineer with 7 years of experience building scalable, high-performance web and mobile applications using React.js, Next.js, React Native, and TypeScript. I enjoy turning complex business requirements into intuitive, high-performance user experiences.",
 
       "Throughout my career, I've worked across startups, SaaS products, fintech platforms, enterprise applications, and real-time mobility systems. My experience spans frontend architecture, reusable component systems, API integrations, authentication, state management, and cross-platform development.",
 
-      "Most recently at Dubai Technologies, I've been developing enterprise geospatial applications using React micro-frontends, Leaflet, Mapbox, and ArcGIS. My work focuses on scalable frontend architecture, performance optimization, and rendering large geolocation datasets efficiently.",
+      "Most recently at Dubai Technologies, I've been developing data-intensive geospatial applications using React micro-frontends, Leaflet, and Mapbox. My work focuses on scalable frontend architecture, performance optimization, and rendering large geolocation datasets efficiently.",
 
       "Beyond commercial projects, I enjoy building products from the ground up. My personal projects include an AI-powered Resume Management System that helps candidates tailor resumes using AI, and TurnTaxi, a real-time ride-hailing platform featuring live tracking, trip management, and optimized Firebase synchronization.",
 
@@ -92,13 +92,13 @@ export const portfolioData = {
       latitude: 25.2048,
       longitude: 55.2708,
       isCurrent: true,
-      body: "Developing enterprise geospatial applications using React, Micro-frontends, Leaflet, Mapbox and ArcGIS. Focused on high-performance rendering, modular architecture, and scalable mapping solutions.",
+      body: "Designing scalable React micro-frontends and data-intensive geospatial interfaces with Leaflet and Mapbox. Improved geolocation data rendering performance by approximately 60% through component and data-processing optimization.",
       projects: [
         {
           title: "Enterprise Geospatial Mapping Platform",
           place: "Dubai, UAE",
           description:
-            "Developed advanced geospatial visualization using Leaflet, Mapbox and ArcGIS with custom clustering, polylines and large-scale marker rendering.",
+            "Developed responsive, data-intensive geospatial interfaces using React.js, Leaflet and Mapbox, with a focus on efficient rendering at scale.",
         },
         {
           title: "Micro-Frontend Enterprise Platform",
@@ -207,7 +207,7 @@ export const portfolioData = {
         {
           title: "Modern Web Development",
           description:
-            "Built responsive and accessible UIs using React.js, HTML5, CSS3, JavaScript ES6+, and Tailwind CSS, ensuring cross-device compatibility and fast load times. Improved page load performance by 40%, leading to a smoother user experience.",
+            "Built responsive and accessible UIs using React.js, HTML5, CSS3, JavaScript ES6+, and Tailwind CSS, ensuring cross-device compatibility and fast load times. Improved page load performance by approximately 30%, leading to a smoother user experience.",
         },
         {
           title: "Machine Learning Personalization",
@@ -247,7 +247,7 @@ export const portfolioData = {
     ["60%", "faster geolocation rendering", "Leaflet / Mapbox platform"],
     ["40%", "Firestore usage optimized", "TurnTaxi real-time sync"],
     ["30%", "page load reduction", "Treeloq resume builder"],
-    ["6+", "years production React", "SaaS, FinTech, enterprise"],
+    ["7", "years of experience", "SaaS, FinTech, enterprise"],
     ["20+", "tools and frameworks", "Frontend and mobile stack"],
     ["1000s", "users served", "multi-region SaaS products"],
     ["4", "major role chapters", "startup to enterprise delivery"],
@@ -590,12 +590,6 @@ export const portfolioData = {
       place: "University of Colombo",
       period: "01/2021 - 01/2022",
       result: "IT",
-    },
-    {
-      title: "English Language & Literature",
-      place: "University Of Cambridge",
-      period: "2016 - 2017",
-      result: "B+",
     },
   ] satisfies EducationItem[],
 

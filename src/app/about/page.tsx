@@ -11,7 +11,7 @@ import "../design.css";
 export const metadata: Metadata = {
   title: "About | Maneesha Barandeniya",
   description:
-    "Maneesha Barandeniya — Senior Frontend Engineer with 6+ years across SaaS, fintech, enterprise and real-time mobility products.",
+    "Maneesha Barandeniya — Senior Frontend Engineer with 7 years across SaaS, fintech, enterprise and real-time mobility products.",
   alternates: { canonical: "/about" },
 };
 

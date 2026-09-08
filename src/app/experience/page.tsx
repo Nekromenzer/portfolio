@@ -10,7 +10,7 @@ import "../design.css";
 export const metadata: Metadata = {
   title: "Experience | Maneesha Barandeniya",
   description:
-    "Six years of frontend delivery across Dubai Technologies, Parkway Labs, Qualia Tech International and Treeloq.",
+    "Seven years of frontend delivery across Dubai Technologies, Parkway Labs, Qualia Tech International and Treeloq.",
   alternates: { canonical: "/experience" },
 };
 

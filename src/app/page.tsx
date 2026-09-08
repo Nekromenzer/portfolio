@@ -42,7 +42,7 @@ export default function Home() {
           </p>
           <h1>Product experiences built for real-world scale.</h1>
           <p className="dz-hero-summary">
-            6+ years building high-performance web, mobile, and AI products
+            7 years building high-performance web, mobile, and AI products
             with React, Next.js, React Native, and TypeScript.
           </p>
           <div className="dz-hero-actions">

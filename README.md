@@ -18,17 +18,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Resume PDF
 
-The portfolio serves resume view/download links through `/api/resume`, which proxies the Reactive Resume PDF API without exposing the API key in the browser.
-
-Set these environment variables locally and in production:
-
-```bash
-RXRESUME_API_KEY=your_reactive_resume_api_key
-RXRESUME_RESUME_ID=your_resume_id
-RXRESUME_BASE_URL=https://rxresu.me
-```
-
-If the API key or resume ID is missing, the route falls back to `public/maneesha-gimshan.pdf`.
+The portfolio serves resume view/download links through `/api/resume`. Both modes use
+`public/maneesha-barandeniya.pdf` as the single source of truth, so replacing that file
+updates the résumé shown and downloaded by the site.
 
 ## Visit Logs
 
