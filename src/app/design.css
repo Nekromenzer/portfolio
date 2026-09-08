@@ -18,7 +18,7 @@
   --dz-dock-active: #d4d4d4;
   --dz-dim: #aaaaaa;
   --dz-grey: #616161;
-  --dz-label: #7e7e7e;
+  --dz-label: #626267;
   --dz-hair: #aeaeae;
   --dz-accent: #455ce9;
 
@@ -33,8 +33,8 @@
   --dz-t28: clamp(18px, 1.4583vw, 28px);
   --dz-t24: clamp(16px, 1.25vw, 24px);
   --dz-t22: clamp(14px, 1.1458vw, 22px);
-  --dz-t20: clamp(14px, 1.0417vw, 20px);
-  --dz-t16: clamp(12px, 0.8333vw, 16px);
+  --dz-t20: clamp(15px, 1.0417vw, 20px);
+  --dz-t16: clamp(14px, 0.8333vw, 16px);
 
   /* ---- spacing ---- */
   --dz-pad: clamp(20px, 6.9271vw, 133px); /* 133 side margin */
@@ -68,6 +68,8 @@
 }
 
 .dz-dark {
+  --dz-dim: #c2c2c7;
+  --dz-label: #a9a9af;
   background: var(--dz-black);
   color: var(--dz-white);
 }
@@ -494,6 +496,14 @@
   gap: var(--dz-gap40);
 }
 
+.dz-projects-grid > .dz-card:first-child {
+  grid-column: 1 / -1;
+}
+
+.dz-projects-grid > .dz-card:first-child .dz-card-media {
+  aspect-ratio: 1654 / 610;
+}
+
 .dz-card {
   display: flex;
   flex-direction: column;
@@ -563,8 +573,13 @@
 
 .dz-card-foot {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: clamp(8px, 0.6771vw, 13px);
+  min-height: clamp(58px, 4.5vw, 78px);
+}
+
+.dz-card-foot > div {
+  min-width: 0;
 }
 
 .dz-card-foot span {
@@ -619,6 +634,7 @@
   flex-direction: column;
   gap: clamp(4px, 0.3125vw, 6px);
   max-width: 62ch;
+  min-height: 4.9em;
 }
 
 .dz-card-meta {
@@ -1068,12 +1084,6 @@
   padding: 0 var(--dz-pad) var(--dz-gap70);
 }
 
-.dz-masonry-col {
-  display: flex;
-  flex-direction: column;
-  gap: var(--dz-gap20);
-}
-
 .dz-skill-card {
   display: flex;
   flex-direction: column;
@@ -1082,6 +1092,10 @@
   border-radius: var(--dz-r32);
   background: var(--dz-card);
   color: var(--dz-white);
+}
+
+.dz-masonry .dz-skill-card {
+  height: 100%;
 }
 
 .dz-skill-icons {
@@ -1252,6 +1266,40 @@
   color: var(--dz-dim);
 }
 
+.dz-role-deliveries {
+  margin-top: var(--dz-gap30);
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.dz-role-deliveries > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 48px;
+  cursor: pointer;
+  list-style: none;
+  color: var(--dz-white);
+  font-family: var(--dz-font-dm);
+  font-size: var(--dz-t20);
+  font-weight: 500;
+}
+
+.dz-role-deliveries > summary::-webkit-details-marker {
+  display: none;
+}
+
+.dz-role-deliveries > summary svg {
+  flex: none;
+  width: 19px;
+  height: 19px;
+  transition: transform 180ms ease;
+}
+
+.dz-role-deliveries[open] > summary svg {
+  transform: rotate(180deg);
+}
+
 .dz-role-projects {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1378,6 +1426,19 @@
     grid-template-columns: minmax(0, 1fr);
   }
 
+  .dz-projects-grid > .dz-card:first-child {
+    grid-column: auto;
+  }
+
+  .dz-projects-grid > .dz-card:first-child .dz-card-media {
+    aspect-ratio: 807 / 470;
+  }
+
+  .dz-card-foot,
+  .dz-card-summary {
+    min-height: 0;
+  }
+
   .dz-hero {
     min-height: min(780px, 100svh);
   }
@@ -1421,6 +1482,13 @@
 
   .dz-prose {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dz-prose p,
+  .dz-role-body,
+  .dz-role-project p,
+  .dz-skill-text p {
+    font-weight: 400;
   }
 }
 

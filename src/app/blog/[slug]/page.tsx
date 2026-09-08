@@ -1,4 +1,5 @@
 import SiteBackground from "@/components/common/SiteBackground";
+import BlogNav from "@/components/blog/BlogNav";
 import { getBlogPost, getBlogPosts, markdownToHtml } from "@/lib/blog";
 import { siteUrl } from "@/lib/site";
 import { ArrowLeft, CalendarDays } from "lucide-react";
@@ -69,12 +70,7 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <main className="site-shell blog-shell" data-active-section="blog">
       <SiteBackground sideMarkInitial="MG" sideMarkLabel="Blog" />
-      <header className="blog-nav">
-        <Link href="/">HOME</Link>
-        <Link href="/blog" className="is-active">
-          BLOG
-        </Link>
-      </header>
+      <BlogNav />
 
       <article className="section blog-article">
         <Link href="/blog" className="blog-back-link">

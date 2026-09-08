@@ -16,12 +16,6 @@ export const metadata: Metadata = {
 export default function SkillsPage() {
   const { stackGroups } = portfolioData;
 
-  // Figma "Headre" — three masonry columns at 586 / 442 / 586, 20px gutters.
-  const columns: (typeof stackGroups)[] = [[], [], []];
-  stackGroups.forEach((group, index) => {
-    columns[index % 3].push(group);
-  });
-
   return (
     <main className="dz dz-dark">
       <a className="dz-skip" href="#main">
@@ -35,24 +29,20 @@ export default function SkillsPage() {
       </header>
 
       <div className="dz-masonry">
-        {columns.map((column, columnIndex) => (
-          <div className="dz-masonry-col" key={`column-${columnIndex}`}>
-            {column.map((group) => (
-              <article className="dz-skill-card" key={group.title}>
-                <div className="dz-skill-tags">
-                  {group.items.map((item) => (
-                    <span className="dz-tag" key={`${group.title}-${item}`}>
-                      {item}
-                    </span>
-                  ))}
-                </div>
-                <div className="dz-skill-text">
-                  <h2>{group.title}</h2>
-                  <p>{group.note}</p>
-                </div>
-              </article>
-            ))}
-          </div>
+        {stackGroups.map((group) => (
+          <article className="dz-skill-card" key={group.title}>
+            <div className="dz-skill-tags">
+              {group.items.map((item) => (
+                <span className="dz-tag" key={`${group.title}-${item}`}>
+                  {item}
+                </span>
+              ))}
+            </div>
+            <div className="dz-skill-text">
+              <h2>{group.title}</h2>
+              <p>{group.note}</p>
+            </div>
+          </article>
         ))}
       </div>
 

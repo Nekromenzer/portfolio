@@ -1,4 +1,5 @@
 import SiteBackground from "@/components/common/SiteBackground";
+import BlogNav from "@/components/blog/BlogNav";
 import { getBlogPosts } from "@/lib/blog";
 import { ArrowUpRight, CalendarDays, PenLine } from "lucide-react";
 import type { Metadata } from "next";
@@ -41,12 +42,7 @@ export default function BlogPage() {
   return (
     <main className="site-shell blog-shell" data-active-section="blog">
       <SiteBackground sideMarkInitial="MG" sideMarkLabel="Blog" />
-      <header className="blog-nav">
-        <Link href="/">HOME</Link>
-        <Link href="/blog" className="is-active">
-          BLOG
-        </Link>
-      </header>
+      <BlogNav />
 
       <section className="section blog-hero">
         <p className="eyebrow">BLOG</p>

@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ChevronDown } from "lucide-react";
 import type { Metadata } from "next";
 import ContactCta from "@/components/design/ContactCta";
 import DockNav from "@/components/design/DockNav";
@@ -46,23 +46,32 @@ export default function ExperiencePage() {
 
               <div>
                 <p className="dz-role-body">{role.body}</p>
-                <div className="dz-role-projects">
-                  {role.projects.map((project) => (
-                    <div
-                      className="dz-role-project"
-                      key={`${role.company}-${project.title}`}
-                    >
-                      <h3>{project.title}</h3>
-                      <p>{project.description}</p>
-                      {"href" in project && project.href ? (
-                        <a href={project.href} target="_blank" rel="noreferrer">
-                          Visit product
-                          <ArrowUpRight size={14} aria-hidden />
-                        </a>
-                      ) : null}
-                    </div>
-                  ))}
-                </div>
+                <details className="dz-role-deliveries" open={role.isCurrent}>
+                  <summary>
+                    <span>
+                      View {role.projects.length} delivered project
+                      {role.projects.length === 1 ? "" : "s"}
+                    </span>
+                    <ChevronDown aria-hidden />
+                  </summary>
+                  <div className="dz-role-projects">
+                    {role.projects.map((project) => (
+                      <div
+                        className="dz-role-project"
+                        key={`${role.company}-${project.title}`}
+                      >
+                        <h3>{project.title}</h3>
+                        <p>{project.description}</p>
+                        {"href" in project && project.href ? (
+                          <a href={project.href} target="_blank" rel="noreferrer">
+                            Visit product
+                            <ArrowUpRight size={14} aria-hidden />
+                          </a>
+                        ) : null}
+                      </div>
+                    ))}
+                  </div>
+                </details>
               </div>
             </article>
           ))}

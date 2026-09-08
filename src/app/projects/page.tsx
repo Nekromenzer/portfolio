@@ -35,7 +35,7 @@ export default function ProjectsPage() {
           </span>
         </header>
 
-        <div className="dz-grid">
+        <div className="dz-grid dz-projects-grid">
           {work.map((item) => (
             <ProjectCard
               item={item}
