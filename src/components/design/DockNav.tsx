@@ -1,13 +1,8 @@
 "use client";
 
-import { Boxes, Briefcase, FileText, House, SquareTerminal } from "lucide-react";
-import Image from "next/image";
+import { Briefcase, FileText, FolderKanban, House, UserRound } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-  GithubBrandIcon,
-  LinkedinBrandIcon,
-} from "@/components/icons/BrandIcons";
 import { portfolioData } from "@/data/portfolio";
 
 /**
@@ -24,9 +19,9 @@ export default function DockNav() {
 
   const routes = [
     { href: "/", label: "Home", Icon: House },
-    { href: "/skills", label: "Skills", Icon: SquareTerminal },
-    { href: "/projects", label: "Projects", Icon: Boxes },
+    { href: "/projects", label: "Work", Icon: FolderKanban },
     { href: "/experience", label: "Experience", Icon: Briefcase },
+    { href: "/about", label: "About", Icon: UserRound },
   ];
 
   return (
@@ -40,46 +35,13 @@ export default function DockNav() {
           aria-current={pathname === href ? "page" : undefined}
         >
           <Icon aria-hidden />
+          <span>{label}</span>
         </Link>
       ))}
 
-      <Link
-        className="dz-dock-item dz-dock-avatar"
-        href="/about"
-        aria-label="About"
-        aria-current={pathname === "/about" ? "page" : undefined}
-      >
-        <Image
-          src={portfolioData.hero.imageSrc}
-          alt=""
-          width={160}
-          height={160}
-          aria-hidden
-        />
-      </Link>
-
       <a className="dz-dock-item" href={actions.resumeView} aria-label="Resume">
         <FileText aria-hidden />
-      </a>
-
-      <a
-        className="dz-dock-item dz-dock-brand"
-        href={actions.github}
-        target="_blank"
-        rel="noreferrer"
-        aria-label="GitHub"
-      >
-        <GithubBrandIcon />
-      </a>
-
-      <a
-        className="dz-dock-item dz-dock-brand"
-        href={actions.linkedin}
-        target="_blank"
-        rel="noreferrer"
-        aria-label="LinkedIn"
-      >
-        <LinkedinBrandIcon />
+        <span>Résumé</span>
       </a>
     </nav>
   );

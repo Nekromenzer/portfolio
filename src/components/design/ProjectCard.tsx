@@ -1,21 +1,44 @@
 import { ArrowUpRight, ChevronRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import type { CSSProperties } from "react";
 import type { WorkItem } from "@/components/Work";
 
 type Props = {
   item: WorkItem;
+  anchorId?: string;
   /** outcome line under the title */
   summary?: boolean;
   /** expandable challenge / approach / system / stack panel */
   caseStudy?: boolean;
+  /** route used when this card should lead into the portfolio story */
+  detailsHref?: string;
 };
 
 /**
  * Figma project tile — 807x470 media at r=42, 29px gap, then a caption row of a
  * 68px circled arrow + 13px gap + Inter 400/40px title.
  */
-export default function ProjectCard({ item, summary, caseStudy }: Props) {
+export function projectAnchor(name: string) {
+  return `project-${name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "")}`;
+}
+
+export default function ProjectCard({
+  item,
+  anchorId,
+  summary,
+  caseStudy,
+  detailsHref,
+}: Props) {
+  const actionLabel = detailsHref
+    ? "View case study"
+    : item.href
+      ? "Visit project"
+      : "Project details";
+
   const media = (
     <div
       className="dz-card-media"
@@ -49,11 +72,19 @@ export default function ProjectCard({ item, summary, caseStudy }: Props) {
       <span>
         <ArrowUpRight aria-hidden strokeWidth={2} />
       </span>
-      <h3>{item.name}</h3>
+      <div>
+        <h3>{item.name}</h3>
+        <small>{actionLabel}</small>
+      </div>
     </div>
   );
 
-  const head = item.href ? (
+  const head = detailsHref ? (
+    <Link className="dz-card-link" href={detailsHref}>
+      {media}
+      {caption}
+    </Link>
+  ) : item.href ? (
     <a
       className="dz-card-link"
       href={item.href}
@@ -72,7 +103,7 @@ export default function ProjectCard({ item, summary, caseStudy }: Props) {
   );
 
   return (
-    <article className="dz-card">
+    <article className="dz-card" id={anchorId}>
       {head}
 
       {summary ? (

@@ -18,7 +18,7 @@ export default function SiteFooter() {
       </div>
 
       <span className="dz-footer-mark" aria-hidden>
-        Maneeshaaa
+        Maneesha.
       </span>
       <span className="dz-sr-only">Maneesha Barandeniya</span>
     </footer>

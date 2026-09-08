@@ -1,9 +1,9 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowDown, ArrowUpRight, FileText } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import ContactCta from "@/components/design/ContactCta";
 import DockNav from "@/components/design/DockNav";
-import ProjectCard from "@/components/design/ProjectCard";
+import ProjectCard, { projectAnchor } from "@/components/design/ProjectCard";
 import SiteFooter from "@/components/design/SiteFooter";
 import TopMeta from "@/components/design/TopMeta";
 import VisitLogger from "@/components/VisitLogger";
@@ -11,7 +11,7 @@ import { portfolioData } from "@/data/portfolio";
 import "./design.css";
 
 export default function Home() {
-  const { about, hero, work, workSection } = portfolioData;
+  const { about, hero, work } = portfolioData;
   const featured = work.slice(0, 4);
 
   return (
@@ -35,11 +35,26 @@ export default function Home() {
 
         <TopMeta />
 
-        <a className="dz-hero-arrow" href="#main" aria-label="Scroll to content">
-          <ArrowUpRight aria-hidden strokeWidth={1.2} />
-        </a>
-
-        <h1 className="dz-hero-title">{hero.role}</h1>
+        <div className="dz-hero-content">
+          <p className="dz-hero-kicker">
+            {hero.firstName} {hero.lastName} · {hero.role}
+          </p>
+          <h1>Product experiences built for real-world scale.</h1>
+          <p className="dz-hero-summary">
+            6+ years building high-performance web, mobile, and AI products
+            with React, Next.js, React Native, and TypeScript.
+          </p>
+          <div className="dz-hero-actions">
+            <a className="dz-button dz-button-primary" href="#work">
+              View selected work
+              <ArrowDown aria-hidden strokeWidth={2} />
+            </a>
+            <a className="dz-button dz-button-ghost" href={hero.actions.resumeView}>
+              <FileText aria-hidden strokeWidth={2} />
+              View résumé
+            </a>
+          </div>
+        </div>
       </section>
 
       <div className="dz-body" id="main">
@@ -60,13 +75,18 @@ export default function Home() {
         {/* Figma "Frame 18" — header + 2x2 grid + explore pill */}
         <section className="dz-works" id="work">
           <div className="dz-headline">
-            <h2>Impressive Works</h2>
-            <p>{workSection.copy}</p>
+            <h2>Selected work</h2>
+            <p>Products, systems, and measurable outcomes.</p>
           </div>
 
           <div className="dz-grid">
             {featured.map((item) => (
-              <ProjectCard item={item} key={item.name} summary />
+              <ProjectCard
+                item={item}
+                key={item.name}
+                summary
+                detailsHref={`/projects#${projectAnchor(item.name)}`}
+              />
             ))}
           </div>
 
