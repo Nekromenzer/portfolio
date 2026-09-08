@@ -275,8 +275,8 @@
 .dz-dock {
   position: fixed;
   left: 50%;
-  top: 20px;
-  bottom: auto;
+  top: auto;
+  bottom: max(20px, env(safe-area-inset-bottom));
   z-index: 60;
   transform: translateX(-50%);
   display: grid;
