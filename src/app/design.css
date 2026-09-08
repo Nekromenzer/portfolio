@@ -275,7 +275,8 @@
 .dz-dock {
   position: fixed;
   left: 50%;
-  bottom: clamp(16px, 2.2vw, 42px);
+  top: 20px;
+  bottom: auto;
   z-index: 60;
   transform: translateX(-50%);
   display: grid;
@@ -1529,6 +1530,7 @@
   }
 
   .dz-dock {
+    top: auto;
     bottom: max(10px, env(safe-area-inset-bottom));
     gap: 3px;
     width: calc(100% - 16px);
