@@ -25,10 +25,11 @@ export default function Home() {
       <section className="dz-hero">
         <div className="dz-hero-media">
           <Image
-            src={hero.imageSrc}
+            src={hero.heroImageSrc}
             alt={hero.imageAlt}
             fill
             sizes="100vw"
+            quality={95}
             priority
           />
         </div>

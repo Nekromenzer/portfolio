@@ -40,6 +40,7 @@ export const portfolioData = {
     company: "Dubai Technologies",
     period: "Nov 2024 - Present",
     imageSrc: "/profile.png",
+    heroImageSrc: "/hero-image.png",
     imageAlt: "Maneesha Barandeniya",
     sideMarkInitial: "MG",
     sideMarkLabel: "Maneesha",
