@@ -9,6 +9,10 @@ export type WorkItem = {
   name: string;
   label: string;
   meta: string;
+  cover?: {
+    src: string;
+    alt: string;
+  };
   logo: {
     initials: string;
     src?: string;

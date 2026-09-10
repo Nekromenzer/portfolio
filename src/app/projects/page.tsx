@@ -10,7 +10,7 @@ import "../design.css";
 export const metadata: Metadata = {
   title: "Projects | Maneesha Barandeniya",
   description:
-    "Multi-tenant SaaS, real-time mobility, fintech, AI and open-source systems built by Maneesha Barandeniya.",
+    "Travel, multi-tenant SaaS, real-time mobility, fintech, AI and open-source systems built by Maneesha Barandeniya.",
   alternates: { canonical: "/projects" },
 };
 

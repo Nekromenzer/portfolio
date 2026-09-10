@@ -262,6 +262,49 @@ export const portfolioData = {
 
   work: [
     {
+      name: "ReiseCeylon",
+      label: "TRAVEL PLATFORM • SEO & CONTENT SYSTEM",
+      meta: "Live Product • Sri Lanka Travel",
+      cover: {
+        src: "/projects-logo/reiseceylon-home.webp",
+        alt: "ReiseCeylon homepage presenting private journeys across Sri Lanka",
+      },
+      logo: {
+        initials: "RC",
+        alt: "ReiseCeylon",
+      },
+      context:
+        "A Sri Lankan travel business needed more than a polished brochure: it needed a fast, multilingual discovery experience that could earn search visibility, help real travellers explore the island, and turn that interest into direct journey enquiries.",
+      approach:
+        "Designed and built a story-led travel platform around destination discovery, practical journey planning, strong technical SEO, and a generative journal workflow that expands useful search content without removing editorial control.",
+      system:
+        "Next.js serves localized routes in English, German, French, and Dutch with responsive imagery, route-level metadata, canonical URLs, structured data, sitemaps, and lean client translation payloads. Sanity manages destinations and journal content, while GitHub Actions and OpenAI create multilingual blog drafts with validated internal links. Every generated article remains gated by human fact-checking, translation review, image ownership, scheduling, and approval before publication; Sanity webhooks then invalidate the relevant cached pages.",
+      outcome:
+        "A live, search-ready travel product that connects organic discovery to destination exploration and direct planning enquiries, supported by a scalable human-reviewed content engine rather than one-off pages.",
+      href: "https://www.reiseceylon.com/",
+      accent: "#d4a83f",
+      stats: [
+        ["4 Locales", "English, German, French, Dutch"],
+        ["75 Places", "Searchable Island Atlas"],
+        ["Draft → Review", "Human-Gated AI Publishing"],
+      ],
+      stack: [
+        "Next.js 16",
+        "React 19",
+        "TypeScript",
+        "next-intl",
+        "Sanity",
+        "OpenAI",
+        "GitHub Actions",
+        "Structured Data",
+        "Technical SEO",
+        "Vercel Analytics",
+        "GSAP",
+        "Leaflet",
+        "Resend",
+      ],
+    },
+    {
       name: "Showloomz",
       label: "MULTI-TENANT SAAS • PORTFOLIO PLATFORM",
       meta: "Product • Jun 2026 - Present",

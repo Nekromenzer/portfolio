@@ -533,6 +533,24 @@
   transform: translateY(-6px);
 }
 
+.dz-card-media-cover {
+  background: #062f25;
+}
+
+.dz-card-media-cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(2, 22, 17, 0.6) 0%, transparent 34%, rgba(2, 22, 17, 0.12) 100%);
+}
+
+.dz-card-cover {
+  object-fit: cover;
+  object-position: center;
+}
+
 /* logo assets carry their own white plate, so present them as an app icon */
 .dz-card-logo {
   display: grid;
@@ -562,8 +580,13 @@
 
 .dz-card-tag {
   position: absolute;
+  z-index: 2;
+  display: block;
   left: clamp(16px, 1.8229vw, 35px);
+  right: clamp(16px, 1.8229vw, 35px);
   top: clamp(16px, 1.8229vw, 35px);
+  width: fit-content;
+  max-width: calc(100% - clamp(32px, 3.6458vw, 70px));
   font-family: var(--dz-font-mono);
   font-weight: 400;
   font-size: var(--dz-t16);

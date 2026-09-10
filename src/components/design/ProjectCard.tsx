@@ -41,7 +41,7 @@ export default function ProjectCard({
 
   const media = (
     <div
-      className="dz-card-media"
+      className={`dz-card-media${item.cover ? " dz-card-media-cover" : ""}`}
       style={
         {
           background: `radial-gradient(120% 120% at 50% 30%, color-mix(in srgb, ${item.accent} 26%, #141414) 0%, #141414 72%)`,
@@ -49,7 +49,15 @@ export default function ProjectCard({
       }
     >
       <span className="dz-card-tag">{item.label}</span>
-      {item.logo.src ? (
+      {item.cover ? (
+        <Image
+          className="dz-card-cover"
+          src={item.cover.src}
+          alt={item.cover.alt}
+          fill
+          sizes="(max-width: 860px) 100vw, 86vw"
+        />
+      ) : item.logo.src ? (
         <span className="dz-card-logo">
           <Image
             src={item.logo.src}
