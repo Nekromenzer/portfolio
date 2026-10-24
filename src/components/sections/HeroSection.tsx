@@ -61,10 +61,6 @@ export default function HeroSection({ hero, pointer, topStack }: Props) {
             <FileText size={16} />
             {hero.actions.resumeViewLabel}
           </a>
-          <a className="resume-link" href={hero.actions.resumeDownload}>
-            <FileText size={16} />
-            {hero.actions.resumeLabel}
-          </a>
         </div>
       </div>
 

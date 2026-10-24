@@ -29,6 +29,8 @@ export type ContactItem = {
   external?: boolean;
 };
 
+export const resumeUrl = "https://rxresu.me/bagimshan/maneesha-gimshan-2026-eu";
+
 export const portfolioData = {
   navItems: ["ABOUT", "EXPERIENCE", "IMPACT", "WORK", "STACK", "BLOG", "CONTACT"],
   hero: {
@@ -49,9 +51,7 @@ export const portfolioData = {
       email: "mailto:bagimshan@gmail.com",
       github: "https://github.com/nekromenzer",
       linkedin: "https://www.linkedin.com/in/maneesha-gimshan/",
-      resumeView: "/api/resume?mode=view",
-      resumeDownload: "/api/resume?mode=download",
-      resumeLabel: "DOWNLOAD RESUME",
+      resumeView: resumeUrl,
       resumeViewLabel: "VIEW RESUME",
     },
   },
@@ -642,14 +642,9 @@ export const portfolioData = {
     items: [
       {
         label: "RESUME",
-        value: "Download PDF",
-        href: "/api/resume?mode=download",
-        icon: "resume",
-      },
-      {
-        label: "RESUME",
-        value: "View PDF",
-        href: "/api/resume?mode=view",
+        value: "View resume",
+        href: resumeUrl,
+        external: true,
         icon: "resume",
       },
       {
