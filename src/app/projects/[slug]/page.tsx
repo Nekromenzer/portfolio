@@ -6,8 +6,10 @@ import { notFound } from "next/navigation";
 import ContactCta from "@/components/design/ContactCta";
 import DockNav from "@/components/design/DockNav";
 import ProjectLogo from "@/components/design/ProjectLogo";
+import ProjectStory from "@/components/design/ProjectStory";
 import SiteFooter from "@/components/design/SiteFooter";
 import TopMeta from "@/components/design/TopMeta";
+import { projectStories } from "@/data/project-stories";
 import { getProject, projects } from "@/lib/projects";
 import "../../design.css";
 
@@ -38,12 +40,12 @@ export default async function ProjectPage({ params }: Props) {
     projects[
       (projects.findIndex((item) => item.slug === slug) + 1) % projects.length
     ];
-  const sections = [
+  const sections = projectStories[slug] ?? [
     { id: "overview", title: "The challenge", text: project.context },
     { id: "approach", title: "The approach", text: project.approach },
     { id: "architecture", title: "How it works", text: project.system },
     { id: "outcomes", title: "Outcomes & impact", text: project.outcome },
-  ];
+  ].map(({ id, title, text }) => ({ id, title, paragraphs: [text] }));
 
   return (
     <main className="dz">
@@ -63,7 +65,7 @@ export default async function ProjectPage({ params }: Props) {
           <div>
             <p className="dz-eyebrow">{project.label}</p>
             <h1>{project.name}</h1>
-            <p className="dz-project-description">{project.outcome}</p>
+            <p className="dz-project-description">{slug === "showloomz" ? "A home for the portfolio. A workspace for the business. Websites, galleries, client proofing, and invoicing — brought together for photographers and studios." : project.outcome}</p>
             <p className="dz-project-meta">{project.meta}</p>
             {project.href ? (
               <a
@@ -80,14 +82,6 @@ export default async function ProjectPage({ params }: Props) {
             <ProjectLogo item={project} />
           </div>
         </header>
-        <nav className="dz-project-sections" aria-label="Project sections">
-          {sections.map((section) => (
-            <a key={section.id} href={`#${section.id}`}>
-              {section.title}
-            </a>
-          ))}
-          <a href="#technology">Technology</a>
-        </nav>
         {project.cover ? (
           <figure className="dz-project-cover">
             <Image
@@ -100,7 +94,7 @@ export default async function ProjectPage({ params }: Props) {
             <figcaption>{project.cover.alt}</figcaption>
           </figure>
         ) : null}
-        <div className="dz-project-story">
+        {projectStories[slug] ? <ProjectStory chapters={sections} slug={slug} /> : <div className="dz-project-story">
           {sections.map((section, index) => (
             <section
               className="dz-project-chapter"
@@ -109,11 +103,13 @@ export default async function ProjectPage({ params }: Props) {
               aria-labelledby={`${section.id}-title`}
             >
               <div>
-                <p className="dz-eyebrow">0{index + 1}</p>
+                <p className="dz-eyebrow">{String(index + 1).padStart(2, "0")}</p>
                 <h2 id={`${section.id}-title`}>{section.title}</h2>
               </div>
               <div>
-                <p>{section.text}</p>
+                {section.paragraphs.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
                 {section.id === "outcomes" ? (
                   <dl className="dz-project-results">
                     {project.stats.map(([value, label]) => (
@@ -133,7 +129,7 @@ export default async function ProjectPage({ params }: Props) {
             aria-labelledby="technology-title"
           >
             <div>
-              <p className="dz-eyebrow">05</p>
+              <p className="dz-eyebrow">{String(sections.length + 1).padStart(2, "0")}</p>
               <h2 id="technology-title">Technology stack</h2>
             </div>
             <div className="dz-skill-tags">
@@ -144,7 +140,7 @@ export default async function ProjectPage({ params }: Props) {
               ))}
             </div>
           </section>
-        </div>
+        </div>}
         <nav className="dz-project-pagination" aria-label="More projects">
           <Link className="dz-text-link" href="/projects">
             <ArrowLeft size={16} aria-hidden /> All projects
