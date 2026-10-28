@@ -4,6 +4,7 @@ import {
 } from "lucide-react";
 import type { ProjectChapter } from "@/data/project-stories";
 import { reiseceylonPresentation } from "@/data/reiseceylon-story";
+import { turntaxiPresentation } from "@/data/turntaxi-story";
 
 const groups = [
   {
@@ -74,7 +75,7 @@ const showloomzPresentation = {
   groups,
   previews,
   technologies,
-  ai: {
+  spotlight: {
     chapterId: "agentic-development",
     eyebrow: "HOW IT WAS BUILT",
     title: "An agentic development workflow.",
@@ -87,7 +88,9 @@ const showloomzPresentation = {
 };
 
 export default function ProjectStory({ chapters, slug }: { chapters: ProjectChapter[]; slug: string }) {
-  const presentation = slug === "reiseceylon" ? reiseceylonPresentation : showloomzPresentation;
+  const presentation = slug === "turntaxi"
+    ? turntaxiPresentation
+    : slug === "reiseceylon" ? reiseceylonPresentation : showloomzPresentation;
   const chapter = (id: string) => chapters.find((item) => item.id === id)!;
 
   return (
@@ -150,19 +153,19 @@ export default function ProjectStory({ chapters, slug }: { chapters: ProjectChap
         ))}
       </div>
 
-      <section className="dz-case-ai" aria-labelledby="ai-workflow-title" id={presentation.ai.chapterId}>
+      <section className="dz-case-ai" aria-labelledby="workflow-highlight-title" id={presentation.spotlight.chapterId}>
         <div className="dz-case-section-heading">
-          <p className="dz-eyebrow"><Sparkles size={15} aria-hidden /> {presentation.ai.eyebrow}</p>
-          <h2 id="ai-workflow-title">{presentation.ai.title}</h2>
-          <p>{presentation.ai.description}</p>
+          <p className="dz-eyebrow"><Sparkles size={15} aria-hidden /> {presentation.spotlight.eyebrow}</p>
+          <h2 id="workflow-highlight-title">{presentation.spotlight.title}</h2>
+          <p>{presentation.spotlight.description}</p>
         </div>
-        <div className="dz-case-ai-tools" aria-label={presentation.ai.toolsLabel}>
-          {presentation.ai.tools.map((tool) => <span key={tool}>{tool}</span>)}
+        <div className="dz-case-ai-tools" aria-label={presentation.spotlight.toolsLabel}>
+          {presentation.spotlight.tools.map((tool) => <span key={tool}>{tool}</span>)}
         </div>
         <details className="dz-case-detail">
-          <summary><strong>{presentation.ai.summary}</strong><ChevronDown size={18} aria-hidden /></summary>
+          <summary><strong>{presentation.spotlight.summary}</strong><ChevronDown size={18} aria-hidden /></summary>
           <div className="dz-case-prose dz-case-detail-body">
-            {chapter(presentation.ai.chapterId).paragraphs.map((text) => <p key={text}>{text}</p>)}
+            {chapter(presentation.spotlight.chapterId).paragraphs.map((text) => <p key={text}>{text}</p>)}
           </div>
         </details>
       </section>

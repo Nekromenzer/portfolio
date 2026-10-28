@@ -1,4 +1,5 @@
 import { reiseceylonChapters } from "./reiseceylon-story";
+import { turntaxiChapters } from "./turntaxi-story";
 
 export type ProjectChapter = {
   id: string;
@@ -9,6 +10,7 @@ export type ProjectChapter = {
 /** Detailed case studies stay on the server-rendered project page. */
 export const projectStories: Record<string, ProjectChapter[]> = {
   reiseceylon: reiseceylonChapters,
+  turntaxi: turntaxiChapters,
   showloomz: [
     {
       id: "overview",

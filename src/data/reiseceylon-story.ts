@@ -160,7 +160,7 @@ export const reiseceylonPresentation = {
     "content-freshness": ["Cache updates & content freshness", "Signed CMS webhooks and targeted invalidation across languages"],
     quality: ["Testing & operational tools", "Automation tests, content audits, migrations, and dry runs"],
   } as Record<string, string[]>,
-  ai: {
+  spotlight: {
     chapterId: "ai-publishing",
     eyebrow: "THE PUBLISHING PIPELINE",
     title: "AI-assisted content. Editorial control.",
