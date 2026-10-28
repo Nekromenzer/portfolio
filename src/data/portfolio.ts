@@ -49,6 +49,7 @@ export const portfolioData = {
     signal: "BUILDING: PRODUCT FRONTENDS • NOT: STATIC PAGES",
     actions: {
       email: "mailto:bagimshan@gmail.com",
+      whatsapp: "https://wa.me/971552883528",
       github: "https://github.com/nekromenzer",
       linkedin: "https://www.linkedin.com/in/maneesha-gimshan/",
       resumeView: resumeUrl,
