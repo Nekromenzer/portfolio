@@ -92,19 +92,36 @@ export const portfolioData = {
       latitude: 25.2048,
       longitude: 55.2708,
       isCurrent: true,
-      body: "Designing scalable React micro-frontends and data-intensive geospatial interfaces with Leaflet and Mapbox. Improved geolocation data rendering performance by approximately 60% through component and data-processing optimization.",
+      body: [
+        "Drove frontend development for government-sector applications used by Dubai’s **Roads and Transport Authority (RTA)** and port operations, delivering production-ready solutions with **React.js** and **TypeScript**.",
+        "Collaborated with backend engineers, product teams, and stakeholders to translate complex operational requirements into responsive, maintainable interfaces.",
+        "**Mentored frontend engineers** and delivered **knowledge transfer (KT)** sessions on application architecture, reusable components, and performance optimization to support onboarding and ongoing development.",
+      ],
       projects: [
         {
           title: "Enterprise Geospatial Mapping Platform",
           place: "Dubai, UAE",
-          description:
-            "Developed responsive, data-intensive geospatial interfaces using React.js, Leaflet and Mapbox, with a focus on efficient rendering at scale.",
+          description: [
+            "Developed interactive, data-intensive geospatial interfaces for RTA systems using **React.js**, **TypeScript**, **Leaflet**, and **Mapbox**, helping stakeholders visualize and manage complex operational and location data for **real-time decision-making**.",
+            "Improved location-data rendering performance by **approximately 60%** through component optimization, efficient geospatial data processing, and reduced unnecessary re-renders.",
+          ],
         },
         {
           title: "Micro-Frontend Enterprise Platform",
           place: "Dubai, UAE",
-          description:
-            "Worked across multiple React micro-frontends delivering reusable modules, scalable architecture and seamless cross-team integration.",
+          description: [
+            "Designed and implemented a scalable **React** **micro-frontend architecture** supporting modular development, **independent deployments**, and cross-team integration for government applications.",
+            "Built **custom, reusable React components** shared across micro-frontends to improve UI consistency, reduce duplicated work, and streamline maintenance.",
+            "Collaborated across teams and provided knowledge transfer on shared modules and integration patterns.",
+          ],
+        },
+        {
+          title: "Port Tracking System",
+          place: "Dubai, UAE",
+          description: [
+            "Developed responsive operational interfaces for a **port tracking system** using **React.js** and **TypeScript**, helping stakeholders visualize tracking data and monitor port operations.",
+            "Built **custom, reusable React components** and collaborated with backend engineers and stakeholders to translate operational requirements into maintainable features.",
+          ],
         },
       ],
     },
@@ -118,33 +135,42 @@ export const portfolioData = {
       latitude: 52.3676,
       longitude: 4.9041,
       isCurrent: false,
-      body: "Built React Native and React applications for fintech, telephony, crypto and real-estate platforms while leading frontend architecture and reusable component development.",
+      body: [
+        "Built **React Native** and **React** applications for fintech, telephony, crypto and real-estate platforms while leading **frontend architecture** and **reusable component development**.",
+      ],
       projects: [
         {
           title: "Tellit - Business Communication App",
           place: "Remote, Sweden",
           href: "https://www.tellit.se/",
-          description:
-            "Led the architecture and development of the Tellit mobile app from scratch, a B2B telephony solution integrating call management, personalized numbers, presence status, and mobile subscriptions. Engineered a seamless UI/UX, integrated advanced telephony APIs, and optimized Android and iOS delivery with cross-platform tools.",
+          description: [
+            "Led the architecture and development of the Tellit mobile app from scratch, a **B2B telephony** solution integrating call management, personalized numbers, presence status, and mobile subscriptions.",
+            "Engineered a seamless UI/UX, integrated advanced telephony **APIs**, and optimized **Android** and **iOS** delivery with cross-platform tools.",
+          ],
         },
         {
           title: "Tecta - Cloud-Based Real Estate Backoffice System",
           place: "Remote, Sweden",
           href: "https://tecta.se/",
-          description:
-            "Developed a secure real estate management platform enabling Swedish users to register properties via BankID. Focused on frontend architecture, plugin management, virtualized data handling, and responsive dashboards to streamline property and tenant oversight.",
+          description: [
+            "Developed a secure real estate management platform enabling Swedish users to register properties via **BankID**.",
+            "Focused on **frontend architecture**, plugin management, **virtualized data handling**, and responsive dashboards to streamline property and tenant oversight.",
+          ],
         },
         {
           title: "TradingBot - Crypto Trading Interface",
           place: "Global",
-          description:
-            "Built an intuitive trading dashboard that enabled users to automate strategies, monitor trends, and execute trades on Binance. Collaborated closely with design and backend teams to refine flows and ensure responsive, data-driven UI components.",
+          description: [
+            "Built an intuitive trading dashboard that enabled users to automate strategies, monitor trends, and execute trades on **Binance**.",
+            "Collaborated closely with design and backend teams to refine flows and ensure responsive, data-driven UI components.",
+          ],
         },
         {
           title: "TaskBuddy - Task Management Tool",
           place: "Remote, Netherlands",
-          description:
+          description: [
             "Contributed to the design and functionality of a productivity app for task tracking and team collaboration, with emphasis on responsive interfaces and clean user flows.",
+          ],
         },
       ],
     },
@@ -158,37 +184,45 @@ export const portfolioData = {
       latitude: 59.3293,
       longitude: 18.0686,
       isCurrent: false,
-      body: "Developed modern SaaS applications using React, Next.js, TypeScript and GraphQL while improving reusable UI architecture and application performance.",
+      body: [
+        "Developed modern SaaS applications using **React**, **Next.js**, **TypeScript** and **GraphQL** while improving **reusable UI architecture** and application performance.",
+      ],
       projects: [
         {
           title: "Next.js Development",
-          description:
-            "Built dynamic, scalable web applications leveraging server-side rendering and static site generation for optimal performance and SEO impact.",
+          description: [
+            "Built dynamic, scalable web applications leveraging **server-side rendering** and **static site generation** for optimal performance and **SEO** impact.",
+          ],
         },
         {
           title: "GraphQL Integration",
-          description:
-            "Designed and implemented a robust GraphQL layer to streamline data fetching, reduce over-fetching, and improve client-server communication efficiency.",
+          description: [
+            "Designed and implemented a robust **GraphQL** layer to streamline data fetching, reduce over-fetching, and improve client-server communication efficiency.",
+          ],
         },
         {
           title: "TypeScript Adoption",
-          description:
-            "Utilized TypeScript to enhance code quality, enforce type safety, and improve code maintainability and developer productivity across the codebase.",
+          description: [
+            "Utilized **TypeScript** to enhance code quality, enforce type safety, and improve code maintainability and developer productivity across the codebase.",
+          ],
         },
         {
           title: "Cross-Functional Collaboration",
-          description:
+          description: [
             "Worked closely with designers, backend engineers, and product managers to gather requirements and deliver user-centric solutions that aligned with business goals.",
+          ],
         },
         {
           title: "Code Quality & Best Practices",
-          description:
-            "Participated actively in code reviews, promoted clean code standards, and ensured adherence to modern frontend development best practices.",
+          description: [
+            "Participated actively in **code reviews**, promoted clean code standards, and ensured adherence to modern frontend development best practices.",
+          ],
         },
         {
           title: "Continuous Learning & Innovation",
-          description:
+          description: [
             "Explored and integrated emerging tools and technologies to optimize development workflows and stay ahead of industry trends.",
+          ],
         },
       ],
     },
@@ -202,37 +236,50 @@ export const portfolioData = {
       latitude: 6.9271,
       longitude: 79.8612,
       isCurrent: false,
-      body: "Built online resume and cover letter products with React while improving SEO, accessibility, performance and frontend architecture.",
+      body: [
+        "Built online resume and cover letter products with **React** while improving **SEO**, **accessibility**, performance and **frontend architecture**.",
+      ],
       projects: [
         {
           title: "Modern Web Development",
-          description:
-            "Built responsive and accessible UIs using React.js, HTML5, CSS3, JavaScript ES6+, and Tailwind CSS, ensuring cross-device compatibility and fast load times. Improved page load performance by approximately 30%, leading to a smoother user experience.",
+          description: [
+            "Built responsive and accessible UIs using **React.js**, **HTML5**, **CSS3**, **JavaScript ES6+**, and **Tailwind CSS**, ensuring cross-device compatibility and fast load times.",
+            "Improved page load performance by **approximately 30%**, leading to a smoother user experience.",
+          ],
         },
         {
           title: "Machine Learning Personalization",
-          description:
-            "Integrated machine learning algorithms through TensorFlow.js and backend APIs to deliver real-time content suggestions based on user behavior and input context. Boosted user engagement by 30% through personalized document guidance.",
+          description: [
+            "Integrated **machine learning** algorithms through **TensorFlow.js** and backend **APIs** to deliver real-time content suggestions based on user behavior and input context.",
+            "Boosted user engagement by **30%** through personalized document guidance.",
+          ],
         },
         {
           title: "SEO Optimization",
-          description:
-            "Implemented a robust SEO strategy using Next.js, structured metadata, keyword optimization, and canonical tagging. Achieved a 60% increase in organic traffic and improved SERP ranking for targeted keywords.",
+          description: [
+            "Implemented a robust **SEO** strategy using **Next.js**, structured metadata, keyword optimization, and canonical tagging.",
+            "Achieved a **60%** increase in organic traffic and improved SERP ranking for targeted keywords.",
+          ],
         },
         {
           title: "Collaborative UI/UX Delivery",
-          description:
-            "Worked alongside Figma-based UX/UI designs to implement visually polished and highly usable components. Contributed to increasing user retention by 25% through consistent design language and improved navigation flows.",
+          description: [
+            "Worked alongside **Figma**-based UX/UI designs to implement visually polished and highly usable components.",
+            "Contributed to increasing user retention by **25%** through consistent design language and improved navigation flows.",
+          ],
         },
         {
           title: "Agile & Feedback-Driven Development",
-          description:
-            "Collaborated in an Agile environment with product managers and QA teams. Gathered user feedback through analytics and A/B testing, then iterated on features for better usability and adoption.",
+          description: [
+            "Collaborated in an **Agile** environment with product managers and QA teams.",
+            "Gathered user feedback through analytics and **A/B testing**, then iterated on features for better usability and adoption.",
+          ],
         },
         {
           title: "Cross-Team Communication",
-          description:
-            "Acted as the bridge between frontend, ML, and backend teams, ensuring seamless integration of APIs, personalized logic, and frontend performance.",
+          description: [
+            "Acted as the bridge between frontend, ML, and backend teams, ensuring seamless integration of **APIs**, personalized logic, and frontend performance.",
+          ],
         },
       ],
     },

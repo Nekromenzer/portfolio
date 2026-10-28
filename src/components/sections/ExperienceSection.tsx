@@ -1,4 +1,5 @@
 import ExperienceGlobe, { type ExperienceItem } from "@/components/ExperienceGlobe";
+import ExperiencePoints from "@/components/ExperiencePoints";
 import SectionHeading from "@/components/common/SectionHeading";
 import { ChevronRight, CircleX, ExternalLink, MapPinned } from "lucide-react";
 import type { PortfolioData } from "./types";
@@ -100,7 +101,7 @@ export default function ExperienceSection({
                 <strong>{selectedExperience.company}</strong>
                 <em>{selectedExperience.location}</em>
               </div>
-              <p>{selectedExperience.body}</p>
+              <ExperiencePoints points={selectedExperience.body} />
               <div className="project-block">
                 <div className="project-block-head">
                   <MapPinned size={16} />
@@ -127,7 +128,7 @@ export default function ExperienceSection({
                         )}
                         {project.place ? <span>{project.place}</span> : null}
                       </div>
-                      <p>{project.description}</p>
+                      <ExperiencePoints points={project.description} />
                     </article>
                   ))}
                 </div>

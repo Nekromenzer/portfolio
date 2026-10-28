@@ -5,7 +5,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 export type ExperienceProject = {
   title: string;
   place?: string;
-  description: string;
+  description: string[];
   href?: string;
 };
 
@@ -19,7 +19,7 @@ export type ExperienceItem = {
   latitude: number;
   longitude: number;
   isCurrent: boolean;
-  body: string;
+  body: string[];
   projects: ExperienceProject[];
 };
 

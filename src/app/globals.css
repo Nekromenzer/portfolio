@@ -1,5 +1,21 @@
 @import "tailwindcss";
 
+.experience-points {
+  margin: 8px 0 0;
+  padding-left: 20px;
+  list-style: disc;
+  line-height: 1.7;
+}
+
+.experience-points li + li {
+  margin-top: 8px;
+}
+
+.experience-points strong {
+  color: var(--foreground);
+  font-weight: 650;
+}
+
 :root,
 html[data-theme="dark"] {
   --background: #050505;

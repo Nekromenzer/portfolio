@@ -835,6 +835,12 @@
 .dz-role-body {
   color: #737373;
 }
+.dz .experience-points {
+  color: #737373;
+}
+.dz .experience-points strong {
+  color: #171717;
+}
 .dz-role-deliveries {
   margin-top: 20px;
   border-top: 1px solid #e5e5e5;

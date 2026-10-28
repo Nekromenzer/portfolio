@@ -5,6 +5,7 @@ import DockNav from "@/components/design/DockNav";
 import SiteFooter from "@/components/design/SiteFooter";
 import TopMeta from "@/components/design/TopMeta";
 import { portfolioData } from "@/data/portfolio";
+import ExperiencePoints from "@/components/ExperiencePoints";
 import "../design.css";
 
 export const metadata: Metadata = {
@@ -45,7 +46,7 @@ export default function ExperiencePage() {
               </div>
 
               <div>
-                <p className="dz-role-body">{role.body}</p>
+                <ExperiencePoints className="dz-role-body" points={role.body} />
                 <details className="dz-role-deliveries" open={role.isCurrent}>
                   <summary>
                     <span>
@@ -61,7 +62,7 @@ export default function ExperiencePage() {
                         key={`${role.company}-${project.title}`}
                       >
                         <h3>{project.title}</h3>
-                        <p>{project.description}</p>
+                        <ExperiencePoints points={project.description} />
                         {"href" in project && project.href ? (
                           <a href={project.href} target="_blank" rel="noreferrer">
                             Visit product
