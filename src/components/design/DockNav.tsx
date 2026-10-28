@@ -1,6 +1,12 @@
 "use client";
 
-import { Briefcase, FileText, FolderKanban, House, UserRound } from "lucide-react";
+import {
+  Briefcase,
+  FileText,
+  FolderKanban,
+  House,
+  UserRound,
+} from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { portfolioData } from "@/data/portfolio";
@@ -11,7 +17,7 @@ export default function DockNav() {
 
   const routes = [
     { href: "/", label: "Home", Icon: House },
-    { href: "/projects", label: "Work", Icon: FolderKanban },
+    { href: "/projects", label: "Projects", Icon: FolderKanban },
     { href: "/experience", label: "Experience", Icon: Briefcase },
     { href: "/about", label: "About", Icon: UserRound },
   ];
@@ -24,7 +30,12 @@ export default function DockNav() {
           className="dz-dock-item"
           href={href}
           aria-label={label}
-          aria-current={pathname === href ? "page" : undefined}
+          aria-current={
+            pathname === href ||
+            (href !== "/" && pathname.startsWith(`${href}/`))
+              ? "page"
+              : undefined
+          }
         >
           <Icon aria-hidden />
           <span>{label}</span>

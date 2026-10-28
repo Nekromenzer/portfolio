@@ -32,7 +32,7 @@ export type ContactItem = {
 export const resumeUrl = "https://rxresu.me/bagimshan/maneesha-gimshan-2026-eu";
 
 export const portfolioData = {
-  navItems: ["ABOUT", "EXPERIENCE", "IMPACT", "WORK", "STACK", "BLOG", "CONTACT"],
+  navItems: ["ABOUT", "EXPERIENCE", "IMPACT", "PROJECTS", "STACK", "BLOG", "CONTACT"],
   hero: {
     pretitle:
       "Frontend systems • Mobile products • AI-driven workflows",
@@ -255,13 +255,14 @@ export const portfolioData = {
   ] satisfies ImpactItem[],
 
   workSection: {
-    eyebrow: "WORK",
+    eyebrow: "PROJECTS",
     title: "Systems that had to hold.",
     copy: "Selected builds arranged like a project wall. Open any tile for the full delivery story.",
   },
 
   work: [
     {
+      slug: "reiseceylon",
       name: "ReiseCeylon",
       label: "TRAVEL PLATFORM • SEO & CONTENT SYSTEM",
       meta: "Live Product • Sri Lanka Travel",
@@ -271,6 +272,7 @@ export const portfolioData = {
       },
       logo: {
         initials: "RC",
+        src: "/projects-logo/reise-ceylon-logo.png",
         alt: "ReiseCeylon",
       },
       context:
@@ -305,8 +307,9 @@ export const portfolioData = {
       ],
     },
     {
+      slug: "showloomz",
       name: "Showloomz",
-      label: "MULTI-TENANT SAAS • PORTFOLIO PLATFORM",
+      label: "MULTI-TENANT SAAS • PHOTOGRAPHY & STUDIO PLATFORM",
       meta: "Product • Jun 2026 - Present",
       logo: {
         initials: "SL",
@@ -314,18 +317,18 @@ export const portfolioData = {
         src: "/projects-logo/showloomz-logo.png",
       },
       context:
-        "Photographers, studios and visual businesses need a premium portfolio site on their own domain, plus galleries, client proofing, invoicing and billing — without managing any infrastructure themselves.",
+        "Photographers, studios, and visual businesses need one workspace to publish portfolio websites, manage cloud galleries, collect client photo selections, generate invoices, and manage subscriptions. Showloomz brings these workflows together with separate experiences for public visitors, business owners, team members, and platform administrators.",
       approach:
-        "Built a multi-tenant SaaS end to end where a business subscribes to a plan, picks a theme, connects a custom domain and gets a fully managed website backed by a content dashboard.",
+        "Built Showloomz end to end across the frontend, backend workflows, PostgreSQL data layer, third-party integrations, and container deployment configuration. Used an agentic development workflow with AI tools including Codex, OpenAI, and Claude to support implementation and iteration. Businesses configure themes, navigation, homepage layouts, custom page blocks, typography, and publishing from a shared dashboard, with Zod validation and HTML sanitization for editable content.",
       system:
-        "One Next.js application serves three surfaces — public tenant sites resolved by hostname middleware across three designed themes, a tenant dashboard for galleries, packages, enquiries, invoices, domains and billing, and a platform admin console for tenant lifecycle, plan versions and payments. Tenant isolation is an invariant, entitlements resolve from immutable plan versions, billing runs on idempotent payment webhooks, uploads go presigned direct to Cloudflare R2, and client proofing uses unguessable share tokens gated to the signed-in matching email.",
+        "Next.js 16, React 19, and TypeScript power hostname-based tenant routing, custom domains, and role-based dashboards. Amazon Cognito and Google OAuth with PKCE handle identity, while PostgreSQL stores application sessions, tenant membership, and business data through parameterized SQL and transactions. A compatibility bridge retains existing operation interfaces while replacing their earlier Firebase execution layer with direct PostgreSQL queries. Cloudflare R2 receives signed browser uploads, with tenant-scoped ownership checks, transactional metadata commits, row locking, and storage reconciliation. Client proofing supports access-code protection, selections, notes, share revocation, archive downloads, and Lightroom/XMP exports. Dodo Payments checkout connects verified, duplicate-safe webhooks to versioned plans and server-side entitlements. Multi-currency invoices use integer minor units, revision snapshots, public sharing, and branded PDF generation. Business tools cover enquiries, services, testimonials, configurable forms, team invitations, support, and referrals; platform administration covers tenants, plans, payments, and domains. Tenant analytics, a structured SEO blog, and English, Sinhala, and Tamil language infrastructure support discovery and operations. Deployment configuration combines AWS Lightsail, CloudFormation, Docker Compose, GitHub Actions, GHCR, startup migrations, and systemd-based image updates with health checks and previous-image restoration. Vitest coverage spans routing, authorization, billing, uploads, invoice calculations, website configuration, and localization.",
       outcome:
-        "A managed platform that launches a premium portfolio site on a custom domain with proofing, invoicing and subscription billing, without the tenant touching infrastructure.",
+        "A full-stack SaaS platform unifying customizable portfolio websites, cloud galleries, client proofing, Lightroom/XMP exports, subscription billing, multi-currency PDF invoices, and platform administration for photographers and visual businesses.",
       href: "https://showloomz.online/",
       accent: "#c9a0ff",
       stats: [
         ["Multi-Tenant", "Hostname Routing"],
-        ["3 Themes", "Designed Tenant Sites"],
+        ["Client Proofing", "Selections & Lightroom/XMP Exports"],
         ["Webhook-Driven", "Subscription Billing"],
       ],
       stack: [
@@ -333,21 +336,34 @@ export const portfolioData = {
         "React 19",
         "TypeScript",
         "Tailwind v4",
-        "Radix / shadcn",
+        "Radix UI",
         "React Hook Form",
         "Zod",
         "PostgreSQL",
         "AWS Cognito",
+        "Google OAuth / PKCE",
         "Cloudflare R2",
         "Dodo Payments",
+        "Standard Webhooks",
         "Resend",
         "pdf-lib",
+        "fontkit",
+        "Archiver",
         "GSAP",
         "Vitest",
-        "Docker",
+        "Docker Compose",
+        "AWS Lightsail",
+        "CloudFormation",
+        "GitHub Actions",
+        "GHCR",
+        "systemd",
+        "Codex",
+        "OpenAI",
+        "Claude",
       ],
     },
     {
+      slug: "ai-resume-management-system",
       name: "AI-based Resume Management System",
       label: "AI PRODUCT • IN DEVELOPMENT",
       meta: "Personal Project • May 2022 - Present",
@@ -381,6 +397,7 @@ export const portfolioData = {
       ],
     },
     {
+      slug: "turntaxi",
       name: "TurnTaxi",
       label: "REAL-TIME MOBILITY PLATFORM",
       meta: "Commercial Project • Jun 2024 - Present",
@@ -414,6 +431,7 @@ export const portfolioData = {
       ],
     },
     {
+      slug: "cookiz-auth",
       name: "cookiz-auth",
       label: "OPEN SOURCE • REACT AUTH LIBRARY",
       meta: "NPM Package • Open Source • Aug 2025 - Present",
@@ -446,6 +464,7 @@ export const portfolioData = {
       ],
     },
     {
+      slug: "trust-ora",
       name: "Trust-ora",
       label: "AI-ASSISTED • SECURE FINTECH PLATFORM",
       meta: "Mobile App • Admin Dashboard • Backend System",

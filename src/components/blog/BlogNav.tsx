@@ -5,7 +5,7 @@ export default function BlogNav() {
   return (
     <nav className="blog-nav" aria-label="Primary">
       <Link href="/">Home</Link>
-      <Link href="/projects">Work</Link>
+      <Link href="/projects">Projects</Link>
       <Link href="/experience">Experience</Link>
       <Link href="/blog" className="is-active" aria-current="page">
         Blog

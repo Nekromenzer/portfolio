@@ -6,6 +6,8 @@ import type { CSSProperties } from "react";
 import { useState } from "react";
 
 export type WorkItem = {
+  /** Stable public URL, independent of the display name. */
+  slug: string;
   name: string;
   label: string;
   meta: string;

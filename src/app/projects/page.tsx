@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import ContactCta from "@/components/design/ContactCta";
 import DockNav from "@/components/design/DockNav";
-import ProjectCard, { projectAnchor } from "@/components/design/ProjectCard";
+import ProjectCard from "@/components/design/ProjectCard";
 import SiteFooter from "@/components/design/SiteFooter";
 import TopMeta from "@/components/design/TopMeta";
 import { portfolioData } from "@/data/portfolio";
@@ -27,23 +27,17 @@ export default function ProjectsPage() {
 
       <div className="dz-shell">
         <header className="dz-page-hero" id="main">
-          <p>SELECTED WORK · PRODUCT SYSTEMS</p>
+          <p>SELECTED PROJECTS · PRODUCT SYSTEMS</p>
           <h1>Complex product problems, shaped into usable systems.</h1>
           <span>
-            Open a case study to see the challenge, approach, architecture, and
+            Open a project to see the challenge, approach, architecture, and
             outcome behind each build.
           </span>
         </header>
 
         <div className="dz-grid dz-projects-grid">
           {work.map((item) => (
-            <ProjectCard
-              item={item}
-              anchorId={projectAnchor(item.name)}
-              key={item.name}
-              summary
-              caseStudy
-            />
+            <ProjectCard item={item} key={item.name} summary />
           ))}
         </div>
       </div>

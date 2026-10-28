@@ -10,7 +10,7 @@ import {
 import Link from "next/link";
 import ContactCta from "@/components/design/ContactCta";
 import DockNav from "@/components/design/DockNav";
-import ProjectCard, { projectAnchor } from "@/components/design/ProjectCard";
+import ProjectCard from "@/components/design/ProjectCard";
 import SiteFooter from "@/components/design/SiteFooter";
 import TopMeta from "@/components/design/TopMeta";
 import VisitLogger from "@/components/VisitLogger";
@@ -43,8 +43,8 @@ export default function Home() {
               intuitive web and mobile products. Built with care. Made to scale.
             </p>
             <div className="dz-hero-actions">
-              <a className="dz-button dz-button-primary" href="#work">
-                Explore my work <ArrowDown aria-hidden />
+              <a className="dz-button dz-button-primary" href="#projects">
+                Explore projects <ArrowDown aria-hidden />
               </a>
               <a
                 className="dz-button dz-button-ghost"
@@ -97,11 +97,15 @@ export default function Home() {
           <span>React · Next.js · React Native · TypeScript</span>
         </div>
 
-        <section className="dz-works" id="work" aria-labelledby="work-title">
+        <section
+          className="dz-works"
+          id="projects"
+          aria-labelledby="projects-title"
+        >
           <div className="dz-section-top">
             <div>
               <p className="dz-eyebrow">A SELECTION OF WHAT I BUILD</p>
-              <h2 id="work-title">From idea to real product.</h2>
+              <h2 id="projects-title">From idea to real product.</h2>
             </div>
             <Link className="dz-text-link" href="/projects">
               All projects <ArrowUpRight size={17} aria-hidden />
@@ -109,12 +113,7 @@ export default function Home() {
           </div>
           <div className="dz-grid">
             {work.slice(0, 4).map((item) => (
-              <ProjectCard
-                item={item}
-                key={item.name}
-                summary
-                detailsHref={`/projects#${projectAnchor(item.name)}`}
-              />
+              <ProjectCard item={item} key={item.name} summary />
             ))}
           </div>
         </section>
@@ -124,7 +123,7 @@ export default function Home() {
           aria-labelledby="background-title"
         >
           <div className="dz-background-copy">
-            <p className="dz-eyebrow">THE EXPERIENCE BEHIND THE WORK</p>
+            <p className="dz-eyebrow">THE EXPERIENCE BEHIND THE PROJECTS</p>
             <h2 id="background-title">A builder, through and through.</h2>
             <p>
               From fintech and SaaS to real-time mobility, I help teams build
