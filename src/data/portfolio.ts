@@ -1,3 +1,5 @@
+import { contactActions, resumeUrl } from "@/data/contact";
+export { resumeUrl } from "@/data/contact";
 import type { ExperienceItem } from "@/components/ExperienceGlobe";
 import type { WorkItem } from "@/components/Work";
 
@@ -29,7 +31,6 @@ export type ContactItem = {
   external?: boolean;
 };
 
-export const resumeUrl = "https://rxresu.me/bagimshan/maneesha-gimshan-2026-eu";
 
 export const portfolioData = {
   navItems: ["ABOUT", "EXPERIENCE", "IMPACT", "PROJECTS", "STACK", "BLOG", "CONTACT"],
@@ -41,20 +42,13 @@ export const portfolioData = {
     role: "Senior Frontend Engineer",
     company: "Dubai Technologies",
     period: "Nov 2024 - Present",
-    imageSrc: "/profile.png",
+    imageSrc: "/profile.webp",
     heroImageSrc: "/hero-image.png",
     imageAlt: "Maneesha Barandeniya",
     sideMarkInitial: "MG",
     sideMarkLabel: "Maneesha",
     signal: "BUILDING: PRODUCT FRONTENDS • NOT: STATIC PAGES",
-    actions: {
-      email: "mailto:bagimshan@gmail.com",
-      whatsapp: "https://wa.me/971552883528",
-      github: "https://github.com/nekromenzer",
-      linkedin: "https://www.linkedin.com/in/maneesha-gimshan/",
-      resumeView: resumeUrl,
-      resumeViewLabel: "VIEW RESUME",
-    },
+    actions: contactActions,
   },
   about: {
     eyebrow: "ABOUT",
@@ -320,7 +314,7 @@ export const portfolioData = {
       },
       logo: {
         initials: "RC",
-        src: "/projects-logo/reise-ceylon-logo.png",
+        src: "/projects-logo/reise-ceylon-logo.webp",
         alt: "ReiseCeylon",
       },
       context:
@@ -376,7 +370,7 @@ export const portfolioData = {
       logo: {
         initials: "SL",
         alt: "Showloomz",
-        src: "/projects-logo/showloomz-logo.png",
+        src: "/projects-logo/showloomz-logo.webp",
       },
       context:
         "Photographers, studios, and visual businesses need one workspace to publish portfolio websites, manage cloud galleries, collect client photo selections, generate invoices, and manage subscriptions. Showloomz brings these workflows together with separate experiences for public visitors, business owners, team members, and platform administrators.",
@@ -473,7 +467,7 @@ export const portfolioData = {
       logo: {
         initials: "TT",
         alt: "TurnTaxi",
-        src: '/projects-logo/logo-trans.png'
+        src: '/projects-logo/logo-trans.webp'
       },
       context:
         "A Sri Lankan tuk-tuk service needs to connect passenger requests, driver availability, fare offers, and administrative operations. Turn Taxi brings these workflows together through separate passenger and driver mobile applications and a shared operations dashboard.",
@@ -573,7 +567,7 @@ export const portfolioData = {
       logo: {
         initials: "TO",
         alt: "Trust Ora",
-        src: '/projects-logo/trustora-mark.png'
+        src: '/projects-logo/trustora-mark.webp'
       },
       context:
         "Financial service platforms require secure user onboarding, reliable account management, protected admin operations, and smooth handling of loans, collections, and customer data across multiple applications.",

@@ -1,5 +1,6 @@
 import { ArrowUpRight, ChevronDown } from "lucide-react";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import ContactCta from "@/components/design/ContactCta";
 import DockNav from "@/components/design/DockNav";
 import SiteFooter from "@/components/design/SiteFooter";
@@ -8,12 +9,11 @@ import { portfolioData } from "@/data/portfolio";
 import ExperiencePoints from "@/components/ExperiencePoints";
 import "../design.css";
 
-export const metadata: Metadata = {
-  title: "Experience | Maneesha Barandeniya",
-  description:
-    "Seven years of frontend delivery across Dubai Technologies, Parkway Labs, Qualia Tech International and Treeloq.",
-  alternates: { canonical: "/experience" },
-};
+export const metadata: Metadata = pageMetadata(
+  "Experience | Maneesha Barandeniya",
+  "Seven years of frontend delivery across Dubai Technologies, Parkway Labs, Qualia Tech International and Treeloq.",
+  "/experience",
+);
 
 export default function ExperiencePage() {
   const { experience, experienceSection } = portfolioData;

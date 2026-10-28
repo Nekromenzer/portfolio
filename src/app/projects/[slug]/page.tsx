@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -25,11 +26,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) notFound();
-  return {
-    title: `${project.name} | Projects | Maneesha Barandeniya`,
-    description: project.outcome,
-    alternates: { canonical: `/projects/${project.slug}` },
-  };
+  return pageMetadata(
+    `${project.name} | Projects | Maneesha Barandeniya`,
+    project.outcome,
+    `/projects/${project.slug}`,
+  );
 }
 
 export default async function ProjectPage({ params }: Props) {

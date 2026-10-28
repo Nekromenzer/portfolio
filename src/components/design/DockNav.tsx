@@ -9,11 +9,11 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { portfolioData } from "@/data/portfolio";
+import { contactActions } from "@/data/contact";
 
 export default function DockNav() {
   const pathname = usePathname();
-  const { actions } = portfolioData.hero;
+  const actions = contactActions;
 
   const routes = [
     { href: "/", label: "Home", Icon: House },
@@ -42,7 +42,7 @@ export default function DockNav() {
         </Link>
       ))}
 
-      <a className="dz-dock-item" href={actions.resumeView} aria-label="Resume">
+      <a className="dz-dock-item" href={actions.resumeView} aria-label="Résumé">
         <FileText aria-hidden />
         <span>Résumé</span>
       </a>

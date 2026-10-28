@@ -4,9 +4,9 @@
   --dz-black: #0a0a0a;
   --dz-card: #fff;
   --dz-chip: #f5f5f5;
-  --dz-dim: #737373;
-  --dz-grey: #737373;
-  --dz-label: #737373;
+  --dz-dim: #6b6b6b;
+  --dz-grey: #6b6b6b;
+  --dz-label: #6b6b6b;
   --dz-hair: #e5e5e5;
   --dz-accent: #171717;
   --dz-pad: max(24px, calc((100% - 1120px) / 2));
@@ -140,7 +140,7 @@
 .dz-brand-caption {
   display: block;
   font-size: 12px;
-  color: #737373;
+  color: #6b6b6b;
   font-weight: 400;
   letter-spacing: 0;
 }
@@ -210,7 +210,7 @@
   line-height: 1.5;
   font-weight: 500;
   letter-spacing: 0.05em;
-  color: #737373;
+  color: #6b6b6b;
 }
 .dz-status-dot {
   width: 6px;
@@ -225,14 +225,14 @@
   margin-top: 20px;
 }
 .dz-home-intro h1 span {
-  color: #737373;
+  color: #6b6b6b;
 }
 .dz-home-summary {
   max-width: 490px;
   margin-top: 24px;
   font-size: 16px;
   line-height: 1.65;
-  color: #737373;
+  color: #6b6b6b;
 }
 .dz-hero-actions {
   display: flex;
@@ -245,7 +245,7 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 8px;
-  color: #737373;
+  color: #6b6b6b;
   margin-top: 24px;
   font-size: 12px;
 }
@@ -265,7 +265,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #737373;
+  color: #6b6b6b;
 }
 .dz-monogram {
   display: grid;
@@ -285,7 +285,7 @@
   letter-spacing: -0.025em;
 }
 .dz-profile-card p {
-  color: #737373;
+  color: #6b6b6b;
 }
 .dz-profile-current {
   border-block: 1px solid #e5e5e5;
@@ -317,7 +317,7 @@
   gap: 20px;
   border-block: 1px solid #e5e5e5;
   padding: 22px 0;
-  color: #737373;
+  color: #6b6b6b;
 }
 .dz-expertise span {
   display: flex;
@@ -415,7 +415,7 @@
   flex: 1;
   padding-inline: 8px;
   font-size: 10px;
-  color: #737373;
+  color: #6b6b6b;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -426,7 +426,7 @@
 .dz-product-label {
   font-size: 9px;
   letter-spacing: 0.05em;
-  color: #737373;
+  color: #6b6b6b;
 }
 .dz-product-content strong {
   display: block;
@@ -447,7 +447,7 @@
   padding: 2px 7px;
   border-radius: 18px;
   background: #f5f5f5;
-  color: #737373;
+  color: #6b6b6b;
 }
 .dz-product-bottom {
   display: flex;
@@ -455,7 +455,7 @@
   gap: 8px;
   padding: 10px 20px;
   border-top: 1px solid #e5e5e5;
-  color: #737373;
+  color: #6b6b6b;
   font-size: 9px;
   letter-spacing: 0.03em;
 }
@@ -487,12 +487,12 @@
 }
 .dz-card-foot small {
   font-size: 12px;
-  color: #737373;
+  color: #6b6b6b;
 }
 .dz-card-summary {
   padding: 0 12px 12px;
   font-size: 14px;
-  color: #737373;
+  color: #6b6b6b;
 }
 .dz-card-meta {
   margin: 8px 0 !important;
@@ -505,7 +505,7 @@
   padding-top: 72px;
 }
 .dz-background-copy > p:not(.dz-eyebrow) {
-  color: #737373;
+  color: #6b6b6b;
   margin-top: 20px;
   max-width: 440px;
   font-size: 16px;
@@ -524,7 +524,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #737373;
+  color: #6b6b6b;
 }
 .dz-resource-links a:hover {
   color: #171717;
@@ -560,7 +560,7 @@
 .dz-career-row p,
 .dz-career-row > span:last-child {
   font-size: 12px;
-  color: #737373;
+  color: #6b6b6b;
 }
 .dz-career-row > span:last-child {
   margin-left: auto;
@@ -588,7 +588,7 @@
   margin-top: 12px;
 }
 .dz-cta p:not(.dz-eyebrow) {
-  color: #737373;
+  color: #6b6b6b;
   margin-top: 16px;
   max-width: 420px;
 }
@@ -604,7 +604,7 @@
   align-items: center;
   gap: 8px;
   font-size: 12px;
-  color: #737373;
+  color: #6b6b6b;
 }
 .dz-contact-detail:hover {
   text-decoration: underline;
@@ -617,7 +617,7 @@
   align-items: center;
   gap: 24px;
   padding: 32px 0 132px;
-  color: #737373;
+  color: #6b6b6b;
   font-size: 12px;
 }
 .dz-footer > div {
@@ -660,7 +660,7 @@
   gap: 5px;
   padding: 9px 6px;
   border-radius: 18px;
-  color: #737373;
+  color: #6b6b6b;
   min-height: 52px;
   transition:
     background 0.2s,
@@ -695,7 +695,7 @@
   padding: 64px 0 40px;
 }
 .dz-page-hero > p {
-  color: #737373;
+  color: #6b6b6b;
   font-size: 12px;
   letter-spacing: 0.05em;
   margin-bottom: 16px;
@@ -709,7 +709,7 @@
 }
 .dz-page-hero > span {
   display: block;
-  color: #737373;
+  color: #6b6b6b;
   font-size: 16px;
   max-width: 640px;
   margin-top: 20px;
@@ -737,14 +737,14 @@
 .dz-headline > p {
   font-size: 12px;
   letter-spacing: 0.05em;
-  color: #737373;
+  color: #6b6b6b;
 }
 .dz-prose {
   max-width: 760px;
   display: flex;
   flex-direction: column;
   gap: 24px;
-  color: #737373;
+  color: #6b6b6b;
   font-size: 16px;
 }
 .dz-prose p:first-child {
@@ -779,7 +779,7 @@
   font-weight: 500;
 }
 .dz-tile small {
-  color: #737373;
+  color: #6b6b6b;
   font-size: 14px;
 }
 .dz-skill-text h2 {
@@ -788,7 +788,7 @@
   line-height: 1.4;
 }
 .dz-skill-text p {
-  color: #737373;
+  color: #6b6b6b;
   margin-top: 12px;
   font-size: 14px;
 }
@@ -858,7 +858,7 @@
   gap: 8px;
   align-items: center;
   font-size: 12px;
-  color: #737373;
+  color: #6b6b6b;
 }
 .dz-role-period em {
   background: #f5f5f5;
@@ -871,13 +871,13 @@
 }
 .dz-role-company {
   margin-top: 8px !important;
-  color: #737373;
+  color: #6b6b6b;
 }
 .dz-role-body {
-  color: #737373;
+  color: #6b6b6b;
 }
 .dz .experience-points {
-  color: #737373;
+  color: #6b6b6b;
 }
 .dz .experience-points strong {
   color: #171717;
@@ -913,7 +913,7 @@
 }
 .dz-role-project p {
   margin-top: 6px;
-  color: #737373;
+  color: #6b6b6b;
 }
 .dz-role-project a {
   display: inline-flex;
@@ -946,7 +946,7 @@
 .dz-case summary small {
   display: block;
   font-size: 12px;
-  color: #737373;
+  color: #6b6b6b;
   margin-top: 4px;
 }
 .dz-case-chevron {
@@ -982,7 +982,7 @@
   gap: 4px 12px;
 }
 .dz-case-grid section > span {
-  color: #737373;
+  color: #6b6b6b;
   font-size: 12px;
   grid-row: span 2;
 }
@@ -992,7 +992,7 @@
 }
 .dz-case-grid p {
   grid-column: 2;
-  color: #737373;
+  color: #6b6b6b;
 }
 .dz-case-stats {
   display: grid;
@@ -1005,14 +1005,14 @@
   letter-spacing: -0.025em;
 }
 .dz-case-stats dd {
-  color: #737373;
+  color: #6b6b6b;
   font-size: 12px;
 }
 .dz-case-stack > strong {
   display: block;
   font-size: 12px;
   font-weight: 500;
-  color: #737373;
+  color: #6b6b6b;
   margin-bottom: 10px;
 }
 @media (min-width: 1280px) {
@@ -1224,7 +1224,7 @@
 .dz-blog {
   --background: #f5f5f5;
   --foreground: #0a0a0a;
-  --muted: #737373;
+  --muted: #6b6b6b;
   --accent: #171717;
   --line: #e5e5e5;
   --panel: #fff;
@@ -1240,7 +1240,7 @@
   padding-top: 64px;
 }
 .dz-blog .eyebrow {
-  color: #737373;
+  color: #6b6b6b;
   font-size: 12px;
   letter-spacing: 0.05em;
 }
@@ -1256,7 +1256,7 @@
 }
 .dz-blog .blog-hero > div > p {
   margin-top: 20px;
-  color: #737373;
+  color: #6b6b6b;
   font-size: 16px;
   max-width: 640px;
 }
@@ -1278,7 +1278,7 @@
 }
 .dz-blog .blog-featured p,
 .dz-blog .blog-card p {
-  color: #737373;
+  color: #6b6b6b;
   font-size: 14px;
 }
 .dz-blog .blog-featured-cover,
@@ -1306,7 +1306,7 @@
   margin-bottom: 24px;
 }
 .dz-blog .blog-article-header > p:not(.eyebrow) {
-  color: #737373;
+  color: #6b6b6b;
   font-size: 18px;
 }
 .dz-blog .blog-prose {
@@ -1369,7 +1369,7 @@ body:has(> .dz) {
 }
 .dz-project-category {
   justify-self: start;
-  color: #737373;
+  color: #6b6b6b;
   font-size: 10px;
   letter-spacing: 0.05em;
 }
@@ -1414,7 +1414,7 @@ body:has(> .dz) {
   flex-wrap: wrap;
   gap: 12px;
   font-size: 12px;
-  color: #737373;
+  color: #6b6b6b;
 }
 .dz-project-breadcrumb a {
   display: inline-flex;
@@ -1444,11 +1444,11 @@ body:has(> .dz) {
 .dz-project-description {
   max-width: 680px;
   font-size: 18px;
-  color: #737373;
+  color: #6b6b6b;
   margin-top: 24px !important;
 }
 .dz-project-meta {
-  color: #737373;
+  color: #6b6b6b;
   margin-top: 20px !important;
   font-size: 14px;
 }
@@ -1477,7 +1477,7 @@ body:has(> .dz) {
 }
 .dz-project-cover figcaption {
   font-size: 12px;
-  color: #737373;
+  color: #6b6b6b;
   padding: 16px 24px;
   border-top: 1px solid #e5e5e5;
 }
@@ -1504,7 +1504,7 @@ body:has(> .dz) {
   margin-top: 8px;
 }
 .dz-project-chapter > div > p:not(.dz-eyebrow) {
-  color: #737373;
+  color: #6b6b6b;
   font-size: 16px;
   line-height: 1.8;
   white-space: pre-line;
@@ -1534,7 +1534,7 @@ body:has(> .dz) {
 }
 .dz-project-results dd {
   font-size: 12px;
-  color: #737373;
+  color: #6b6b6b;
   margin-top: 8px;
 }
 .dz-project-pagination {
@@ -1685,7 +1685,7 @@ body:has(> .dz) {
 }
 .dz-case-step {
   font: 12px var(--dz-font-mono);
-  color: #737373;
+  color: #6b6b6b;
 }
 .dz-case-journey h3 {
   margin-top: 12px;
@@ -1775,13 +1775,13 @@ body:has(> .dz) {
 .dz-case-detail summary span span {
   display: block;
   font-size: 13px;
-  color: #737373;
+  color: #6b6b6b;
   line-height: 1.6;
   margin-top: 6px;
 }
 .dz-case-detail summary > svg {
   flex-shrink: 0;
-  color: #737373;
+  color: #6b6b6b;
 }
 .dz-case-detail[open] summary > svg {
   transform: rotate(180deg);

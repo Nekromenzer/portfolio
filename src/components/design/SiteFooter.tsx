@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { ArrowUp } from "lucide-react";
-import { portfolioData } from "@/data/portfolio";
+import { contactActions } from "@/data/contact";
 
 export default function SiteFooter() {
-  const { actions } = portfolioData.hero;
+  const actions = contactActions;
   return (
     <footer className="dz-footer">
       <p>© {new Date().getFullYear()} Maneesha Barandeniya</p>

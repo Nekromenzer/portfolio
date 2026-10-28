@@ -1,6 +1,7 @@
 import TopMeta from "@/components/design/TopMeta";
 import SiteFooter from "@/components/design/SiteFooter";
 import DockNav from "@/components/design/DockNav";
+import "@/app/blog/blog.css";
 import "@/app/design.css";
 import { getBlogPosts } from "@/lib/blog";
 import { ArrowUpRight, CalendarDays, PenLine } from "lucide-react";
@@ -20,9 +21,11 @@ export const metadata: Metadata = {
     description:
       "Articles and engineering notes by Maneesha Barandeniya on React, Next.js, frontend systems, and product delivery.",
     type: "website",
+    url: "/blog",
+    siteName: "Maneesha Barandeniya",
     images: [
       {
-        url: "/profile.png",
+        url: "/profile.webp",
         alt: "Maneesha Barandeniya",
       },
     ],
@@ -32,7 +35,7 @@ export const metadata: Metadata = {
     title: "Blog | Maneesha Barandeniya",
     description:
       "Articles and engineering notes by Maneesha Barandeniya on React, Next.js, frontend systems, and product delivery.",
-    images: ["/profile.png"],
+    images: ["/profile.webp"],
   },
 };
 

@@ -1,6 +1,7 @@
 import TopMeta from "@/components/design/TopMeta";
 import SiteFooter from "@/components/design/SiteFooter";
 import DockNav from "@/components/design/DockNav";
+import "@/app/blog/blog.css";
 import "@/app/design.css";
 import { getBlogPost, getBlogPosts, markdownToHtml } from "@/lib/blog";
 import { siteUrl } from "@/lib/site";
@@ -18,6 +19,8 @@ function absoluteUrl(path: string) {
   if (path.startsWith("http://") || path.startsWith("https://")) return path;
   return `${siteUrl}${path}`;
 }
+
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   return getBlogPosts().map((post) => ({ slug: post.slug }));
@@ -43,6 +46,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: post.title,
       description: post.description,
       type: "article",
+      url: `/blog/${post.slug}`,
+      siteName: "Maneesha Barandeniya",
       publishedTime: post.date,
       tags: post.tags,
       images: [
@@ -136,7 +141,7 @@ export default async function BlogPostPage({ params }: Props) {
                 "@id": `${siteUrl}/blog/${post.slug}`,
               },
               keywords: post.tags.join(", "),
-            }),
+            }).replace(/</g, "\\u003c"),
           }}
         />
       </article>

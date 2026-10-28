@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import ContactCta from "@/components/design/ContactCta";
 import DockNav from "@/components/design/DockNav";
 import SiteFooter from "@/components/design/SiteFooter";
@@ -6,12 +7,11 @@ import TopMeta from "@/components/design/TopMeta";
 import { portfolioData } from "@/data/portfolio";
 import "../design.css";
 
-export const metadata: Metadata = {
-  title: "Skills | Maneesha Barandeniya",
-  description:
-    "The frontend, mobile, quality, platform, AI and library tooling Maneesha Barandeniya runs in production.",
-  alternates: { canonical: "/skills" },
-};
+export const metadata: Metadata = pageMetadata(
+  "Skills | Maneesha Barandeniya",
+  "The frontend, mobile, quality, platform, AI and library tooling Maneesha Barandeniya runs in production.",
+  "/skills",
+);
 
 export default function SkillsPage() {
   const { stackGroups } = portfolioData;

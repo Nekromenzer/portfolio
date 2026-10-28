@@ -1,3 +1,6 @@
+import { pageMetadata } from "@/lib/seo";
+import { siteUrl } from "@/lib/site";
+import { contactActions } from "@/data/contact";
 import {
   ArrowDown,
   ArrowRight,
@@ -17,11 +20,44 @@ import VisitLogger from "@/components/VisitLogger";
 import { portfolioData } from "@/data/portfolio";
 import "./design.css";
 
+export const metadata = pageMetadata(
+  "Maneesha Barandeniya | Senior Frontend Engineer",
+  "Maneesha Barandeniya, Senior Frontend Engineer in Dubai, building React, Next.js, TypeScript and React Native products across SaaS, fintech and AI.",
+  "/",
+);
+
 export default function Home() {
   const { hero, work, experience } = portfolioData;
 
   return (
     <main className="dz">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Person",
+                "@id": `${siteUrl}/#person`,
+                name: "Maneesha Barandeniya",
+                url: siteUrl,
+                jobTitle: "Senior Frontend Engineer",
+                image: `${siteUrl}/profile.webp`,
+                sameAs: [contactActions.github, contactActions.linkedin],
+              },
+              {
+                "@type": "WebSite",
+                "@id": `${siteUrl}/#website`,
+                url: siteUrl,
+                name: "Maneesha Barandeniya",
+                inLanguage: "en",
+                author: { "@id": `${siteUrl}/#person` },
+              },
+            ],
+          }).replace(/</g, "\\u003c"),
+        }}
+      />
       <VisitLogger />
       <a className="dz-skip" href="#main">
         Skip to main content

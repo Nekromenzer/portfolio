@@ -76,7 +76,7 @@ function parseFrontMatter(raw: string): { data: FrontMatter; content: string } {
       description: String(fields.description ?? ""),
       date: String(fields.date ?? ""),
       category: String(fields.category ?? "Notes"),
-      coverImage: String(fields.coverImage ?? "/profile.png"),
+      coverImage: String(fields.coverImage ?? "/profile.webp"),
       coverAlt: String(fields.coverAlt ?? fields.title ?? "Blog cover image"),
       tags: Array.isArray(fields.tags) ? fields.tags : [],
       featured: Boolean(fields.featured),

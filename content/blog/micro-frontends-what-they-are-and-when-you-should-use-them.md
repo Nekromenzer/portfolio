@@ -6,7 +6,7 @@ description: Micro frontends are a way of breaking a large frontend application
   challenges, and what I have learned from working with this architecture.
 date: 2026-07-12
 category: Frontend Development
-coverImage: /uploads/image.png
+coverImage: /uploads/image.webp
 coverAlt: micro frontend
 tags:
   - frontend

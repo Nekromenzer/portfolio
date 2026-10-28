@@ -20,28 +20,53 @@ function getVisitorId() {
 
 export default function VisitLogger() {
   useEffect(() => {
-    if (window.sessionStorage.getItem(sessionStorageKey) === "true") return;
+    function logVisit() {
+      // Tracking must never interrupt the page when browser storage is blocked.
+      try {
+        if (window.sessionStorage.getItem(sessionStorageKey) === "true") return;
 
-    window.sessionStorage.setItem(sessionStorageKey, "true");
+        window.sessionStorage.setItem(sessionStorageKey, "true");
 
-    const payload = JSON.stringify({
-      visitorId: getVisitorId(),
-      pathname: window.location.pathname,
-      referrer: document.referrer,
-    });
+        const payload = JSON.stringify({
+          visitorId: getVisitorId(),
+          pathname: window.location.pathname,
+          referrer: document.referrer,
+        });
 
-    if (navigator.sendBeacon) {
-      const body = new Blob([payload], { type: "application/json" });
-      navigator.sendBeacon("/api/visit", body);
-      return;
+        if (navigator.sendBeacon) {
+          const body = new Blob([payload], { type: "application/json" });
+          if (navigator.sendBeacon("/api/visit", body)) return;
+        }
+
+        fetch("/api/visit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: payload,
+          keepalive: true,
+        }).catch(() => undefined);
+      } catch {
+        // Storage can be unavailable in private or restricted browser contexts.
+      }
     }
 
-    fetch("/api/visit", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: payload,
-      keepalive: true,
-    }).catch(() => undefined);
+    let idleId: number | undefined;
+    let timerId: number | undefined;
+    function schedule() {
+      if (typeof window.requestIdleCallback === "function") {
+        idleId = window.requestIdleCallback(logVisit, { timeout: 3000 });
+      } else {
+        timerId = window.setTimeout(logVisit, 1000);
+      }
+    }
+
+    if (document.readyState === "complete") schedule();
+    else window.addEventListener("load", schedule, { once: true });
+
+    return () => {
+      window.removeEventListener("load", schedule);
+      if (idleId !== undefined) window.cancelIdleCallback(idleId);
+      if (timerId !== undefined) window.clearTimeout(timerId);
+    };
   }, []);
 
   return null;

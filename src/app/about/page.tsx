@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import ContactCta from "@/components/design/ContactCta";
 import DockNav from "@/components/design/DockNav";
@@ -8,12 +9,11 @@ import TopMeta from "@/components/design/TopMeta";
 import { portfolioData } from "@/data/portfolio";
 import "../design.css";
 
-export const metadata: Metadata = {
-  title: "About | Maneesha Barandeniya",
-  description:
-    "Maneesha Barandeniya — Senior Frontend Engineer with 7 years across SaaS, fintech, enterprise and real-time mobility products.",
-  alternates: { canonical: "/about" },
-};
+export const metadata: Metadata = pageMetadata(
+  "About | Maneesha Barandeniya",
+  "Maneesha Barandeniya — Senior Frontend Engineer with 7 years across SaaS, fintech, enterprise and real-time mobility products.",
+  "/about",
+);
 
 export default function AboutPage() {
   const { about, education, educationSection, impact, impactSection, proof } =

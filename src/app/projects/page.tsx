@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import ContactCta from "@/components/design/ContactCta";
 import DockNav from "@/components/design/DockNav";
 import ProjectCard from "@/components/design/ProjectCard";
@@ -7,12 +8,11 @@ import TopMeta from "@/components/design/TopMeta";
 import { portfolioData } from "@/data/portfolio";
 import "../design.css";
 
-export const metadata: Metadata = {
-  title: "Projects | Maneesha Barandeniya",
-  description:
-    "Travel, multi-tenant SaaS, real-time mobility, fintech, AI and open-source systems built by Maneesha Barandeniya.",
-  alternates: { canonical: "/projects" },
-};
+export const metadata: Metadata = pageMetadata(
+  "Projects | Maneesha Barandeniya",
+  "Travel, multi-tenant SaaS, real-time mobility, fintech, AI and open-source systems built by Maneesha Barandeniya.",
+  "/projects",
+);
 
 export default function ProjectsPage() {
   const { work } = portfolioData;

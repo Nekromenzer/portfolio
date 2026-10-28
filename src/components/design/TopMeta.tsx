@@ -3,7 +3,7 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { ArrowUpRight, Mail, MessageCircle } from "lucide-react";
 import Link from "next/link";
-import { portfolioData } from "@/data/portfolio";
+import { contactActions } from "@/data/contact";
 
 export default function TopMeta() {
   const [contactOpen, setContactOpen] = useState(false);
@@ -40,7 +40,7 @@ export default function TopMeta() {
       <Link
         className="dz-topbar-brand"
         href="/"
-        aria-label="Maneesha Barandeniya — home"
+        aria-label="m. Maneesha Barandeniya — Frontend engineer & product builder — home"
       >
         <span className="dz-brand-mark" aria-hidden>
           m.
@@ -72,7 +72,7 @@ export default function TopMeta() {
         <div className="dz-talk-options" id={contactId} hidden={!contactOpen}>
           <p>Let’s connect</p>
           <a
-            href={portfolioData.hero.actions.whatsapp}
+            href={contactActions.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setContactOpen(false)}
@@ -80,7 +80,7 @@ export default function TopMeta() {
             <MessageCircle size={18} aria-hidden /> WhatsApp
             <ArrowUpRight size={16} aria-hidden />
           </a>
-          <a href={portfolioData.hero.actions.email} onClick={() => setContactOpen(false)}>
+          <a href={contactActions.email} onClick={() => setContactOpen(false)}>
             <Mail size={18} aria-hidden /> Email
             <ArrowUpRight size={16} aria-hidden />
           </a>
