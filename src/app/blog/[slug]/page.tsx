@@ -1,5 +1,7 @@
-import SiteBackground from "@/components/common/SiteBackground";
-import BlogNav from "@/components/blog/BlogNav";
+import TopMeta from "@/components/design/TopMeta";
+import SiteFooter from "@/components/design/SiteFooter";
+import DockNav from "@/components/design/DockNav";
+import "@/app/design.css";
 import { getBlogPost, getBlogPosts, markdownToHtml } from "@/lib/blog";
 import { siteUrl } from "@/lib/site";
 import { ArrowLeft, CalendarDays } from "lucide-react";
@@ -43,7 +45,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       publishedTime: post.date,
       tags: post.tags,
-              images: [
+      images: [
         {
           url: post.coverImage,
           alt: post.coverAlt,
@@ -68,11 +70,13 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound();
 
   return (
-    <main className="site-shell blog-shell" data-active-section="blog">
-      <SiteBackground sideMarkInitial="MG" sideMarkLabel="Blog" />
-      <BlogNav />
+    <main className="dz dz-blog">
+      <a className="dz-skip" href="#main">
+        Skip to main content
+      </a>
+      <TopMeta />
 
-      <article className="section blog-article">
+      <article className="section blog-article" id="main">
         <Link href="/blog" className="blog-back-link">
           <ArrowLeft size={16} aria-hidden />
           BLOG
@@ -136,6 +140,8 @@ export default async function BlogPostPage({ params }: Props) {
           }}
         />
       </article>
+      <SiteFooter />
+      <DockNav />
     </main>
   );
 }

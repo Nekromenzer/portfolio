@@ -20,7 +20,7 @@ export default function AboutPage() {
     portfolioData;
 
   return (
-    <main className="dz dz-dark">
+    <main className="dz">
       <a className="dz-skip" href="#main">
         Skip to main content
       </a>

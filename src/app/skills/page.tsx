@@ -17,7 +17,7 @@ export default function SkillsPage() {
   const { stackGroups } = portfolioData;
 
   return (
-    <main className="dz dz-dark">
+    <main className="dz">
       <a className="dz-skip" href="#main">
         Skip to main content
       </a>

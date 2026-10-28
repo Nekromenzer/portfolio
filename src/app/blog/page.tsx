@@ -1,5 +1,7 @@
-import SiteBackground from "@/components/common/SiteBackground";
-import BlogNav from "@/components/blog/BlogNav";
+import TopMeta from "@/components/design/TopMeta";
+import SiteFooter from "@/components/design/SiteFooter";
+import DockNav from "@/components/design/DockNav";
+import "@/app/design.css";
 import { getBlogPosts } from "@/lib/blog";
 import { ArrowUpRight, CalendarDays, PenLine } from "lucide-react";
 import type { Metadata } from "next";
@@ -40,11 +42,13 @@ export default function BlogPage() {
   const regularPosts = posts.filter((post) => post.slug !== featuredPost?.slug);
 
   return (
-    <main className="site-shell blog-shell" data-active-section="blog">
-      <SiteBackground sideMarkInitial="MG" sideMarkLabel="Blog" />
-      <BlogNav />
+    <main className="dz dz-blog">
+      <a className="dz-skip" href="#main">
+        Skip to main content
+      </a>
+      <TopMeta />
 
-      <section className="section blog-hero">
+      <section className="section blog-hero" id="main">
         <p className="eyebrow">BLOG</p>
         <div>
           <h1>Frontend systems and product delivery.</h1>
@@ -97,7 +101,11 @@ export default function BlogPage() {
 
           <div className="blog-grid">
             {regularPosts.map((post) => (
-              <Link href={`/blog/${post.slug}`} className="blog-card" key={post.slug}>
+              <Link
+                href={`/blog/${post.slug}`}
+                className="blog-card"
+                key={post.slug}
+              >
                 <span className="blog-card-cover">
                   <Image
                     src={post.coverImage}
@@ -123,6 +131,8 @@ export default function BlogPage() {
           </div>
         </section>
       ) : null}
+      <SiteFooter />
+      <DockNav />
     </main>
   );
 }

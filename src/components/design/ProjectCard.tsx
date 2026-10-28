@@ -1,7 +1,5 @@
 import { ArrowUpRight, ChevronRight } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
-import type { CSSProperties } from "react";
 import type { WorkItem } from "@/components/Work";
 
 type Props = {
@@ -15,10 +13,7 @@ type Props = {
   detailsHref?: string;
 };
 
-/**
- * Figma project tile — 807x470 media at r=42, 29px gap, then a caption row of a
- * 68px circled arrow + 13px gap + Inter 400/40px title.
- */
+/** Stable IDs keep links to individual case studies shareable. */
 export function projectAnchor(name: string) {
   return `project-${name
     .toLowerCase()
@@ -40,38 +35,29 @@ export default function ProjectCard({
       : "Project details";
 
   const media = (
-    <div
-      className={`dz-card-media${item.cover ? " dz-card-media-cover" : ""}`}
-      style={
-        {
-          background: `radial-gradient(120% 120% at 50% 30%, color-mix(in srgb, ${item.accent} 26%, #141414) 0%, #141414 72%)`,
-        } as CSSProperties
-      }
-    >
-      <span className="dz-card-tag">{item.label}</span>
-      {item.cover ? (
-        <Image
-          className="dz-card-cover"
-          src={item.cover.src}
-          alt={item.cover.alt}
-          fill
-          sizes="(max-width: 860px) 100vw, 86vw"
-        />
-      ) : item.logo.src ? (
-        <span className="dz-card-logo">
-          <Image
-            src={item.logo.src}
-            alt={item.logo.alt ?? `${item.name} logo`}
-            width={500}
-            height={500}
-            sizes="(max-width: 860px) 40vw, 14vw"
-          />
-        </span>
-      ) : (
-        <span className="dz-card-initials" aria-hidden>
-          {item.logo.initials}
-        </span>
-      )}
+    <div className="dz-card-media" aria-hidden="true">
+      <div className="dz-product-window">
+        <div className="dz-product-toolbar">
+          <span />
+          <span />
+          <span />
+          <small>{item.name}</small>
+          <ArrowUpRight size={14} />
+        </div>
+        <div className="dz-product-content">
+          <span className="dz-product-label">PRODUCT / ENGINEERING</span>
+          <strong>{item.name}</strong>
+          <div className="dz-product-stack">
+            {item.stack.slice(0, 3).map((entry) => (
+              <span key={entry}>{entry}</span>
+            ))}
+          </div>
+        </div>
+        <div className="dz-product-bottom">
+          <span>{item.label.split("•")[0].trim()}</span>
+          <span>↗</span>
+        </div>
+      </div>
     </div>
   );
 

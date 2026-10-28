@@ -1,11 +1,11 @@
 .dz-links-hero {
-  padding-bottom: var(--dz-gap60);
+  padding-bottom: 32px;
 }
 
 .dz-links-hero p {
-  margin-top: var(--dz-gap20);
+  margin-top: 20px;
   color: var(--dz-dim);
-  font-size: var(--dz-t20);
+  font-size: 16px;
   line-height: 1.6;
 }
 
@@ -36,18 +36,18 @@
 .dz-links button {
   min-height: 44px;
   padding: 10px 18px;
-  border: 1px solid #414141;
-  border-radius: 999px;
+  border: 1px solid #e5e5e5;
+  border-radius: 18px;
   background: var(--dz-chip);
-  color: var(--dz-white);
-  font-size: 13px;
+  color: #171717;
+  font-size: 14px;
   cursor: pointer;
 }
 
 .dz-links button[aria-pressed="true"] {
-  background: var(--dz-dock-active);
-  border-color: var(--dz-dock-active);
-  color: var(--dz-black);
+  background: #171717;
+  border-color: #171717;
+  color: #fff;
 }
 
 .dz-links-share svg,
@@ -67,17 +67,19 @@
 .dz-links-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--dz-gap20);
+  gap: 20px;
 }
 
 .dz-social-card {
-  border: 1px solid transparent;
-  transition: background 180ms ease, border-color 180ms ease;
+  border: 1px solid #e5e5e5;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease;
 }
 
 .dz-social-card:hover {
-  background: #262626;
-  border-color: #616161;
+  background: #fafafa;
+  border-color: #b8b8b8;
 }
 
 .dz-social-arrow {
@@ -90,7 +92,7 @@
   justify-content: space-between;
   margin-top: auto;
   padding-top: 8px;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--dz-dim);
 }
 
@@ -101,7 +103,7 @@
   gap: 16px;
   margin-top: 24px;
   padding: 20px;
-  border-radius: 16px;
+  border-radius: 24px;
   background: var(--dz-card);
 }
 
@@ -110,20 +112,58 @@
   min-width: 0;
   width: 100%;
   padding: 12px;
-  border: 1px solid #616161;
-  border-radius: 8px;
+  border: 1px solid #e5e5e5;
+  border-radius: 18px;
   background: var(--dz-chip);
-  color: var(--dz-white);
+  color: #171717;
   font: inherit;
 }
 
 @media (max-width: 1000px) {
-  .dz-links-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dz-links-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 560px) {
-  .dz-links-grid { grid-template-columns: minmax(0, 1fr); }
-  .dz-links-filters { gap: 8px; }
-  .dz-links button { padding-inline: 14px; }
-  .dz-links-fallback { flex-direction: column; align-items: stretch; }
+  .dz-links-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .dz-links-filters {
+    gap: 8px;
+  }
+  .dz-links button {
+    padding-inline: 14px;
+  }
+  .dz-links-fallback {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.dz-social-card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.dz-social-card .dz-skill-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.dz-social-card .dz-skill-text p {
+  margin-top: 0;
+}
+.dz-skill-chip {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 18px;
+  border: 1px solid #e5e5e5;
+  background: #f5f5f5;
+}
+.dz-skill-chip svg {
+  width: 22px;
+  height: 22px;
 }

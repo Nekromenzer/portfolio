@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function LinksPage() {
   return (
-    <main className="dz dz-dark dz-links">
+    <main className="dz dz-links">
       <a className="dz-skip" href="#links">Skip to links</a>
       <TopMeta />
       <header className="dz-skills-hero dz-links-hero">

@@ -1,44 +1,32 @@
+import { ArrowUpRight, Mail, Phone } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 
-/**
- * Figma "Frame 26" — 1920x634, padding 66/133. Mono eyebrow, Inter 400/77px
- * headline, full-width rule with the 278px #455ce9 disc centred on it, and the
- * email / phone pair beneath.
- */
 export default function ContactCta() {
   const { items } = portfolioData.contact;
-  const email = items.find((item) => item.icon === "email");
-  const phone = items.find((item) => item.icon === "phone");
-
+  const email = items.find((item) => item.icon === "email")!;
+  const phone = items.find((item) => item.icon === "phone")!;
   return (
-    <section className="dz-cta" id="contact">
-      <p className="dz-cta-eyebrow">That&apos;s all for now.</p>
-      <h2>
-        Got a project in mind?
-        <br />
-        Let&apos;s talk
-      </h2>
-
-      <div className="dz-cta-rule">
-        <a className="dz-cta-circle" href={email?.href ?? "#"}>
-          Get in touch
+    <section className="dz-cta" id="contact" aria-labelledby="contact-title">
+      <div>
+        <p className="dz-eyebrow">HAVE SOMETHING IN MIND?</p>
+        <h2 id="contact-title">Let’s build something useful.</h2>
+        <p>
+          A product idea, an engineering challenge, or a hello. I’d love to hear
+          it.
+        </p>
+      </div>
+      <div className="dz-contact-actions">
+        <a className="dz-button dz-button-primary" href={email.href}>
+          <Mail aria-hidden /> Get in touch <ArrowUpRight aria-hidden />
+        </a>
+        <a className="dz-contact-detail" href={email.href}>
+          {email.value}
+        </a>
+        <a className="dz-contact-detail" href={phone.href}>
+          <Phone size={14} aria-hidden />
+          {phone.value}
         </a>
       </div>
-
-      <dl className="dz-cta-details">
-        <div>
-          <dt>Email:</dt>
-          <dd>
-            <a href={email?.href}>{email?.value}</a>
-          </dd>
-        </div>
-        <div>
-          <dt>Phone</dt>
-          <dd>
-            <a href={phone?.href}>{phone?.value}</a>
-          </dd>
-        </div>
-      </dl>
     </section>
   );
 }

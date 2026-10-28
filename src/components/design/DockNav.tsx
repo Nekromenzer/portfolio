@@ -5,14 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { portfolioData } from "@/data/portfolio";
 
-/**
- * Figma "Frame 3" — r=18 bar on #171717 with 50px chips (r=31, gap 11,
- * padding 10/20). Chip 5 is the avatar; the active chip is filled #d4d4d4.
- *
- * Icon weight is set in CSS, not per-icon, so the lucide outlines stay uniform;
- * the two brand marks are solid glyphs and carry `dz-dock-brand`, which sizes
- * them down slightly so they don't read heavier than the outlines beside them.
- */
 export default function DockNav() {
   const pathname = usePathname();
   const { actions } = portfolioData.hero;

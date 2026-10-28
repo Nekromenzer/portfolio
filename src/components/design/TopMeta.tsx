@@ -1,15 +1,31 @@
+import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import { portfolioData } from "@/data/portfolio";
 
-/** Figma "Frame 16" — brand left, right-aligned note (600px) at y=37. */
 export default function TopMeta() {
   return (
-    <div className="dz-topbar">
-      <Link className="dz-topbar-brand" href="/">
-        Maneesha Barandeniya
+    <header className="dz-topbar">
+      <Link
+        className="dz-topbar-brand"
+        href="/"
+        aria-label="Maneesha Barandeniya — home"
+      >
+        <span className="dz-brand-mark" aria-hidden>
+          m.
+        </span>
+        <span>
+          Maneesha Barandeniya
+          <span className="dz-brand-caption">
+            Frontend engineer & product builder
+          </span>
+        </span>
       </Link>
-      <p className="dz-topbar-note">
-        Senior Frontend Engineer · Dubai, UAE
-      </p>
-    </div>
+      <a
+        className="dz-button dz-button-outline"
+        href={portfolioData.hero.actions.email}
+      >
+        Let’s talk <ArrowUpRight aria-hidden />
+      </a>
+    </header>
   );
 }

@@ -18,7 +18,7 @@ export default function ExperiencePage() {
   const { experience, experienceSection } = portfolioData;
 
   return (
-    <main className="dz dz-dark">
+    <main className="dz">
       <a className="dz-skip" href="#main">
         Skip to main content
       </a>
@@ -26,7 +26,7 @@ export default function ExperiencePage() {
       <TopMeta />
 
       <header className="dz-skills-hero" id="main">
-        <h1>{experienceSection.title}</h1>
+        <h1>Experience that shapes my work.</h1>
       </header>
 
       <div className="dz-body">
