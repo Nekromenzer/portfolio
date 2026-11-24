@@ -51,6 +51,13 @@ remains as a static HTML redirect with a fallback link.
 GitHub Pages does not run server API routes or middleware. The visit logging
 endpoint and Vercel Analytics have been removed.
 
+## Analytics
+
+The shared layout loads Google Tag Manager container `GTM-K9CM82HX` asynchronously
+and initializes `window.dataLayer` and `gtag` on every page. Manage analytics tags
+and publish container changes in Google Tag Manager. Installing the container
+does not by itself verify that Google Analytics receives events.
+
 ## Domain cutover
 
 1. Deploy and verify the default GitHub Pages URL first.
