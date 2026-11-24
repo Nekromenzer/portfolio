@@ -33,7 +33,7 @@ jobs:
       - name: Export static site
         run: npm run build
         env:
-          NEXT_PUBLIC_SITE_URL: ${{ steps.pages.outputs.base_url }}
+          NEXT_PUBLIC_SITE_URL: https://${{ steps.pages.outputs.host }}${{ steps.pages.outputs.base_path }}
           NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
       - name: Upload site
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
