@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f4f1e9"/>
+  <g fill="none" stroke="#d6d2c8" stroke-width="1">
+    <path d="M0 105h1200M0 210h1200M0 315h1200M0 420h1200M0 525h1200M200 0v630M400 0v630M600 0v630M800 0v630M1000 0v630"/>
+  </g>
+  <text x="74" y="85" font-family="monospace" font-size="18" letter-spacing="4" fill="#52634b">WEB SECURITY / AUTHENTICATION</text>
+  <text x="74" y="174" font-family="Georgia,serif" font-size="64" fill="#252a24">Cookie-based authentication.</text>
+  <rect x="75" y="265" width="300" height="220" rx="14" fill="#fffdf7" stroke="#52634b" stroke-width="3"/>
+  <path d="M75 310h300" stroke="#52634b" stroke-width="2"/>
+  <g fill="#52634b"><circle cx="100" cy="287" r="5"/><circle cx="120" cy="287" r="5"/><circle cx="140" cy="287" r="5"/></g>
+  <text x="225" y="378" text-anchor="middle" font-family="Georgia,serif" font-size="36" fill="#252a24">Browser</text>
+  <text x="225" y="425" text-anchor="middle" font-family="monospace" font-size="18" fill="#52634b">session cookie</text>
+  <rect x="825" y="265" width="300" height="220" rx="14" fill="#52634b"/>
+  <text x="975" y="355" text-anchor="middle" font-family="Georgia,serif" font-size="36" fill="#fffdf7">Server</text>
+  <text x="975" y="405" text-anchor="middle" font-family="monospace" font-size="18" fill="#fffdf7">validate session</text>
+  <text x="975" y="437" text-anchor="middle" font-family="monospace" font-size="18" fill="#fffdf7">authorize request</text>
+  <g fill="none" stroke="#52634b" stroke-width="3"><path d="M415 335h365m-16-12 16 12-16 12M785 430H420m16-12-16 12 16 12"/></g>
+  <text x="600" y="314" text-anchor="middle" font-family="monospace" font-size="19" fill="#252a24">Cookie →</text>
+  <text x="600" y="405" text-anchor="middle" font-family="monospace" font-size="19" fill="#252a24">← Set-Cookie</text>
+  <text x="75" y="570" font-family="monospace" font-size="20" fill="#52634b">HTTPS · HttpOnly · SameSite · CSRF protection</text>
+</svg>
