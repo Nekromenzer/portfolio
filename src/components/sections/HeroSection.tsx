@@ -4,6 +4,7 @@ import {
 } from "@/components/icons/BrandIcons";
 import { FileText, Mail } from "lucide-react";
 import Image from "next/image";
+import { assetPath } from "@/lib/site";
 import type { PortfolioData } from "./types";
 
 type Props = {
@@ -66,7 +67,7 @@ export default function HeroSection({ hero, pointer, topStack }: Props) {
 
       <div className="portrait-panel">
         <Image
-          src={hero.imageSrc}
+          src={assetPath(hero.imageSrc)}
           alt={hero.imageAlt}
           width={400}
           height={400}

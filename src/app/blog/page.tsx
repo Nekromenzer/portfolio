@@ -7,6 +7,7 @@ import { getBlogPosts } from "@/lib/blog";
 import { ArrowUpRight, CalendarDays, PenLine } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
+import { assetPath } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -67,7 +68,7 @@ export default function BlogPage() {
           <Link href={`/blog/${featuredPost.slug}`} className="blog-featured">
             <div className="blog-featured-cover">
               <Image
-                src={featuredPost.coverImage}
+                src={assetPath(featuredPost.coverImage)}
                 alt={featuredPost.coverAlt}
                 fill
                 sizes="(max-width: 980px) 100vw, 44vw"
@@ -111,7 +112,7 @@ export default function BlogPage() {
               >
                 <span className="blog-card-cover">
                   <Image
-                    src={post.coverImage}
+                    src={assetPath(post.coverImage)}
                     alt={post.coverAlt}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 33vw"

@@ -16,7 +16,6 @@ import DockNav from "@/components/design/DockNav";
 import ProjectCard from "@/components/design/ProjectCard";
 import SiteFooter from "@/components/design/SiteFooter";
 import TopMeta from "@/components/design/TopMeta";
-import VisitLogger from "@/components/VisitLogger";
 import { portfolioData } from "@/data/portfolio";
 import "./design.css";
 
@@ -58,7 +57,6 @@ export default function Home() {
           }).replace(/</g, "\\u003c"),
         }}
       />
-      <VisitLogger />
       <a className="dz-skip" href="#main">
         Skip to main content
       </a>

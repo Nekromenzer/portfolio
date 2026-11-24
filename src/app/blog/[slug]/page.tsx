@@ -4,7 +4,7 @@ import DockNav from "@/components/design/DockNav";
 import "@/app/blog/blog.css";
 import "@/app/design.css";
 import { getBlogPost, getBlogPosts, markdownToHtml } from "@/lib/blog";
-import { siteUrl } from "@/lib/site";
+import { assetPath, siteUrl } from "@/lib/site";
 import { ArrowLeft, CalendarDays } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -40,19 +40,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${post.title} | Maneesha Barandeniya`,
     description: post.description,
     alternates: {
-      canonical: `/blog/${post.slug}`,
+      canonical: `${siteUrl}/blog/${post.slug}`,
     },
     openGraph: {
       title: post.title,
       description: post.description,
       type: "article",
-      url: `/blog/${post.slug}`,
+      url: `${siteUrl}/blog/${post.slug}`,
       siteName: "Maneesha Barandeniya",
       publishedTime: post.date,
       tags: post.tags,
       images: [
         {
-          url: post.coverImage,
+          url: absoluteUrl(post.coverImage),
           alt: post.coverAlt,
           width: 1200,
           height: 630,
@@ -63,7 +63,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: "summary_large_image",
       title: post.title,
       description: post.description,
-      images: [post.coverImage],
+      images: [absoluteUrl(post.coverImage)],
     },
   };
 }
@@ -109,7 +109,7 @@ export default async function BlogPostPage({ params }: Props) {
 
         <div className="blog-article-cover">
           <Image
-            src={post.coverImage}
+            src={assetPath(post.coverImage)}
             alt={post.coverAlt}
             fill
             sizes="(max-width: 980px) 100vw, 980px"

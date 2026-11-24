@@ -2,6 +2,7 @@
 
 import { ArrowUpRight, CircleX } from "lucide-react";
 import Image from "next/image";
+import { assetPath } from "@/lib/site";
 import type { CSSProperties } from "react";
 import { useState } from "react";
 
@@ -47,7 +48,7 @@ export default function Work({ items, heading }: Props) {
     <span className="work-logo" aria-label={item.logo.alt ?? `${item.name} logo placeholder`}>
       {item.logo.src ? (
         <Image
-          src={item.logo.src}
+          src={assetPath(item.logo.src)}
           alt={item.logo.alt ?? `${item.name} logo`}
           width={72}
           height={72}

@@ -3,6 +3,8 @@ import type { MetadataRoute } from "next";
 import { projects } from "@/lib/projects";
 import { siteUrl } from "@/lib/site";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getBlogPosts().map((post) => ({
     url: `${siteUrl}/blog/${post.slug}`,

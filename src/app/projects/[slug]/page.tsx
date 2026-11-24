@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import { assetPath } from "@/lib/site";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ContactCta from "@/components/design/ContactCta";
@@ -86,7 +87,7 @@ export default async function ProjectPage({ params }: Props) {
         {project.cover ? (
           <figure className="dz-project-cover">
             <Image
-              src={project.cover.src}
+              src={assetPath(project.cover.src)}
               alt={project.cover.alt}
               width={1440}
               height={900}
