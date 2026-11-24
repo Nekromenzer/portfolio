@@ -640,10 +640,10 @@
   transform: translateX(-50%);
   z-index: 60;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 4px;
   padding: 6px;
-  width: min(520px, calc(100% - 24px));
+  width: min(600px, calc(100% - 24px));
   border: 1px solid #e5e5e5;
   border-radius: 24px;
   background: #ffffffed;
@@ -653,6 +653,7 @@
     0 1px 3px #00000005;
 }
 .dz-dock-item {
+  min-width: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1185,12 +1186,13 @@
   }
   .dz-dock {
     border-radius: 24px;
+    gap: 3px;
   }
   .dz-dock-item {
     padding-inline: 2px;
   }
   .dz-dock-item span {
-    font-size: 10px;
+    font-size: clamp(9px, 2.6vw, 10px);
   }
   .dz-page-hero,
   .dz-skills-hero {

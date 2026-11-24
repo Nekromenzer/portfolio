@@ -2,6 +2,7 @@
 
 import {
   Briefcase,
+  BookOpen,
   FileText,
   FolderKanban,
   House,
@@ -20,6 +21,7 @@ export default function DockNav() {
     { href: "/projects", label: "Projects", Icon: FolderKanban },
     { href: "/experience", label: "Experience", Icon: Briefcase },
     { href: "/about", label: "About", Icon: UserRound },
+    { href: "/blog", label: "Blog", Icon: BookOpen },
   ];
 
   return (
